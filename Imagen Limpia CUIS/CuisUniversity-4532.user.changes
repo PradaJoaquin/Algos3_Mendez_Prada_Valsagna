@@ -1,0 +1,43 @@
+
+
+----QUIT----(9 March 2021 14:58:42) CuisUniversity-4532.image priorSource: 13044060!
+
+----STARTUP---- (9 March 2021 14:58:43) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-4532.image!
+
+
+----QUIT----(9 March 2021 14:58:43) CuisUniversity-4532.image priorSource: 16885479!
+
+----STARTUP---- (17 May 2021 19:10:33) as D:\Admin\Descargas\windows64\CuisUniversity-4532.image!
+
+
+----End fileIn of C:\Users\Joaquin\Desktop\GitHub\Algos3_Mendez_Prada_Valsagna\CodigoRepetido-Ejercicio.st----!
+
+!classRemoval: #CustomerBook stamp: 'JP 5/17/2021 19:12:18'!
+Object subclass: #CustomerBook
+	instanceVariableNames: 'suspended active'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CustomerBookTest stamp: 'JP 5/17/2021 19:12:19'!
+TestCase subclass: #CustomerBookTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #NotFound stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #NotFound
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CantSuspend stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #CantSuspend
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+----QUIT----(17 May 2021 19:12:24) CuisUniversity-4532.image priorSource: 16885703!
