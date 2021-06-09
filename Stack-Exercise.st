@@ -426,10 +426,18 @@ isAValidSetOfStackedElements: aSetOfStackedElements
 
 !classDefinition: #Prefix category: 'Stack-Exercise'!
 Object subclass: #Prefix
-	instanceVariableNames: ''
+	instanceVariableNames: 'prefix'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
+
+!Prefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:36:16'!
+initializeWith: aPrefixString
+	self subclassResponsibility.! !
+
+!Prefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 16:25:18'!
+xxx: aStack
+	self subclassResponsibility.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -437,8 +445,20 @@ Object subclass: #Prefix
 Prefix class
 	instanceVariableNames: ''!
 
-!Prefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:31:55'!
-newWith: aPrefixString! !
+!Prefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:56:15'!
+isAValidPrefix: aPrefixString
+
+	self subclassResponsibility.! !
+
+!Prefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:55:43'!
+newWith: aPrefixString
+
+	|validPrefixClass|
+	
+	
+	validPrefixClass := Prefix allSubclasses detect: [:aClass| aClass isAValidPrefix: aPrefixString].
+	
+	^ validPrefixClass new initializeWith: aPrefixString.! !
 
 
 !classDefinition: #InvalidPrefix category: 'Stack-Exercise'!
@@ -448,6 +468,74 @@ Prefix subclass: #InvalidPrefix
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
+!InvalidPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:50:18'!
+initializeWith: aPrefixString.
+	self subclassResponsibility.! !
+
+!InvalidPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 16:25:49'!
+xxx: aStack
+	self subclassResponsibility.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'InvalidPrefix class' category: 'Stack-Exercise'!
+InvalidPrefix class
+	instanceVariableNames: ''!
+
+!InvalidPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 16:05:46'!
+isAValidPrefix: aPrefixString
+	^ false.! !
+
+
+!classDefinition: #EmptyPrefix category: 'Stack-Exercise'!
+InvalidPrefix subclass: #EmptyPrefix
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!EmptyPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:50:39'!
+initializeWith: aPrefixString
+	! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'EmptyPrefix class' category: 'Stack-Exercise'!
+EmptyPrefix class
+	instanceVariableNames: ''!
+
+!EmptyPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 16:06:23'!
+isAValidPrefix: aPrefixString.
+	^ aPrefixString isEmpty.! !
+
+
+!classDefinition: #SpacedPrefix category: 'Stack-Exercise'!
+InvalidPrefix subclass: #SpacedPrefix
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!SpacedPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:51:36'!
+initializeWith: aPrefix
+	! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'SpacedPrefix class' category: 'Stack-Exercise'!
+SpacedPrefix class
+	instanceVariableNames: ''!
+
+!SpacedPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 16:07:53'!
+charIsSpace: aChar
+	^ aChar ~= $ .! !
+
+!SpacedPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 16:07:18'!
+isAValidPrefix: aPrefixString
+
+	^ (aPrefixString allSatisfy: [:aChar| self charIsSpace: aChar ]) not.
+	! !
+
 
 !classDefinition: #ValidPrefix category: 'Stack-Exercise'!
 Prefix subclass: #ValidPrefix
@@ -455,6 +543,20 @@ Prefix subclass: #ValidPrefix
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
+
+!ValidPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:52:18'!
+initializeWith: aPrefixString
+	prefix := aPrefixString.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'ValidPrefix class' category: 'Stack-Exercise'!
+ValidPrefix class
+	instanceVariableNames: ''!
+
+!ValidPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 16:11:46'!
+isAValidPrefix: aPrefixString
+	^ (EmptyPrefix isAValidPrefix: aPrefixString not) and: [SpacedPrefix isAValidPrefix: aPrefixString not].! !
 
 
 !classDefinition: #SentenceFinderByPrefix category: 'Stack-Exercise'!
@@ -476,38 +578,49 @@ sentenceStartsWithPrefix: aSentence
 	substringSentence := aSentence copyFrom: 1 to: prefix size.
 	^ substringSentence = prefix.! !
 
+!SentenceFinderByPrefix methodsFor: 'private' stamp: 'FV 6/9/2021 16:58:44'!
+stringContainSpaces: aString
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:29:37'!
+	^(aString allSatisfy: [:aChar| self charIsSpace: aChar ]) not.! !
+
+
+!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 17:05:23'!
 find: aPrefixString
 
 	|auxiliarStack aCollectionOfValidSentences|
 	
-	"Estos ifs llevaría a subclasificar la clase String, lo cual no tiene sentido subclasificarse para un caso particular"
+	"Aca planteamos que Prefix sea una clase con la siguiente jerarquia:
+		Prefix
+			InvalidPrefix
+				EmptyPrefix
+				SpacedPrefix
+			ValidPrefix
+	con el objetivo de quitarlos siguientes ifs vía el concepto de Switch dinamico, pero sobrecomplejizaba la solución. Por lo que decidimos dejar los ifs.
+	"
 	aPrefixString isEmpty ifTrue: [^self error:  self class emptyPrefixError].
-	
-	(aPrefixString allSatisfy: [:aChar| self charIsSpace: aChar ]) ifFalse: [^self error: self class prefixHasSpaceError].
-	
-	
-	prefix := aPrefixString.
-	
+	(self stringContainSpaces: aPrefixString ) ifTrue: [^self error: self class prefixHasSpaceError].
 	
 	auxiliarStack  := OOStack new.
 	aCollectionOfValidSentences := OrderedCollection new.
 	
 	
-	[stack isEmpty] whileFalse: 
-		[|aSentence| 	
-		aSentence := stack pop.
-		auxiliarStack push: aSentence.
-		(self sentenceStartsWithPrefix: aSentence ) ifTrue: [aCollectionOfValidSentences add: aSentence].
-		].
+	[stack isEmpty] whileFalse: [self xxx: aPrefixString]. "Quitar elemento del stack e insertarlo al resultado: si corresponde"
+	self rebuildStackFrom: auxiliarStack.		
+	[auxiliarStack isEmpty] whileFalse: [stack push: (auxiliarStack pop)]. "Reconstruir pila"
 	
-	[auxiliarStack isEmpty] whileFalse: [stack push: (auxiliarStack pop)].
 	^aCollectionOfValidSentences.! !
 
 !SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/8/2021 23:26:39'!
 initializeWith: aStack
 	stack := aStack.! !
+
+!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 17:01:44'!
+xxx: aPrefixString yyy: auxiliarStack zzz: aCollectionOfValidSentences
+
+		|aSentence| 	
+		aSentence := stack pop.
+		auxiliarStack push: aSentence.
+		(self sentenceStartsWithPrefix: aSentence ) ifTrue: [aCollectionOfValidSentences add: aSentence].! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
