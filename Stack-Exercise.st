@@ -91,7 +91,7 @@ test07TopDoesNotRemoveObjectFromStack
 	self assert: stack size = 1.
 	! !
 
-!OOStackTest methodsFor: 'test' stamp: 'HAW 4/14/2017 22:48:26'!
+!OOStackTest methodsFor: 'test' stamp: 'JP 6/9/2021 14:47:31'!
 test08CanNotPopWhenThereAreNoObjectsInTheStack
 
 	| stack  |
@@ -150,19 +150,134 @@ setUp
 	stack := OOStack new.
 	sentenceFinder :=	 SentenceFinderByPrefix newWith: stack.! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 00:36:55'!
-test01Stack
-		
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 14:55:48'!
+test01SentenceFinderShouldFailWhenPrefixIsEmpty
+	|prefix|
+	prefix := ''.
 	stack push: 'Hola'.
-	stack push: 'Hooo'.
-	stack push: 'Hi'.
-	stack push: 'ooo'.
 	
-	self assert: (sentenceFinder find: 'Ho') size equals: 2.
-	self assert: (sentenceFinder find: 'H') size equals: 3.
-	self assert: (sentenceFinder find: 'o') size equals: 1.
-	self assert: (sentenceFinder find: 'q') size equals: 0.
+	self should: [ sentenceFinder find: prefix]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = SentenceFinderByPrefix emptyPrefixError ]
 	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 14:55:01'!
+test02SentenceFinderShouldFailWhenPrefixHasASpace
+	|prefix|
+	prefix := 'H '.
+	stack push: 'H ola'.
+	
+	self should: [ sentenceFinder find: prefix]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = SentenceFinderByPrefix prefixHasSpaceError ]
+	! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:14:24'!
+test03SentenceFinderShouldNotFindAnythingWithNonMatchingPrefix
+		
+	|prefix resultsCollection|
+	
+	prefix := 'Hi'.
+	stack push: 'sentence1'	.
+	stack push: 'sentence2'.
+	
+	resultsCollection := sentenceFinder find: prefix.
+	
+	self assert: resultsCollection isEmpty.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:15:18'!
+test04SentenceFinderShouldFindTheSentenceWithMatchingPrefix
+		
+	|prefix resultsCollection|
+	
+	prefix := 'se'.
+	stack push: 'sentence'	.
+	stack push: 'not a sentence'.
+	stack push: 'not another sentence'.
+	
+	resultsCollection := sentenceFinder find: prefix.
+	
+	self assert: resultsCollection size equals: 1.
+	self assert: (resultsCollection at: 1) equals: 'sentence'.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:20:08'!
+test05SentenceFinderShouldFindAllTheSentencesWithMatchingPrefix
+		
+	|prefix resultsCollection|
+	
+	prefix := 'not'.
+	stack push: 'sentence'	.
+	stack push: 'not a sentence'.
+	stack push: 'not another sentence'.
+	
+	resultsCollection := sentenceFinder find: prefix.
+	
+	self assert: resultsCollection size equals: 2.
+	self assert: (resultsCollection at: 1) equals: 'not another sentence'.
+	self assert: (resultsCollection at: 2) equals: 'not a sentence'.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:16:01'!
+test06SentenceFinderIsCaseSensitive
+		
+	|prefix resultsCollection|
+	
+	prefix := 'Not'.
+	stack push: 'sentence'	.
+	stack push: 'Not a sentence'.
+	stack push: 'not another sentence'.
+	
+	resultsCollection := sentenceFinder find: prefix.
+	
+	self assert: resultsCollection size equals: 1.
+	self assert: (resultsCollection at: 1) equals: 'Not a sentence'.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:10:02'!
+test07SentenceFinderDoesNotModifyStack
+		
+	|prefix|
+	
+	prefix := 'not'.
+	stack push: 'sentence'	.
+	stack push: 'notASentence'.
+	stack push: 'notAnotherSentence'.
+	
+	sentenceFinder find: prefix.
+	
+	self assert: stack size equals: 3.
+	self assert: stack pop equals: 'notAnotherSentence'.
+	self assert: stack pop equals: 'notASentence'.
+	self assert: stack pop equals: 'sentence'.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:16:30'!
+test08SentenceFinderDoesNotFailWhenPrefixIsLargerThanSentence
+		
+	|prefix resultsCollection|
+	
+	prefix := 'ThisIsAReallyLongPrefix'.
+	
+	stack push: 'sentence'	.
+	stack push: 'another sentence'.
+	stack push: 'ThisIsAReallyLongPrefixButItMatches'.
+	
+	resultsCollection := sentenceFinder find: prefix.
+	
+	self assert: resultsCollection size equals: 1.
+! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:18:50'!
+test09SentenceFinderShouldNotFailWhenEmptyStack
+		
+	|prefix resultsCollection|
+	
+	prefix := 'aPrefix'.
+	
+	
+	resultsCollection := sentenceFinder find: prefix.
+	
+	self assert: resultsCollection isEmpty.
+! !
 
 
 !classDefinition: #OOStack category: 'Stack-Exercise'!
@@ -309,6 +424,39 @@ isAValidSetOfStackedElements: aSetOfStackedElements
 	^ aSetOfStackedElements isEmpty not.! !
 
 
+!classDefinition: #Prefix category: 'Stack-Exercise'!
+Object subclass: #Prefix
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Prefix class' category: 'Stack-Exercise'!
+Prefix class
+	instanceVariableNames: ''!
+
+!Prefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:31:55'!
+newWith: aPrefixString! !
+
+
+!classDefinition: #InvalidPrefix category: 'Stack-Exercise'!
+Prefix subclass: #InvalidPrefix
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+
+!classDefinition: #ValidPrefix category: 'Stack-Exercise'!
+Prefix subclass: #ValidPrefix
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+
 !classDefinition: #SentenceFinderByPrefix category: 'Stack-Exercise'!
 Object subclass: #SentenceFinderByPrefix
 	instanceVariableNames: 'stack prefix'
@@ -316,11 +464,29 @@ Object subclass: #SentenceFinderByPrefix
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 00:25:18'!
+!SentenceFinderByPrefix methodsFor: 'private' stamp: 'FV 6/9/2021 15:25:59'!
+charIsSpace: aChar
+	^ aChar ~= $ .! !
+
+!SentenceFinderByPrefix methodsFor: 'private' stamp: 'FV 6/9/2021 00:42:32'!
+sentenceStartsWithPrefix: aSentence
+	|substringSentence|
+	aSentence size < prefix size ifTrue: [^ false].
+	
+	substringSentence := aSentence copyFrom: 1 to: prefix size.
+	^ substringSentence = prefix.! !
+
+
+!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 15:29:37'!
 find: aPrefixString
+
 	|auxiliarStack aCollectionOfValidSentences|
+	
+	"Estos ifs llevaría a subclasificar la clase String, lo cual no tiene sentido subclasificarse para un caso particular"
 	aPrefixString isEmpty ifTrue: [^self error:  self class emptyPrefixError].
-	(aPrefixString allSatisfy: [:aChar| aChar ~= $ ]) ifFalse: [^self error: self class prefixHasSpaceError].
+	
+	(aPrefixString allSatisfy: [:aChar| self charIsSpace: aChar ]) ifFalse: [^self error: self class prefixHasSpaceError].
+	
 	
 	prefix := aPrefixString.
 	
@@ -328,12 +494,12 @@ find: aPrefixString
 	auxiliarStack  := OOStack new.
 	aCollectionOfValidSentences := OrderedCollection new.
 	
+	
 	[stack isEmpty] whileFalse: 
-		[|aSentence| 
-		aSentence := stack pop. 
+		[|aSentence| 	
+		aSentence := stack pop.
 		auxiliarStack push: aSentence.
 		(self sentenceStartsWithPrefix: aSentence ) ifTrue: [aCollectionOfValidSentences add: aSentence].
-		
 		].
 	
 	[auxiliarStack isEmpty] whileFalse: [stack push: (auxiliarStack pop)].
@@ -343,22 +509,15 @@ find: aPrefixString
 initializeWith: aStack
 	stack := aStack.! !
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'FV 6/9/2021 00:42:32'!
-sentenceStartsWithPrefix: aSentence
-	|substringSentence|
-	aSentence size < prefix size ifTrue: [^ false].
-	
-	substringSentence := aSentence copyFrom: 1 to: prefix size.
-	^ substringSentence = prefix.! !
-
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
 !classDefinition: 'SentenceFinderByPrefix class' category: 'Stack-Exercise'!
 SentenceFinderByPrefix class
 	instanceVariableNames: ''!
 
-!SentenceFinderByPrefix class methodsFor: 'Errors' stamp: 'FV 6/8/2021 23:41:47'!
+!SentenceFinderByPrefix class methodsFor: 'Errors' stamp: 'JP 6/9/2021 14:37:28'!
 emptyPrefixError
+
 	^ 'The prefix cannot be Empty'! !
 
 !SentenceFinderByPrefix class methodsFor: 'Errors' stamp: 'FV 6/8/2021 23:41:37'!
