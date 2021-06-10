@@ -367,10 +367,10 @@ push: anElement
 size
 	^stackedElements size.! !
 
-!OOStack methodsFor: 'Functionality' stamp: 'FV 6/8/2021 23:10:28'!
+!OOStack methodsFor: 'Functionality' stamp: 'FV 6/10/2021 16:46:11'!
 top
 	|stackTopVisualizer|
-	stackTopVisualizer := OOStackTopVisualizer newWith: stackedElements.
+	stackTopVisualizer := OOStackTopVisualizer initializeWith: stackedElements.
 	^stackTopVisualizer seeTop.! !
 
 
@@ -432,11 +432,16 @@ initializeWith: aSizeLimit
 	sizeLimit := aSizeLimit.
 	stackedElements := OrderedCollection new.! !
 
-!OOLimitedStack methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:16:41'!
+!OOLimitedStack methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:55:19'!
 push: anElement
-	"Entre ambos modelos, "
-	stackedElements size = sizeLimit ifTrue: [^ self error: self class stackAtFullCapacityErrorDescription ].
-	^stackedElements addLast: anElement.! !
+
+	"Para que el stack pueda tener un límite primero pensamos en que tenga un colaborador interno que represente la capacidad, y en el push con un if nos fijabamos si ya 
+	estaba en el límite o no. A la hora de sacar el if fue una situación similar con la del top. La jerarquía resultante parecería sobrecomplejizar el modelo para simplemente
+	quitar 2 ifs que parecerían ser de control, por lo que no es una buena idea. No creemos que resulte en un mejor modelo el quitar los ifs de Top y Push."
+	
+	|stackElementPusher|
+	stackElementPusher := OOStackElementPusher newWithElements: stackedElements andSizeLimit: sizeLimit.
+	^stackElementPusher pushElement: anElement.! !
 
 
 !classDefinition: #OOUnlimitedStack category: 'Stack-Exercise'!
@@ -453,6 +458,92 @@ initialize
 !OOUnlimitedStack methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 15:15:42'!
 push: anElement
 	^stackedElements addLast: anElement.! !
+
+
+!classDefinition: #OOStackElementPusher category: 'Stack-Exercise'!
+Object subclass: #OOStackElementPusher
+	instanceVariableNames: 'stackedElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!OOStackElementPusher methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:29:37'!
+pushElement: anElement
+	self subclassResponsibility.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'OOStackElementPusher class' category: 'Stack-Exercise'!
+OOStackElementPusher class
+	instanceVariableNames: ''!
+
+!OOStackElementPusher class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:34:05'!
+isAValidSetOfStackedElements: aSetOfStackedElements atThisSizeLimit: aSizeLimit
+	self subclassResponsibility.! !
+
+!OOStackElementPusher class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:40:35'!
+newWithElements: aSetOfStackedElements andSizeLimit: aSizeLimit
+
+	|validClass|
+	
+	validClass := OOStackElementPusher allSubclasses detect: [:aClass| aClass isAValidSetOfStackedElements: aSetOfStackedElements atThisSizeLimit: aSizeLimit].
+	
+	^validClass new initializeWith: aSetOfStackedElements.! !
+
+
+!classDefinition: #OOStackAtLimitElementPusher category: 'Stack-Exercise'!
+OOStackElementPusher subclass: #OOStackAtLimitElementPusher
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!OOStackAtLimitElementPusher methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:46:11'!
+initializeWith: aSetOfStackedElements! !
+
+!OOStackAtLimitElementPusher methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:29:37'!
+pushElement: anElement
+	^ self error: self class stackAtFullCapacityErrorDescription ! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'OOStackAtLimitElementPusher class' category: 'Stack-Exercise'!
+OOStackAtLimitElementPusher class
+	instanceVariableNames: ''!
+
+!OOStackAtLimitElementPusher class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:34:40'!
+isAValidSetOfStackedElements: aSetOfStackedElements atThisSizeLimit: aSizeLimit
+	 ^ aSetOfStackedElements size = aSizeLimit.! !
+
+!OOStackAtLimitElementPusher class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:50:23'!
+stackAtFullCapacityErrorDescription
+	^OOStack stackAtFullCapacityErrorDescription.! !
+
+
+!classDefinition: #OOStackNotAtLimitElementPusher category: 'Stack-Exercise'!
+OOStackElementPusher subclass: #OOStackNotAtLimitElementPusher
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!OOStackNotAtLimitElementPusher methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:46:11'!
+initializeWith: aSetOfStackedElements 
+	stackedElements := aSetOfStackedElements.! !
+
+!OOStackNotAtLimitElementPusher methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:29:37'!
+pushElement: anElement
+	^stackedElements addLast: anElement.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'OOStackNotAtLimitElementPusher class' category: 'Stack-Exercise'!
+OOStackNotAtLimitElementPusher class
+	instanceVariableNames: ''!
+
+!OOStackNotAtLimitElementPusher class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:35:10'!
+isAValidSetOfStackedElements: aSetOfStackedElements atThisSizeLimit: aSizeLimit
+	^ aSetOfStackedElements size < aSizeLimit.! !
 
 
 !classDefinition: #OOStackTopVisualizer category: 'Stack-Exercise'!
@@ -476,15 +567,15 @@ seeTop
 OOStackTopVisualizer class
 	instanceVariableNames: ''!
 
-!OOStackTopVisualizer class methodsFor: 'as yet unclassified' stamp: 'FV 6/8/2021 23:16:47'!
-isAValidSetOfStackedElements: aSetOfStackedElements
-	self subclassResponsibility! !
-
-!OOStackTopVisualizer class methodsFor: 'as yet unclassified' stamp: 'FV 6/8/2021 23:16:47'!
-newWith: aSetOfStackedElements
+!OOStackTopVisualizer class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:46:11'!
+initializeWith: aSetOfStackedElements
 	|validClass|
 	validClass := OOStackTopVisualizer allSubclasses detect: [:aClass| aClass isAValidSetOfStackedElements: aSetOfStackedElements].
 	^validClass new initializeWith: aSetOfStackedElements.! !
+
+!OOStackTopVisualizer class methodsFor: 'as yet unclassified' stamp: 'FV 6/8/2021 23:16:47'!
+isAValidSetOfStackedElements: aSetOfStackedElements
+	self subclassResponsibility! !
 
 
 !classDefinition: #OOEmptyStackTopVisualizer category: 'Stack-Exercise'!
@@ -512,10 +603,11 @@ OOEmptyStackTopVisualizer class
 isAValidSetOfStackedElements: aSetOfStackedElements
 	^ aSetOfStackedElements isEmpty.! !
 
-!OOEmptyStackTopVisualizer class methodsFor: 'as yet unclassified' stamp: 'FV 6/8/2021 22:49:04'!
+!OOEmptyStackTopVisualizer class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:48:31'!
 stackEmptyErrorDescription
-	
-	^ 'Stack is empty'! !
+
+
+	^ OOStack stackEmptyErrorDescription.! !
 
 
 !classDefinition: #OONonEmptyStackTopVisualizer category: 'Stack-Exercise'!
@@ -617,8 +709,8 @@ stringContainSpaces: aString
 	^(aString allSatisfy: [:aChar| self charIsSpace: aChar ]) not.! !
 
 
-!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/8/2021 23:26:20'!
-newWith: aStack
+!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 16:46:11'!
+initializeWith: aStack
 	^self new initializeWith: aStack.! !
 
 !SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'FV 6/10/2021 14:15:10'!
