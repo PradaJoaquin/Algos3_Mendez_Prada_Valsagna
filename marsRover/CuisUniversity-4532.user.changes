@@ -1,0 +1,1182 @@
+
+
+----QUIT----(9 March 2021 14:58:42) CuisUniversity-4532.image priorSource: 13044060!
+
+----STARTUP---- (9 March 2021 14:58:43) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-4532.image!
+
+
+----QUIT----(9 March 2021 14:58:43) CuisUniversity-4532.image priorSource: 16885479!
+
+----STARTUP---- (17 May 2021 19:10:33) as D:\Admin\Descargas\windows64\CuisUniversity-4532.image!
+
+
+----End fileIn of C:\Users\Joaquin\Desktop\GitHub\Algos3_Mendez_Prada_Valsagna\CodigoRepetido-Ejercicio.st----!
+
+!classRemoval: #CustomerBook stamp: 'JP 5/17/2021 19:12:18'!
+Object subclass: #CustomerBook
+	instanceVariableNames: 'suspended active'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CustomerBookTest stamp: 'JP 5/17/2021 19:12:19'!
+TestCase subclass: #CustomerBookTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #NotFound stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #NotFound
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CantSuspend stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #CantSuspend
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+----QUIT----(17 May 2021 19:12:24) CuisUniversity-4532.image priorSource: 16885703!
+
+----STARTUP---- (27 June 2021 18:11:27) as D:\Admin\Descargas\Imagen Limpia CUIS\CuisUniversity-4532.image!
+
+
+Object subclass: #MarsRoverTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 18:12:52'!
+Object subclass: #MarsRoverTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 18:13:04'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRoverTests methodsFor: 'no messages' stamp: 'JP 6/27/2021 18:13:24'!
+test01! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:13:25' prior: 50859745!
+test01
+
+	! !
+
+!classDefinition: #MarsRoverController category: 'Mars-Rover' stamp: 'JP 6/27/2021 18:21:57'!
+Object subclass: #MarsRoverController
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:21:49' prior: 50859749!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:27:57' prior: 50859760!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'f'.
+	
+	self assert: (marsRoverController position = 0@1)! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:28:17'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:28:17'!
+ERROR!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:28:44'!
+receiveInstruction: aString 
+	self shouldBeImplemented.! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:29:50' prior: 50859780!
+receiveInstruction: anInstruction
+	
+	 ! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:29:59' prior: 50859786!
+receiveInstruction: anInstruction ! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:30:27'!
+position
+
+	^0@1! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:30:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:30:47'!
+ERROR!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:31:20' prior: 50859766!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'f'.
+	
+	self assert: (marsRoverController position = (0@1))! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:31:24'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:32:39'!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'f'.
+	
+	self assert: (marsRoverController position = (0@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:32:42' prior: 50859815!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'b'.
+	
+	self assert: (marsRoverController position = (0@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:32:45' prior: 50859824!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'b'.
+	
+	self assert: (marsRoverController position = (0@-1))! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:32:49'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 18:32:49'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 18:32:49'!
+FAILURE!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:33:04' prior: 50859791!
+receiveInstruction: anInstruction! !
+
+!classDefinition: #MarsRoverController category: 'Mars-Rover' stamp: 'JP 6/27/2021 18:37:52'!
+Object subclass: #MarsRoverController
+	instanceVariableNames: 'roverPosition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:37:51' prior: 50859850!
+receiveInstruction: anInstruction
+	
+	(anInstruction = 'f') ifTrue: [roverPosition := roverPosition + (0@1)].
+	(anInstruction = 'b') ifTrue: [roverPosition := roverPosition + (0@-1)].! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:38:13' prior: 50859795!
+position
+
+	^roverPosition ! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:38:15' prior: 50859872!
+position
+
+	^roverPosition! !
+!MarsRoverController class methodsFor: 'nil' stamp: 'JP 6/27/2021 18:42:04' overrides: 16783533!
+new
+
+	^self basicNew initialize.! !
+!MarsRoverController methodsFor: 'nil' stamp: 'JP 6/27/2021 18:42:22' overrides: 16896425!
+initialize
+
+	roverPosition := 0@0! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:42:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 18:42:43'!
+PASSED!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:43:01'!
+roverPosition
+
+	^roverPosition! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:43:02' prior: 50859804!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'f'.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:43:02' prior: 50859833!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'b'.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+
+!methodRemoval: MarsRoverController #position stamp: 'JP 6/27/2021 18:43:02'!
+position
+
+	^roverPosition!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:44:02' prior: 50859862!
+receiveInstruction: anInstruction
+	
+	(anInstruction = 'f') ifTrue: [self moveRoverForward].
+	(anInstruction = 'b') ifTrue: [roverPosition := roverPosition + (0@-1)].! !
+!MarsRoverController methodsFor: 'nil' stamp: 'JP 6/27/2021 18:44:16'!
+moveRoverForward
+
+	roverPosition := roverPosition + (0@1)! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:44:45' prior: 50859922!
+receiveInstruction: anInstruction
+	
+	(anInstruction = 'f') ifTrue: [self moveRoverForward].
+	(anInstruction = 'b') ifTrue: [self moveRoverBackwards].! !
+!MarsRoverController methodsFor: 'nil' stamp: 'JP 6/27/2021 18:44:57'!
+moveRoverBackwards
+
+	roverPosition := roverPosition + (0@-1)! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:45:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 18:45:07'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:45:34'!
+test03
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController new.
+	
+	marsRoverController receiveInstruction: 'b'.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:49:37' prior: 50859953!
+test03
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1).
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 18:50:39'!
+ERROR!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 18:50:39'!
+ERROR!
+!MarsRoverController class methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:52:17'!
+newWithRoverPosition: aRoverStartingPosition
+
+	^self basicNew initializeWith: aRoverStartingPosition ! !
+!MarsRoverController methodsFor: 'initialization' stamp: 'JP 6/27/2021 18:53:05'!
+initializeWithPosition: aRoverStartingPosition
+
+	roverPosition := aRoverStartingPosition! !
+!MarsRoverController class methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:53:15' prior: 50859976!
+newWithRoverPosition: aRoverStartingPosition
+
+	^self basicNew initializeWithPosition: aRoverStartingPosition ! !
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 18:53:25'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:53:29'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 18:53:29'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 18:53:29'!
+PASSED!
+
+!methodRemoval: MarsRoverController class #new stamp: 'JP 6/27/2021 18:53:42'!
+new
+
+	^self basicNew initialize.!
+!MarsRoverController class methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:53:47' prior: 50859989!
+newWithRoverPosition: aRoverStartingPosition
+
+	^self new initializeWithPosition: aRoverStartingPosition ! !
+
+!methodRemoval: MarsRoverController #initialize stamp: 'JP 6/27/2021 18:54:00'!
+initialize
+
+	roverPosition := 0@0!
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:54:08'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 18:54:08'!
+ERROR!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 18:54:09'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:54:29' prior: 50859899!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0).
+	
+	marsRoverController receiveInstruction: 'f'.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:54:33' prior: 50859909!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0).
+	
+	marsRoverController receiveInstruction: 'b'.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 18:54:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 18:54:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 18:54:36'!
+PASSED!
+
+----SNAPSHOT----(27 June 2021 18:55:07) CuisUniversity-4532.image priorSource: 16898108!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:57:02'!
+test04
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: (0).
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+
+----End fileIn of D:\Admin\Descargas\Imagen Limpia CUIS\Packages\TerseGuide.pck.st----!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:59:25' prior: 50860057!
+test04
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: ('N').
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 18:59:30' prior: 50862991!
+test04
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: 'N'.
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:01:48' prior: 50863000!
+test04
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: 'S'.
+	
+	self assert: (marsRoverController roverOrientation = 'S')! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:01:53'!
+ERROR!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:01:54'!
+ERROR!
+!MarsRoverController class methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:02:16' prior: 50860009!
+newWithRoverPosition: aRoverStartingPosition
+
+	^self new initializeWithPosition: aRoverStartingPosition ! !
+!MarsRoverController class methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:03:00'!
+newWithRoverPosition: aRoverStartingPosition andFacing: aRoverStartingOrientation
+
+	^self new initializeWithPosition: aRoverStartingPosition andOrientation: aRoverStartingOrientation! !
+!MarsRoverController methodsFor: 'initialization' stamp: 'JP 6/27/2021 19:03:21'!
+initializeWithPosition: aRoverStartingPosition andOrientation: aRoverStartingOrientation
+
+	roverPosition := aRoverStartingPosition! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:04:03'!
+roverOrientation
+
+	^'S'! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:04:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:04:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:04:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:04:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:04:16'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:05:06' prior: 50860027!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: 'N'.
+	
+	marsRoverController receiveInstruction: 'f'.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:05:09' prior: 50860037!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: 'S'.
+	
+	marsRoverController receiveInstruction: 'b'.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:05:16' prior: 50859963!
+test03
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: 'S'.
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:05:23' prior: 50863073!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: 'N'.
+	
+	marsRoverController receiveInstruction: 'b'.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:05:26' prior: 50863084!
+test03
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: 'N'.
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+
+!methodRemoval: MarsRoverController #initializeWithPosition: stamp: 'JP 6/27/2021 19:05:41'!
+initializeWithPosition: aRoverStartingPosition
+
+	roverPosition := aRoverStartingPosition!
+
+!methodRemoval: MarsRoverController class #newWithRoverPosition: stamp: 'JP 6/27/2021 19:05:49'!
+newWithRoverPosition: aRoverStartingPosition
+
+	^self new initializeWithPosition: aRoverStartingPosition !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:06:03'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:06:03'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:06:03'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:06:03'!
+PASSED!
+
+----SNAPSHOT----(27 June 2021 19:06:18) CuisUniversity-4532.image priorSource: 16908890!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:10:09'!
+test05
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: 'S'.
+	
+	self assert: (marsRoverController roverOrientation = 'S')! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:10:27' prior: 50863137!
+test05
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: 'S'.
+	
+	MarsRoverController 
+	
+	self assert: (marsRoverController roverOrientation = 'S')! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:14:35' prior: 50863146!
+test05
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: 'N'.
+	
+	self assert: (marsRoverController roverOrientation = 'N')! !
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:14:40'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:14:40'!
+FAILURE!
+
+!classDefinition: #MarsRoverController category: 'Mars-Rover' stamp: 'JP 6/27/2021 19:15:16'!
+Object subclass: #MarsRoverController
+	instanceVariableNames: 'roverPosition roverOrientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRoverController methodsFor: 'initialization' stamp: 'JP 6/27/2021 19:15:15' prior: 50863039!
+initializeWithPosition: aRoverStartingPosition andOrientation: aRoverStartingOrientation
+
+	roverPosition := aRoverStartingPosition.
+	roverOrientation := aRoverStartingOrientation ! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:15:29' prior: 50863046!
+roverOrientation
+
+	^roverOrientation! !
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:15:37'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:16:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:16:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:16:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:16:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:16:04'!
+PASSED!
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 19:17:52'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: 'north'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 19:17:53'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: 'north south'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:17:51' overrides: 16927572!
+setUp
+
+	north := 'N'.
+	south := 'S'.! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:18:25' prior: 50863062!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'f'.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 19:19:29'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: 'north south east'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 19:19:33'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: 'north south east west'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 19:19:37'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: 'north south east west forward'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverTests category: 'Mars-Rover' stamp: 'JP 6/27/2021 19:19:38'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: 'north south east west forward backwards'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:19:23' prior: 50863220 overrides: 16927572!
+setUp
+
+	north := 'N'.
+	south := 'S'.
+	east := 'E'.
+	west := 'w'.
+	
+	forward := 'f'.
+	backwards := 'b'.! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:19:40' prior: 50863268 overrides: 16927572!
+setUp
+
+	north := 'N'.
+	south := 'S'.
+	east := 'E'.
+	west := 'W'.
+	
+	forward := 'f'.
+	backwards := 'b'.! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:19:48' prior: 50863225!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:19:59' prior: 50863093!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:20:03' prior: 50863104!
+test03
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: north.
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:20:30' prior: 50863009!
+test04
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: south.
+	
+	self assert: (marsRoverController roverOrientation = south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:20:41' prior: 50863156!
+test05
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	self assert: (marsRoverController roverOrientation = north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:21:30'!
+test06
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	self assert: (marsRoverController roverOrientation = north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:24:31' prior: 50863331!
+test06
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:24:41'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:24:41'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:24:42'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:24:42'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:24:42'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:24:42'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:24:42'!
+FAILURE!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:26:15' prior: 50859936!
+receiveInstruction: anInstruction
+	
+	(anInstruction = 'f') ifTrue: [self moveRoverForward].
+	(anInstruction = 'b') ifTrue: [self moveRoverBackwards].
+	(anInstruction = 'l') ifTrue: [roverOrientation := 'W'].! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:26:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:26:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:26:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:26:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:26:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:26:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:26:52'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:26:52'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:26:52'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:26:52'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:26:52'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:26:52'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:28:17' prior: 50863340!
+test06
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)! !
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:28:19'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:28:19'!
+FAILURE!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:28:38' prior: 50863406!
+test06
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:28:46'!
+test07
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)! !
+
+!testRun: #MarsRoverTests #test07 stamp: 'JP 6/27/2021 19:28:49'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JP 6/27/2021 19:28:50'!
+FAILURE!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:29:05' prior: 50863368!
+receiveInstruction: anInstruction
+	
+	(anInstruction = 'f') ifTrue: [self moveRoverForward].
+	(anInstruction = 'b') ifTrue: [self moveRoverBackwards].
+	(anInstruction = 'l') ifTrue: [roverOrientation := 'W'].
+	(anInstruction = 'r') ifTrue: [roverOrientation := 'E'].! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:29:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:29:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:29:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:29:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:29:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:29:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JP 6/27/2021 19:29:08'!
+PASSED!
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:31:24' prior: 50863448!
+receiveInstruction: anInstruction
+	
+	(anInstruction = 'f') ifTrue: [self moveRoverForward].
+	(anInstruction = 'b') ifTrue: [self moveRoverBackwards].
+	(anInstruction = 'l') ifTrue: [self rotateRoverLeft].
+	(anInstruction = 'r') ifTrue: [roverOrientation := 'E'].! !
+!MarsRoverController methodsFor: 'nil' stamp: 'JP 6/27/2021 19:31:41'!
+rotateRoverLeft
+	
+	roverOrientation := 'W'! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:31:48'!
+rotateRoverRight
+	
+	roverOrientation := 'E'! !
+!MarsRoverController methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:32:00' prior: 50863477!
+receiveInstruction: anInstruction
+	
+	(anInstruction = 'f') ifTrue: [self moveRoverForward].
+	(anInstruction = 'b') ifTrue: [self moveRoverBackwards].
+	(anInstruction = 'l') ifTrue: [self rotateRoverLeft].
+	(anInstruction = 'r') ifTrue: [self rotateRoverRight].! !
+
+!testRun: #MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:32:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:32:05'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:32:05'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:32:05'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:32:05'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:32:05'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JP 6/27/2021 19:32:05'!
+PASSED!
+
+----SNAPSHOT----(27 June 2021 19:33:19) CuisUniversity-4532.image priorSource: 17007463!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:36:20' prior: 50863432!
+test07
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:37:23'!
+test01RoverExecutesForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+
+!methodRemoval: MarsRoverTests #test01 stamp: 'JP 6/27/2021 19:37:23'!
+test01
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:38:05'!
+test02RoverExecutesBackwardsInstruccion
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+
+!methodRemoval: MarsRoverTests #test02 stamp: 'JP 6/27/2021 19:38:05'!
+test02
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:38:13'!
+test02RoverExecutesBackwardsInstrucion
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+
+!methodRemoval: MarsRoverTests #test02RoverExecutesBackwardsInstruccion stamp: 'JP 6/27/2021 19:38:13'!
+test02RoverExecutesBackwardsInstruccion
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:39:00'!
+test02RoverExecutesBackwardsInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+
+!methodRemoval: MarsRoverTests #test02RoverExecutesBackwardsInstrucion stamp: 'JP 6/27/2021 19:39:00'!
+test02RoverExecutesBackwardsInstrucion
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:41:49'!
+test03RoverCanStartInAtDesignatedPosition
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: north.
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+
+!methodRemoval: MarsRoverTests #test03 stamp: 'JP 6/27/2021 19:41:50'!
+test03
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: north.
+	
+	self assert: (marsRoverController roverPosition = (1@1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:41:56'!
+test03RoverCanStartAtDesignatedPosition
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: north.
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+
+!methodRemoval: MarsRoverTests #test03RoverCanStartInAtDesignatedPosition stamp: 'JP 6/27/2021 19:41:56'!
+test03RoverCanStartInAtDesignatedPosition
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: north.
+	
+	self assert: (marsRoverController roverPosition = (1@1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:42:31'!
+RoverCanStartAtDesigantedOrientation
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: south.
+	
+	self assert: (marsRoverController roverOrientation = south)! !
+
+!methodRemoval: MarsRoverTests #test04 stamp: 'JP 6/27/2021 19:42:31'!
+test04
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: south.
+	
+	self assert: (marsRoverController roverOrientation = south)!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:42:43'!
+test04RoverCanStartAtDesigantedOrientation
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: south.
+	
+	self assert: (marsRoverController roverOrientation = south)! !
+
+!methodRemoval: MarsRoverTests #RoverCanStartAtDesigantedOrientation stamp: 'JP 6/27/2021 19:42:43'!
+RoverCanStartAtDesigantedOrientation
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (1@1) andFacing: south.
+	
+	self assert: (marsRoverController roverOrientation = south)!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:43:15'!
+test05RoverCanStartFacingNorth
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	self assert: (marsRoverController roverOrientation = north)! !
+
+!methodRemoval: MarsRoverTests #test05 stamp: 'JP 6/27/2021 19:43:15'!
+test05
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	self assert: (marsRoverController roverOrientation = north)!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:44:54'!
+test05RoverExecutesLeftInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)! !
+
+!methodRemoval: MarsRoverTests #test06 stamp: 'JP 6/27/2021 19:44:54'!
+test06
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:45:24'!
+test06RoverExecutesRightInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)! !
+
+!methodRemoval: MarsRoverTests #test07 stamp: 'JP 6/27/2021 19:45:24'!
+test07
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:46:33'!
+test01RoverExecutesCorrectlyForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+
+!methodRemoval: MarsRoverTests #test01RoverExecutesForwardInstruction stamp: 'JP 6/27/2021 19:46:33'!
+test01RoverExecutesForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:46:50'!
+test02RoverExecutesCorrectlyBackwardsInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+
+!methodRemoval: MarsRoverTests #test02RoverExecutesBackwardsInstruction stamp: 'JP 6/27/2021 19:46:50'!
+test02RoverExecutesBackwardsInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:46:55'!
+test05RoverExecutesCorrectlyLeftInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)! !
+
+!methodRemoval: MarsRoverTests #test05RoverExecutesLeftInstruction stamp: 'JP 6/27/2021 19:46:55'!
+test05RoverExecutesLeftInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:47:02'!
+test06RoverExecutesCorrectlyRightInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)! !
+
+!methodRemoval: MarsRoverTests #test06RoverExecutesRightInstruction stamp: 'JP 6/27/2021 19:47:02'!
+test06RoverExecutesRightInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)!
+!MarsRoverTests methodsFor: 'DiscardedTests' stamp: 'JP 6/27/2021 19:47:42' prior: 50863703!
+test05RoverCanStartFacingNorth
+
+	"Este test fue descartado ya que el test04 testeaba lo mismo"
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	self assert: (marsRoverController roverOrientation = north)! !
+
+----SNAPSHOT----(27 June 2021 19:47:58) CuisUniversity-4532.image priorSource: 17019988!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:49:41' prior: 50863833!
+test06RoverExecutesCorrectlyRightInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstruction: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)! !
+
+0@0!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/27/2021 19:52:54' prior: 50863810!
+test05RoverExecutesCorrectlyLeftInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRoverController newWithRoverPosition: (0@0) andFacing: north.
+
+	marsRoverController receiveInstruction: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)! !
+
+0@1!
+
+self degrees !
+
+-180 mod: 90!
+
+-180 // 90!
+
+----SNAPSHOT----(27 June 2021 20:07:58) CuisUniversity-4532.image priorSource: 17030932!
+
+----QUIT----(27 June 2021 20:08:13) CuisUniversity-4532.image priorSource: 17031841!
+
+----STARTUP---- (27 June 2021 20:08:28) as D:\Admin\Descargas\Imagen Limpia CUIS\CuisUniversity-4532.image!
+
+
+----QUIT----(27 June 2021 20:08:43) CuisUniversity-4532.image priorSource: 17031931!
