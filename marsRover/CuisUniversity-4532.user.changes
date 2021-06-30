@@ -2780,3 +2780,2031 @@ PASSED!
 
 
 ----QUIT----(29 June 2021 17:53:51) CuisUniversity-4532.image priorSource: 17092866!
+
+----STARTUP---- (30 June 2021 15:03:48) as D:\Admin\Descargas\Imagen Limpia CUIS\CuisUniversity-4532.image!
+
+
+----QUIT----(30 June 2021 15:30:26) CuisUniversity-4532.image priorSource: 17093062!
+
+----STARTUP---- (30 June 2021 16:02:42) as D:\Admin\Descargas\Imagen Limpia CUIS\CuisUniversity-4532.image!
+
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:04:07'!
+PASSED!
+
+!classRenamed: #MarsRoverController as: #MarsRover stamp: 'JP 6/30/2021 16:05:39'!
+Smalltalk renameClassNamed: #MarsRoverController as: #MarsRover!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50864999!
+test00RoverDoesNothingOnEmptyInstruction
+	
+	"Este test fue añadido luego al darnos cuenta que era lo mas sencillo a probar para el primer test. No tuvimos tiempo de descartar los test ya hechos, 
+	pero somos concientes que eso era lo indicado."
+	
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: ''.
+	
+	self assert: (marsRoverController roverPosition = (0@0))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50865596!
+discardedTest10MarsRoverCanGoRightAndBackwardsInTheSameInstruccion
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north .
+	
+	marsRoverController receiveInstructionSet: 'rb'.
+	
+	self assert: (marsRoverController roverPosition = (-1@0))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50865268!
+discardedTest03RoverCanStartAtDesigantedOrientation
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (1@1) andFacing: south.
+	
+	self assert: (marsRoverController roverOrientation = south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50865289!
+discardedTest06RoverExecutesCorrectlyRightInstructionFromEast
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: east.
+	
+	marsRoverController receiveInstructionSet: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50864765!
+discardedTest05RoverCanStartFacingNorth
+
+	"Este test fue descartado ya que el test04 testeaba lo mismo"
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	self assert: (marsRoverController roverOrientation = north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50865311!
+discardedTest07RoverExecutesCorrectlyLeftInstructionFromEast
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: east.
+	
+	marsRoverController receiveInstructionSet: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50865735!
+test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	self should: [marsRoverController receiveInstructionSet: 'ff%ff'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (marsRoverController roverPosition = (0@2))]! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50864596!
+test01RoverExecutesCorrectlyForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50865677!
+test07AnInvalidInstructionShouldRaiseAnExepcion
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	self should: [marsRoverController receiveInstructionSet: '%'.]
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (anError messageText = MarsRover instruccionNotUnderstoodError)]! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50865381!
+discardedTest06MarsRoverCanExecuteForwardInstruccionMultipleTimes
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north .
+	
+	marsRoverController receiveInstructionSet: 'ff'.
+	
+	self assert: (marsRoverController roverPosition = (0@2))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50864584!
+test02RoverExecutesCorrectlyBackwardsInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: backwards.
+	
+	self assert: (marsRoverController roverPosition = (0@-1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50864635!
+test05RoverExecutesCorrectlyRightInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: 'r'.
+	
+	self assert: (marsRoverController roverOrientation = east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:39' prior: 50864789!
+discardedTest03RoverCanStartAtDesignatedPosition
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (1@1) andFacing: north.
+	
+	self assert: (marsRoverController roverPosition = (1@1))! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:40' prior: 50864623!
+test04RoverExecutesCorrectlyLeftInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+
+	marsRoverController receiveInstructionSet: 'l'.
+	
+	self assert: (marsRoverController roverOrientation = west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:05:40' prior: 50865550!
+test06MarsRoverCanReceiveAndExecuteMultipleInstructions
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north .
+	
+	marsRoverController receiveInstructionSet: 'rf'.
+	
+	self assert: (marsRoverController roverPosition = (1@0))! !
+
+Object subclass: #MarsRoverXXX
+	instanceVariableNames: 'roverPosition roverOrientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverXXX category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:06:50'!
+Object subclass: #MarsRoverXXX
+	instanceVariableNames: 'roverPosition roverOrientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverXXX subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #North category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:07:17'!
+MarsRoverXXX subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverXXX subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #South category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:07:19'!
+MarsRoverXXX subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverXXX subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #West category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:07:22'!
+MarsRoverXXX subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverXXX subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #East category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:07:25'!
+MarsRoverXXX subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+Object subclass: #MarsRoverXXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverXXX category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:07:30'!
+Object subclass: #MarsRoverXXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+----SNAPSHOT----(30 June 2021 16:10:48) CuisUniversity-4532.image priorSource: 17093258!
+!MarsRover methodsFor: 'private' stamp: 'JP 6/30/2021 16:12:50' prior: 50865151!
+executeInstruction: anInstruction
+	
+	(anInstruction = $f) ifTrue: [^self moveRoverForward].
+	(anInstruction = $b) ifTrue: [^self moveRoverBackwards].
+	(anInstruction = $l) ifTrue: [^self rotateRoverLeft].
+	(anInstruction = $r) ifTrue: [^self rotateRoverRight].
+	self error: self class instruccionNotUnderstoodError
+	! !
+!MarsRoverXXX methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:13:40'!
+foward! !
+!MarsRoverXXX methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:13:47' prior: 50866128!
+foward
+
+	self subclassResponsibility ! !
+!MarsRoverXXX methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:13:52'!
+backwards
+
+	self subclassResponsibility ! !
+!MarsRoverXXX methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:13:59'!
+right
+
+	self subclassResponsibility ! !
+!MarsRoverXXX methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:14:01'!
+left
+
+	self subclassResponsibility ! !
+!East methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:14:14' overrides: 50866132!
+foward
+
+	self subclassResponsibility ! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:14:18' overrides: 50866144!
+left
+
+	self subclassResponsibility ! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:14:20'!
+rigth
+
+	self subclassResponsibility ! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:14:24' overrides: 50866136!
+backwards
+
+	self subclassResponsibility ! !
+!North methodsFor: 'nil' stamp: 'JP 6/30/2021 16:14:36' overrides: 50866132!
+foward
+! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:14:40' overrides: 50866136!
+backwards
+! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:14:43' overrides: 50866144!
+left
+! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:14:50' overrides: 50866140!
+right
+! !
+!South methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:14:54' overrides: 50866132!
+foward! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:02' overrides: 50866136!
+backwards! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:08' overrides: 50866140!
+right! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:10' overrides: 50866144!
+left! !
+!West methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:15:15' overrides: 50866132!
+foward! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:19' overrides: 50866136!
+backwards! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:21' overrides: 50866144!
+left! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:23' overrides: 50866140!
+right! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:31' prior: 50866162 overrides: 50866136!
+backwards
+
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:34' prior: 50866148 overrides: 50866132!
+foward
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:38' prior: 50866153 overrides: 50866144!
+left
+
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:15:41' prior: 50866157!
+rigth
+
+! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:16:47'!
+moveRoverNorth
+	
+	(roverOrientation = 'N') ifTrue: [^roverPosition := roverPosition + (0@-1)].
+	(roverOrientation = 'E') ifTrue: [^roverPosition := roverPosition + (-1@0)].
+	(roverOrientation = 'S') ifTrue: [^roverPosition := roverPosition + (0@1)].
+	(roverOrientation = 'W') ifTrue: [^roverPosition := roverPosition + (1@0)].! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:17:04' prior: 50866227!
+moveRoverNorth
+	
+	roverPosition := roverPosition + (0@1)! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:18:45'!
+moveRoverTowardsNorth
+	
+	roverPosition := roverPosition + (0@1)! !
+
+!methodRemoval: MarsRover #moveRoverNorth stamp: 'JP 6/30/2021 16:18:45'!
+moveRoverNorth
+	
+	roverPosition := roverPosition + (0@1)!
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:18:50'!
+moveRoverTowardsSouth
+	
+	roverPosition := roverPosition + (0@1)! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:18:59' prior: 50866255!
+moveRoverTowardsSouth
+	
+	roverPosition := roverPosition + (0@-1)! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:19:12'!
+moveRoverTowardsWest
+	
+	roverPosition := roverPosition + (-1@0)! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:19:18'!
+moveRoverTowardsEast
+	
+	roverPosition := roverPosition + (1@0)! !
+
+!classDefinition: #MarsRover category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:20:19'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'roverPosition roverOrientation roverOrientationStatus'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:20:16' prior: 50864870!
+moveRoverForward
+
+	roverOrientationStatus forward.! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:20:54' prior: 50866285!
+moveRoverForward
+
+	roverOrientationStatus forward.! !
+
+Object subclass: #MarsRoverXXX
+	instanceVariableNames: 'marsRover'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverXXX category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:21:57'!
+Object subclass: #MarsRoverXXX
+	instanceVariableNames: 'marsRover'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:22:32' prior: 50866216 overrides: 50866132!
+foward
+
+	marsRover moveRoverTowardsEast
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:22:51' prior: 50866212 overrides: 50866136!
+backwards
+
+	marsRover moveRoverTowardsWest
+
+! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:23:04' prior: 50866166 overrides: 50866132!
+foward
+
+	marsRover moveRoverTowardsNorth 
+! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:23:10' prior: 50866170 overrides: 50866136!
+backwards
+
+	marsRover moveRoverTowardsSouth 
+! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:23:18' prior: 50866185 overrides: 50866136!
+backwards
+
+	marsRover moveRoverTowardsNorth ! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:23:27' prior: 50866181 overrides: 50866132!
+foward
+
+	marsRover moveRoverTowardsSouth ! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:23:36' prior: 50866196 overrides: 50866132!
+foward
+
+	marsRover moveRoverTowardsWest ! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:23:42' prior: 50866200 overrides: 50866136!
+backwards
+
+	marsRover moveRoverTowardsEast! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 6/30/2021 16:28:53' prior: 50863178!
+initializeWithPosition: aRoverStartingPosition andOrientation: aRoverStartingOrientation
+
+	roverPosition := aRoverStartingPosition.
+	roverOrientation := (MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]) new.! !
+!East class methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:30:53'!
+itsValidOrientation: aCharacterOrientation! !
+!East class methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:31:50' prior: 50866359!
+itsValidOrientation: aStringOrientation! !
+!East class methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:32:14' prior: 50866364!
+itsValidOrientation: aStringOrientation
+
+	^aStringOrientation = 'E'! !
+!North class methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:32:26'!
+itsValidOrientation: aStringOrientation
+
+	^aStringOrientation = 'N'! !
+!South class methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:32:31'!
+itsValidOrientation: aStringOrientation
+
+	^aStringOrientation = 'S'! !
+!West class methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:32:36'!
+itsValidOrientation: aStringOrientation
+
+	^aStringOrientation = 'S'! !
+!MarsRoverXXX class methodsFor: 'no messages' stamp: 'JP 6/30/2021 16:32:59'!
+itsValidOrientation: aStringOrientation
+
+	self subclassResponsibility ! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:33:21' overrides: 50866140!
+right
+
+! !
+
+!methodRemoval: East #rigth stamp: 'JP 6/30/2021 16:33:21'!
+rigth
+
+!
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:34:51'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:34:51'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:34:51'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:34:51'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:34:51'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:34:51'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:34:51'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:34:51'!
+ERROR!
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:35:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:35:13'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:35:13'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:35:13'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:35:13'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:35:13'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:35:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:35:13'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:35:14'!
+ERROR!
+
+marsRoverController!
+
+Object subclass: #MarsRover
+	instanceVariableNames: 'roverPosition roverOrientation '
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRover category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:36:39'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'roverPosition roverOrientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRover category: 'Mars-Rover' stamp: 'JP 6/30/2021 16:36:45'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'roverPosition roverOrientationStatus'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:36:45' prior: 50864136!
+rotateRoverLeft
+	
+	(roverOrientationStatus = 'N') ifTrue: [^roverOrientationStatus := 'W'].
+	(roverOrientationStatus = 'E') ifTrue: [^roverOrientationStatus := 'N'].
+	(roverOrientationStatus = 'S') ifTrue: [^roverOrientationStatus := 'E'].
+	(roverOrientationStatus = 'W') ifTrue: [^roverOrientationStatus := 'S'].! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:36:45' prior: 50864929!
+moveRoverBackwards
+	
+	(roverOrientationStatus = 'N') ifTrue: [^roverPosition := roverPosition + (0@-1)].
+	(roverOrientationStatus = 'E') ifTrue: [^roverPosition := roverPosition + (-1@0)].
+	(roverOrientationStatus = 'S') ifTrue: [^roverPosition := roverPosition + (0@1)].
+	(roverOrientationStatus = 'W') ifTrue: [^roverPosition := roverPosition + (1@0)].! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:36:45' prior: 50866347!
+initializeWithPosition: aRoverStartingPosition andOrientation: aRoverStartingOrientation
+
+	roverPosition := aRoverStartingPosition.
+	roverOrientationStatus := (MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]) new.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:36:45' prior: 50863187!
+roverOrientation
+
+	^roverOrientationStatus! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:36:45' prior: 50864095!
+rotateRoverRight
+	
+	(roverOrientationStatus = 'N') ifTrue: [^roverOrientationStatus := 'E'].
+	(roverOrientationStatus = 'E') ifTrue: [^roverOrientationStatus := 'S'].
+	(roverOrientationStatus = 'S') ifTrue: [^roverOrientationStatus := 'W'].
+	(roverOrientationStatus = 'W') ifTrue: [^roverOrientationStatus := 'N'].! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:36:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:36:57'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:36:57'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:36:57'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:36:58'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:36:58'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:36:58'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:36:58'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:37:06'!
+ERROR!
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:38:15'!
+forward
+
+	marsRover moveRoverTowardsEast
+! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:38:15'!
+forward
+
+	marsRover moveRoverTowardsSouth ! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:38:15'!
+forward
+
+	marsRover moveRoverTowardsNorth 
+! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:38:15'!
+forward
+
+	marsRover moveRoverTowardsWest ! !
+!MarsRoverXXX methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:38:15'!
+forward
+
+	self subclassResponsibility ! !
+
+!methodRemoval: East #foward stamp: 'JP 6/30/2021 16:38:15'!
+foward
+
+	marsRover moveRoverTowardsEast
+!
+
+!methodRemoval: South #foward stamp: 'JP 6/30/2021 16:38:15'!
+foward
+
+	marsRover moveRoverTowardsSouth !
+
+!methodRemoval: North #foward stamp: 'JP 6/30/2021 16:38:15'!
+foward
+
+	marsRover moveRoverTowardsNorth 
+!
+
+!methodRemoval: West #foward stamp: 'JP 6/30/2021 16:38:15'!
+foward
+
+	marsRover moveRoverTowardsWest !
+
+!methodRemoval: MarsRoverXXX #foward stamp: 'JP 6/30/2021 16:38:15'!
+foward
+
+	self subclassResponsibility !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:38:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:38:23'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:38:23'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:38:23'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:38:24'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:38:24'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:38:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:38:24'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:38:27'!
+ERROR!
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:39:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:39:13'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:39:13'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:39:13'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:39:13'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:39:13'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:39:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:39:13'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:39:14'!
+ERROR!
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:40:26' prior: 50866290!
+moveRoverForward
+
+	roverOrientationStatus forward.! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:40:31'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:40:31'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:40:31'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:40:31'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:40:31'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:40:32'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:40:32'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:40:33'!
+ERROR!
+!MarsRoverXXX class methodsFor: 'nil' stamp: 'JP 6/30/2021 16:42:32'!
+newOrientationStatusFor: aMarsRover
+
+	^self new initializeWith: aMarsRover .! !
+!MarsRoverXXX class methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:42:39' prior: 50866716!
+newOrientationStatusFor: aMarsRover
+
+	^self new initializeWith: aMarsRover.! !
+!MarsRoverXXX methodsFor: 'nil' stamp: 'JP 6/30/2021 16:43:02'!
+initializeWith: aMarsRover
+
+	marsRover := aMarsRover! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:43:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:43:57'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:43:57'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:43:57'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:43:57'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:43:57'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:43:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:43:57'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:43:59'!
+ERROR!
+
+marsRover!
+!MarsRover methodsFor: 'initialization' stamp: 'JP 6/30/2021 16:45:01' prior: 50866512!
+initializeWithPosition: aRoverStartingPosition andOrientation: aRoverStartingOrientation
+
+	roverPosition := aRoverStartingPosition.
+	roverOrientationStatus := (MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]) newOrientationStatusFor: self.! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:45:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:45:08'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:45:08'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:45:08'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:45:08'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:45:08'!
+PASSED!
+!MarsRover methodsFor: 'initialization' stamp: 'JP 6/30/2021 16:47:02' prior: 50866765!
+initializeWithPosition: aRoverStartingPosition andOrientation: aRoverStartingOrientation
+
+	roverPosition := aRoverStartingPosition.
+	roverOrientationStatus := self detectValidStatusFor: aRoverStartingOrientation.! !
+!MarsRover methodsFor: 'nil' stamp: 'JP 6/30/2021 16:47:26'!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	(MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]) newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:47:41' prior: 50866817!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	^(MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]) newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:47:58' prior: 50866827!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	(MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]) newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:48:01' prior: 50866837!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	^(MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]) newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'private' stamp: 'JP 6/30/2021 16:50:27' prior: 50866847!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	| validMarsRoverStatus |
+	validMarsRoverStatus := MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]. 	
+	
+	^ validMarsRoverStatus newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'private' stamp: 'JP 6/30/2021 16:50:36' prior: 50866857!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	| validMarsRoverStatus |
+	
+	validMarsRoverStatus := MarsRoverXXX allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]. 	
+	^validMarsRoverStatus newOrientationStatusFor: self! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:50:42'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:50:42'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:50:42'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:50:42'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:50:42'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:50:43'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:50:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:50:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:50:55'!
+FAILURE!
+
+marsRoverController roverPosition!
+
+marsRoverController roverPosition!
+
+marsRoverController roverPosition!
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:51:47' prior: 50866497!
+moveRoverBackwards
+	
+	roverOrientationStatus backwards.! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:51:55'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:51:55'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:51:55'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:51:55'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:51:56'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:51:56'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:51:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:51:56'!
+PASSED!
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:52:53'!
+rotateRoverTowardsWest
+	
+	roverPosition := roverPosition + (-1@0)! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:53:01'!
+rotateRoverTowardsSouth
+	
+	roverPosition := roverPosition + (0@-1)! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:53:05'!
+rotateRoverTowardsNorth
+	
+	roverPosition := roverPosition + (0@1)! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:53:08'!
+rotateRoverTowardsEast
+	
+	roverPosition := roverPosition + (1@0)! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:53:35' prior: 50866220 overrides: 50866144!
+left
+
+	marsRover rotateRoverTowardsNorth 
+
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:53:47' prior: 50866395 overrides: 50866140!
+right
+
+	marsRover rotateRoverTowardsSouth ! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:53:56' prior: 50866174 overrides: 50866144!
+left
+
+	marsRover rotateRoverTowardsWest ! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:54:04' prior: 50866178 overrides: 50866140!
+right
+
+	marsRover rotateRoverTowardsEast ! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:54:16' prior: 50866193 overrides: 50866144!
+left
+	
+	marsRover rotateRoverTowardsEast ! !
+!South methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:54:23' prior: 50866189 overrides: 50866140!
+right
+
+	marsRover rotateRoverTowardsWest ! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:54:31' prior: 50866204 overrides: 50866144!
+left
+
+	marsRover rotateRoverTowardsSouth ! !
+!West methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:54:39' prior: 50866208 overrides: 50866140!
+right
+
+	marsRover rotateRoverTowardsNorth ! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:55:49' prior: 50866962!
+rotateRoverTowardsNorth
+	
+	roverOrientationStatus = North newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:55:54' prior: 50866957!
+rotateRoverTowardsSouth
+	
+	roverOrientationStatus = South newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:55:59' prior: 50866952!
+rotateRoverTowardsWest
+	
+	roverOrientationStatus = West newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:56:13' prior: 50866484!
+rotateRoverLeft
+	
+	! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:56:23' prior: 50866967!
+rotateRoverTowardsEast
+	
+	roverOrientationStatus = East newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:56:33' prior: 50867031!
+rotateRoverLeft
+	
+	! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:56:44' prior: 50867041!
+rotateRoverLeft
+	
+	! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:56:53' prior: 50867045!
+rotateRoverLeft
+	
+	roverOrientationStatus! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:57:00' prior: 50867049!
+rotateRoverLeft
+	
+	roverOrientationStatus left! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 16:57:11' prior: 50866530!
+rotateRoverRight
+	
+	roverOrientationStatus right! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:57:28'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:57:28'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:57:28'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:57:28'!
+ERROR!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:57:28'!
+ERROR!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:57:28'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:57:28'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:57:28'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:58:29' prior: 50866525!
+roverOrientation
+
+	^roverOrientationStatus orientation! !
+!East methodsFor: 'nil' stamp: 'JP 6/30/2021 16:58:44'!
+orientation
+
+	^'E'! !
+!North methodsFor: 'nil' stamp: 'JP 6/30/2021 16:58:54'!
+orientation
+
+	'N'! !
+!South methodsFor: 'nil' stamp: 'JP 6/30/2021 16:59:01'!
+orientation
+
+	^'S'! !
+!West methodsFor: 'nil' stamp: 'JP 6/30/2021 16:59:09'!
+orientation
+
+	^'W'! !
+!North methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 16:59:16' prior: 50867100!
+orientation
+
+	^'N'! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 16:59:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 16:59:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 16:59:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 16:59:24'!
+ERROR!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 16:59:24'!
+ERROR!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 16:59:24'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 16:59:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 16:59:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:00:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:00:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:00:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:00:00'!
+ERROR!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:00:00'!
+ERROR!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:00:00'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 17:00:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:00:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:00:01'!
+ERROR!
+
+roverOrientationStatus!
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 17:01:04' prior: 50867035!
+rotateRoverTowardsEast
+	
+	roverOrientationStatus := East newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 17:01:07' prior: 50867013!
+rotateRoverTowardsNorth
+	
+	roverOrientationStatus := North newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 17:01:10' prior: 50867019!
+rotateRoverTowardsSouth
+	
+	roverOrientationStatus := South newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'privateRoverMovement' stamp: 'JP 6/30/2021 17:01:13' prior: 50867025!
+rotateRoverTowardsWest
+	
+	roverOrientationStatus := West newOrientationStatusFor: self! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:01:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:01:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:01:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:01:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:01:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:01:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 17:01:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:01:16'!
+PASSED!
+
+!classRenamed: #MarsRoverXXX as: #MarsRoverOrientationStatus stamp: 'JP 6/30/2021 17:01:34'!
+Smalltalk renameClassNamed: #MarsRoverXXX as: #MarsRoverOrientationStatus!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:01:34' prior: 50866869!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	| validMarsRoverStatus |
+	
+	validMarsRoverStatus := MarsRoverOrientationStatus allSubclasses detect: [:aRoverOrientationClass | aRoverOrientationClass itsValidOrientation: aRoverStartingOrientation]. 	
+	^validMarsRoverStatus newOrientationStatusFor: self! !
+
+!classRenamed: #East as: #MarsRoverFacingEast stamp: 'JP 6/30/2021 17:02:03'!
+Smalltalk renameClassNamed: #East as: #MarsRoverFacingEast!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:02:03' prior: 50867177!
+rotateRoverTowardsEast
+	
+	roverOrientationStatus := MarsRoverFacingEast newOrientationStatusFor: self! !
+
+!classRenamed: #North as: #MarsRoverFacingNorth stamp: 'JP 6/30/2021 17:02:12'!
+Smalltalk renameClassNamed: #North as: #MarsRoverFacingNorth!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:02:12' prior: 50867183!
+rotateRoverTowardsNorth
+	
+	roverOrientationStatus := MarsRoverFacingNorth newOrientationStatusFor: self! !
+
+!classRenamed: #South as: #MarsRoverFacingSouth stamp: 'JP 6/30/2021 17:02:19'!
+Smalltalk renameClassNamed: #South as: #MarsRoverFacingSouth!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:02:19' prior: 50867189!
+rotateRoverTowardsSouth
+	
+	roverOrientationStatus := MarsRoverFacingSouth newOrientationStatusFor: self! !
+
+!classRenamed: #West as: #MarsRoverFacingWest stamp: 'JP 6/30/2021 17:02:25'!
+Smalltalk renameClassNamed: #West as: #MarsRoverFacingWest!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:02:25' prior: 50867195!
+rotateRoverTowardsWest
+	
+	roverOrientationStatus := MarsRoverFacingWest newOrientationStatusFor: self! !
+!MarsRoverOrientationStatus methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:45'!
+moveBackwards
+
+	self subclassResponsibility ! !
+!MarsRoverFacingEast methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:45' overrides: 50867293!
+moveBackwards
+
+	marsRover moveRoverTowardsWest
+
+! !
+!MarsRoverFacingWest methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:45' overrides: 50867293!
+moveBackwards
+
+	marsRover moveRoverTowardsEast! !
+!MarsRoverFacingSouth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:45' overrides: 50867293!
+moveBackwards
+
+	marsRover moveRoverTowardsNorth ! !
+!MarsRoverFacingNorth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:45' overrides: 50867293!
+moveBackwards
+
+	marsRover moveRoverTowardsSouth 
+! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:45' prior: 50866918!
+moveRoverBackwards
+	
+	roverOrientationStatus moveBackwards.! !
+
+!methodRemoval: MarsRoverOrientationStatus #backwards stamp: 'JP 6/30/2021 17:03:45'!
+backwards
+
+	self subclassResponsibility !
+
+!methodRemoval: MarsRoverFacingEast #backwards stamp: 'JP 6/30/2021 17:03:45'!
+backwards
+
+	marsRover moveRoverTowardsWest
+
+!
+
+!methodRemoval: MarsRoverFacingWest #backwards stamp: 'JP 6/30/2021 17:03:45'!
+backwards
+
+	marsRover moveRoverTowardsEast!
+
+!methodRemoval: MarsRoverFacingSouth #backwards stamp: 'JP 6/30/2021 17:03:45'!
+backwards
+
+	marsRover moveRoverTowardsNorth !
+
+!methodRemoval: MarsRoverFacingNorth #backwards stamp: 'JP 6/30/2021 17:03:46'!
+backwards
+
+	marsRover moveRoverTowardsSouth 
+!
+!MarsRoverOrientationStatus methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:57'!
+moveForward
+
+	self subclassResponsibility ! !
+!MarsRoverFacingWest methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:57' overrides: 50867343!
+moveForward
+
+	marsRover moveRoverTowardsWest ! !
+!MarsRoverFacingNorth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:57' overrides: 50867343!
+moveForward
+
+	marsRover moveRoverTowardsNorth 
+! !
+!MarsRoverFacingSouth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:57' overrides: 50867343!
+moveForward
+
+	marsRover moveRoverTowardsSouth ! !
+!MarsRoverFacingEast methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:57' overrides: 50867343!
+moveForward
+
+	marsRover moveRoverTowardsEast
+! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:03:57' prior: 50866679!
+moveRoverForward
+
+	roverOrientationStatus moveForward.! !
+
+!methodRemoval: MarsRoverOrientationStatus #forward stamp: 'JP 6/30/2021 17:03:57'!
+forward
+
+	self subclassResponsibility !
+
+!methodRemoval: MarsRoverFacingWest #forward stamp: 'JP 6/30/2021 17:03:57'!
+forward
+
+	marsRover moveRoverTowardsWest !
+
+!methodRemoval: MarsRoverFacingNorth #forward stamp: 'JP 6/30/2021 17:03:57'!
+forward
+
+	marsRover moveRoverTowardsNorth 
+!
+
+!methodRemoval: MarsRoverFacingSouth #forward stamp: 'JP 6/30/2021 17:03:57'!
+forward
+
+	marsRover moveRoverTowardsSouth !
+
+!methodRemoval: MarsRoverFacingEast #forward stamp: 'JP 6/30/2021 17:03:57'!
+forward
+
+	marsRover moveRoverTowardsEast
+!
+!MarsRoverFacingNorth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:11'!
+rotateLeft
+
+	marsRover rotateRoverTowardsWest ! !
+!MarsRoverFacingWest methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:11'!
+rotateLeft
+
+	marsRover rotateRoverTowardsSouth ! !
+!MarsRoverOrientationStatus methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:11'!
+rotateLeft
+
+	self subclassResponsibility ! !
+!MarsRoverFacingEast methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:11' overrides: 50867402!
+rotateLeft
+
+	marsRover rotateRoverTowardsNorth 
+
+! !
+!MarsRoverFacingSouth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:11' overrides: 50867402!
+rotateLeft
+	
+	marsRover rotateRoverTowardsEast ! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:12' prior: 50867054!
+rotateRoverLeft
+	
+	roverOrientationStatus rotateLeft! !
+
+!methodRemoval: MarsRoverFacingNorth #left stamp: 'JP 6/30/2021 17:04:12'!
+left
+
+	marsRover rotateRoverTowardsWest !
+
+!methodRemoval: MarsRoverFacingWest #left stamp: 'JP 6/30/2021 17:04:12'!
+left
+
+	marsRover rotateRoverTowardsSouth !
+
+!methodRemoval: MarsRoverOrientationStatus #left stamp: 'JP 6/30/2021 17:04:12'!
+left
+
+	self subclassResponsibility !
+
+!methodRemoval: MarsRoverFacingEast #left stamp: 'JP 6/30/2021 17:04:12'!
+left
+
+	marsRover rotateRoverTowardsNorth 
+
+!
+
+!methodRemoval: MarsRoverFacingSouth #left stamp: 'JP 6/30/2021 17:04:12'!
+left
+	
+	marsRover rotateRoverTowardsEast !
+!MarsRoverFacingEast methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:19'!
+rotateRight
+
+	marsRover rotateRoverTowardsSouth ! !
+!MarsRoverFacingNorth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:19'!
+rotateRight
+
+	marsRover rotateRoverTowardsEast ! !
+!MarsRoverFacingSouth methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:19'!
+rotateRight
+
+	marsRover rotateRoverTowardsWest ! !
+!MarsRoverFacingWest methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:19'!
+rotateRight
+
+	marsRover rotateRoverTowardsNorth ! !
+!MarsRoverOrientationStatus methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:19'!
+rotateRight
+
+	self subclassResponsibility ! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:04:20' prior: 50867059!
+rotateRoverRight
+	
+	roverOrientationStatus rotateRight! !
+
+!methodRemoval: MarsRoverFacingEast #right stamp: 'JP 6/30/2021 17:04:20'!
+right
+
+	marsRover rotateRoverTowardsSouth !
+
+!methodRemoval: MarsRoverFacingNorth #right stamp: 'JP 6/30/2021 17:04:20'!
+right
+
+	marsRover rotateRoverTowardsEast !
+
+!methodRemoval: MarsRoverFacingSouth #right stamp: 'JP 6/30/2021 17:04:20'!
+right
+
+	marsRover rotateRoverTowardsWest !
+
+!methodRemoval: MarsRoverFacingWest #right stamp: 'JP 6/30/2021 17:04:20'!
+right
+
+	marsRover rotateRoverTowardsNorth !
+
+!methodRemoval: MarsRoverOrientationStatus #right stamp: 'JP 6/30/2021 17:04:20'!
+right
+
+	self subclassResponsibility !
+!MarsRoverOrientationStatus methodsFor: 'nil' stamp: 'JP 6/30/2021 17:04:33'!
+orientation
+
+	self subclassResponsibility ! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:13:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:13:34'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:13:34'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:13:34'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:13:34'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:13:34'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 17:13:34'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:13:34'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:14:19'!
+test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: 'aaa'.
+	
+	self should: [marsRoverController receiveInstructionSet: 'ff%ff'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (marsRoverController roverPosition = (0@2))]! !
+
+!testRun: #MarsRoverTests #test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:14:23'!
+ERROR!
+
+!testRun: #MarsRoverTests #test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:14:23'!
+ERROR!
+
+!methodRemoval: MarsRoverTests #test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:15:19'!
+test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: 'aaa'.
+	
+	self should: [marsRoverController receiveInstructionSet: 'ff%ff'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (marsRoverController roverPosition = (0@2))]!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:18:22' prior: 50866035!
+test06MarsRoverCanReceiveAndExecuteMultipleInstructions
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: 'rf'.
+	
+	self assert: (marsRoverController roverPosition = (1@0))! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:20:11'!
+PASSED!
+!MarsRover methodsFor: 'private' stamp: 'JP 6/30/2021 17:23:07' prior: 50867236!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	| validMarsRoverStatus |
+	
+	validMarsRoverStatus := MarsRoverOrientationStatus allSubclasses detect: [:aClass | aClass itsValidOrientation: aRoverStartingOrientation] 
+	ifNone: [self error: '']. 	
+	^validMarsRoverStatus newOrientationStatusFor: self! !
+!MarsRover methodsFor: 'private' stamp: 'JP 6/30/2021 17:24:16' prior: 50867605!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	| validMarsRoverStatus |
+	
+	validMarsRoverStatus := MarsRoverOrientationStatus allSubclasses detect: [:aClass | aClass itsValidOrientation: aRoverStartingOrientation] 
+	ifNone: [^self error: self class invalidRoverOrientationError]. 	
+	^validMarsRoverStatus newOrientationStatusFor: self! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:26:10'!
+test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted
+	
+	self should: [MarsRover newWithRoverPosition: (0@0) andFacing: 'gualeguaychú'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: true.]! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:26:50' prior: 50867632!
+test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted
+	
+	self should: [MarsRover newWithRoverPosition: (0@0) andFacing: 'gualeguaychú'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: anError messageText = MarsRover invalidOrientation]! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:27:11' prior: 50867643!
+test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted
+	
+	self should: [MarsRover newWithRoverPosition: (0@0) andFacing: 'gualeguaychú'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: anError messageText = MarsRover invalidOrientationError]! !
+
+!testRun: #MarsRoverTests #test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:27:16'!
+ERROR!
+
+!testRun: #MarsRoverTests #test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:27:16'!
+ERROR!
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:27:42'!
+invalidOrientationError
+
+	^'InvalidOrientation'! !
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:27:49' prior: 50867677!
+invalidOrientationError
+
+	^'Invalid orientation'! !
+!MarsRover methodsFor: 'private' stamp: 'JP 6/30/2021 17:30:45' prior: 50867618!
+detectValidStatusFor: aRoverStartingOrientation
+	
+	| validMarsRoverStatus |
+	
+	validMarsRoverStatus := MarsRoverOrientationStatus allSubclasses detect: [:aClass | aClass itsValidOrientation: aRoverStartingOrientation] 
+	ifNone: [^self error: self class invalidOrientationError]. 	
+	^validMarsRoverStatus newOrientationStatusFor: self! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:30:48'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:30:48'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:30:48'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:30:48'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:30:48'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:30:48'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 17:30:49'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:30:49'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:30:49'!
+PASSED!
+
+----SNAPSHOT----(30 June 2021 17:31:13) CuisUniversity-4532.image priorSource: 17102761!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:31:39'!
+test09AnInvalidStartingOrientationShouldRaiseAnExcepcion
+	
+	self should: [MarsRover newWithRoverPosition: (0@0) andFacing: 'gualeguaychú'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: anError messageText = MarsRover invalidOrientationError]! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:31:43'!
+test09AnInvalidStartingOrientationShouldRaiseAnException
+	
+	self should: [MarsRover newWithRoverPosition: (0@0) andFacing: 'gualeguaychú'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: anError messageText = MarsRover invalidOrientationError]! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:31:52'!
+test07AnInvalidInstructionShouldRaiseAnExeption
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	self should: [marsRoverController receiveInstructionSet: '%'.]
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (anError messageText = MarsRover instruccionNotUnderstoodError)]! !
+
+!methodRemoval: MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExepcion stamp: 'JP 6/30/2021 17:31:52'!
+test07AnInvalidInstructionShouldRaiseAnExepcion
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	self should: [marsRoverController receiveInstructionSet: '%'.]
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (anError messageText = MarsRover instruccionNotUnderstoodError)]!
+
+!methodRemoval: MarsRoverTests #test09AnInvalidStartingOrientationShouldRaiseAnExcepcion stamp: 'JP 6/30/2021 17:32:17'!
+test09AnInvalidStartingOrientationShouldRaiseAnExcepcion
+	
+	self should: [MarsRover newWithRoverPosition: (0@0) andFacing: 'gualeguaychú'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: anError messageText = MarsRover invalidOrientationError]!
+
+!methodRemoval: MarsRoverTests #test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:32:23'!
+test09InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted
+	
+	self should: [MarsRover newWithRoverPosition: (0@0) andFacing: 'gualeguaychú'.] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: anError messageText = MarsRover invalidOrientationError]!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:32:33'!
+test07AnInvalidInstructionShouldRaiseAnException
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	self should: [marsRoverController receiveInstructionSet: '%'.]
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (anError messageText = MarsRover instruccionNotUnderstoodError)]! !
+
+!methodRemoval: MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnExeption stamp: 'JP 6/30/2021 17:32:33'!
+test07AnInvalidInstructionShouldRaiseAnExeption
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	self should: [marsRoverController receiveInstructionSet: '%'.]
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo: [:anError | self assert: (anError messageText = MarsRover instruccionNotUnderstoodError)]!
+
+Object subclass: #MarsRoverInstructions
+	instanceVariableNames: 'marsRover'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverInstructions category: 'Mars-Rover' stamp: 'JP 6/30/2021 17:33:38'!
+Object subclass: #MarsRoverInstructions
+	instanceVariableNames: 'marsRover'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+Object subclass: #MarsRoverInstructions
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #MarsRoverInstructions category: 'Mars-Rover' stamp: 'JP 6/30/2021 17:33:49'!
+Object subclass: #MarsRoverInstructions
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverInstructions subclass: #ForwardInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #ForwardInstruction category: 'Mars-Rover' stamp: 'JP 6/30/2021 17:34:17'!
+MarsRoverInstructions subclass: #ForwardInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverInstructions subclass: #BackwardsInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #BackwardsInstruction category: 'Mars-Rover' stamp: 'JP 6/30/2021 17:34:23'!
+MarsRoverInstructions subclass: #BackwardsInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverInstructions subclass: #LeftInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #LeftInstruction category: 'Mars-Rover' stamp: 'JP 6/30/2021 17:34:29'!
+MarsRoverInstructions subclass: #LeftInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverInstructions subclass: #RightRotationInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #RightRotationInstruction category: 'Mars-Rover' stamp: 'JP 6/30/2021 17:34:42'!
+MarsRoverInstructions subclass: #RightRotationInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+MarsRoverInstructions subclass: #LeftRotationInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classDefinition: #LeftRotationInstruction category: 'Mars-Rover' stamp: 'JP 6/30/2021 17:34:45'!
+MarsRoverInstructions subclass: #LeftRotationInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+
+!classRemoval: #LeftInstruction stamp: 'JP 6/30/2021 17:34:58'!
+MarsRoverInstructions subclass: #LeftInstruction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Mars-Rover'!
+!MarsRover methodsFor: 'privateRoverInstruccions' stamp: 'JP 6/30/2021 17:38:48' prior: 50866115!
+executeInstruction: anInstruction
+	
+	| aValidInstructionClass |
+	aValidInstructionClass := MarsRoverInstructions allSubclasses detect: [:aClass | aClass isValidInstruction: anInstruction] 
+	ifNone: [self error: self class instruccionNotUnderstoodError].
+	
+	aValidInstructionClass executeInstructionFor: self.
+	(anInstruction = $f) ifTrue: [^self moveRoverForward].
+	(anInstruction = $b) ifTrue: [^self moveRoverBackwards].
+	(anInstruction = $l) ifTrue: [^self rotateRoverLeft].
+	(anInstruction = $r) ifTrue: [^self rotateRoverRight].
+	self error: self class instruccionNotUnderstoodError
+	! !
+!MarsRover methodsFor: 'privateRoverInstruccions' stamp: 'JP 6/30/2021 17:39:10' prior: 50867939!
+executeInstruction: anInstruction
+	
+	| aValidInstructionClass |
+	aValidInstructionClass := MarsRoverInstructions allSubclasses detect: [:aClass | aClass isValidInstruction: anInstruction] 
+	ifNone: [self error: self class instruccionNotUnderstoodError].
+	
+	(aValidInstructionClass new) executeInstructionFor: self.
+	(anInstruction = $f) ifTrue: [^self moveRoverForward].
+	(anInstruction = $b) ifTrue: [^self moveRoverBackwards].
+	(anInstruction = $l) ifTrue: [^self rotateRoverLeft].
+	(anInstruction = $r) ifTrue: [^self rotateRoverRight].
+	self error: self class instruccionNotUnderstoodError
+	! !
+!MarsRover methodsFor: 'privateRoverInstruccions' stamp: 'JP 6/30/2021 17:39:37' prior: 50867961!
+executeInstruction: anInstruction
+	
+	| aValidInstructionClass |
+	aValidInstructionClass := MarsRoverInstructions allSubclasses detect: [:aClass | aClass isValidInstruction: anInstruction] 
+	ifNone: [^self error: self class instruccionNotUnderstoodError].
+	
+	(aValidInstructionClass new) executeInstructionFor: self.
+	(anInstruction = $f) ifTrue: [^self moveRoverForward].
+	(anInstruction = $b) ifTrue: [^self moveRoverBackwards].
+	(anInstruction = $l) ifTrue: [^self rotateRoverLeft].
+	(anInstruction = $r) ifTrue: [^self rotateRoverRight].
+	self error: self class instruccionNotUnderstoodError
+	! !
+!MarsRover methodsFor: 'privateRoverInstruccions' stamp: 'JP 6/30/2021 17:39:41' prior: 50867983!
+executeInstruction: anInstruction
+	
+	| aValidInstructionClass |
+	aValidInstructionClass := MarsRoverInstructions allSubclasses detect: [:aClass | aClass isValidInstruction: anInstruction] 
+	ifNone: [^self error: self class instruccionNotUnderstoodError].
+	
+	(aValidInstructionClass new) executeInstructionFor: self.
+	(anInstruction = $f) ifTrue: [^self moveRoverForward].
+	(anInstruction = $b) ifTrue: [^self moveRoverBackwards].
+	(anInstruction = $l) ifTrue: [^self rotateRoverLeft].
+	(anInstruction = $r) ifTrue: [^self rotateRoverRight].
+	! !
+!MarsRover methodsFor: 'privateRoverInstruccions' stamp: 'JP 6/30/2021 17:40:02' prior: 50868005!
+executeInstruction: anInstruction
+	
+	| aValidInstructionClass |
+	aValidInstructionClass := MarsRoverInstructions allSubclasses detect: [:aClass | aClass isAValidInstruction: anInstruction] 
+	ifNone: [^self error: self class instruccionNotUnderstoodError].
+	
+	(aValidInstructionClass new) executeInstructionFor: self.
+	(anInstruction = $f) ifTrue: [^self moveRoverForward].
+	(anInstruction = $b) ifTrue: [^self moveRoverBackwards].
+	(anInstruction = $l) ifTrue: [^self rotateRoverLeft].
+	(anInstruction = $r) ifTrue: [^self rotateRoverRight].
+	! !
+!MarsRoverInstructions class methodsFor: 'nil' stamp: 'JP 6/30/2021 17:40:32'!
+isAValidInstruction: anInstruction
+
+	self subclassResponsibility ! !
+!MarsRoverInstructions class methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:40:34' prior: 50868046!
+isAValidInstruction: anInstruction
+
+	self subclassResponsibility! !
+!BackwardsInstruction class methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:40:57' overrides: 50868052!
+isAValidInstruction: anInstruction
+
+	anInstruction = $b! !
+!BackwardsInstruction class methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:40:59' prior: 50868058 overrides: 50868052!
+isAValidInstruction: anInstruction
+
+	^anInstruction = $b! !
+!ForwardInstruction class methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:41:19' overrides: 50868052!
+isAValidInstruction: anInstruction
+
+	^anInstruction = $f! !
+!LeftRotationInstruction class methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:41:26' overrides: 50868052!
+isAValidInstruction: anInstruction
+
+	^anInstruction = $l! !
+!RightRotationInstruction class methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:41:31' overrides: 50868052!
+isAValidInstruction: anInstruction
+
+	^anInstruction = $r! !
+!MarsRoverInstructions methodsFor: 'nil' stamp: 'JP 6/30/2021 17:42:10'!
+executeInstructionFor: aMarsRover
+
+	
+
+	! !
+!MarsRoverInstructions methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:42:14' prior: 50868087!
+executeInstructionFor: aMarsRover
+
+	self subclassResponsibility 
+
+	! !
+!BackwardsInstruction methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:43:11' overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover moveBackwards 
+! !
+!ForwardInstruction methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:43:34' overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover moveForward ! !
+!ForwardInstruction methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:43:51' prior: 50868104 overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover moveForward! !
+!LeftRotationInstruction methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:44:15' overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover rotateLeft ! !
+!RightRotationInstruction methodsFor: 'no messages' stamp: 'JP 6/30/2021 17:44:27' overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover rotateRight! !
+!MarsRover methodsFor: 'privateRoverInstruccions' stamp: 'JP 6/30/2021 17:44:41' prior: 50868026!
+executeInstruction: anInstruction
+	
+	| aValidInstructionClass |
+	aValidInstructionClass := MarsRoverInstructions allSubclasses detect: [:aClass | aClass isAValidInstruction: anInstruction] 
+	ifNone: [^self error: self class instruccionNotUnderstoodError].
+	
+	(aValidInstructionClass new) executeInstructionFor: self.
+	! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:44:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:44:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:44:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:44:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:44:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:44:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnException stamp: 'JP 6/30/2021 17:44:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:44:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test09AnInvalidStartingOrientationShouldRaiseAnException stamp: 'JP 6/30/2021 17:44:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:44:51'!
+ERROR!
+!BackwardsInstruction methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:45:54' prior: 50868098 overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover moveRoverBackwards 
+! !
+!ForwardInstruction methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:45:57' prior: 50868110 overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover moveRoverForward! !
+!LeftRotationInstruction methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:46:01' prior: 50868116 overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover rotateRoverLeft ! !
+!RightRotationInstruction methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:46:05' prior: 50868122 overrides: 50868092!
+executeInstructionFor: aMarsRover
+
+	aMarsRover rotateRoverRight! !
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:46:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:46:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:46:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:46:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:46:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:46:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnException stamp: 'JP 6/30/2021 17:46:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:46:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09AnInvalidStartingOrientationShouldRaiseAnException stamp: 'JP 6/30/2021 17:46:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverExecutesCorrectlyBackwardsInstruction stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverExecutesCorrectlyLeftInstruction stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverExecutesCorrectlyRightInstruction stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06MarsRoverCanReceiveAndExecuteMultipleInstructions stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07AnInvalidInstructionShouldRaiseAnException stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08InCaseOfInvalidInstructionNextInstruccionsShouldNotBeExecuted stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09AnInvalidStartingOrientationShouldRaiseAnException stamp: 'JP 6/30/2021 17:46:40'!
+PASSED!
+
+----SNAPSHOT----(30 June 2021 17:46:47) CuisUniversity-4532.image priorSource: 17154662!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:46:57'!
+test01RoverDoesNothingOnEmptyInstruction
+	
+	"Este test fue añadido luego al darnos cuenta que era lo mas sencillo a probar para el primer test. No tuvimos tiempo de descartar los test ya hechos, 
+	pero somos concientes que eso era lo indicado."
+	
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: ''.
+	
+	self assert: (marsRoverController roverPosition = (0@0))! !
+
+!methodRemoval: MarsRoverTests #test00RoverDoesNothingOnEmptyInstruction stamp: 'JP 6/30/2021 17:46:57'!
+test00RoverDoesNothingOnEmptyInstruction
+	
+	"Este test fue añadido luego al darnos cuenta que era lo mas sencillo a probar para el primer test. No tuvimos tiempo de descartar los test ya hechos, 
+	pero somos concientes que eso era lo indicado."
+	
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: ''.
+	
+	self assert: (marsRoverController roverPosition = (0@0))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:47:02'!
+test02RoverExecutesCorrectlyForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+
+!methodRemoval: MarsRoverTests #test01RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:47:02'!
+test01RoverExecutesCorrectlyForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JP 6/30/2021 17:47:06'!
+test03RoverExecutesCorrectlyForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))! !
+
+!methodRemoval: MarsRoverTests #test02RoverExecutesCorrectlyForwardInstruction stamp: 'JP 6/30/2021 17:47:06'!
+test02RoverExecutesCorrectlyForwardInstruction
+
+	| marsRoverController |
+	marsRoverController := MarsRover newWithRoverPosition: (0@0) andFacing: north.
+	
+	marsRoverController receiveInstructionSet: forward.
+	
+	self assert: (marsRoverController roverPosition = (0@1))!
+
+----SNAPSHOT----(30 June 2021 17:47:10) CuisUniversity-4532.image priorSource: 17171834!
+
+----SNAPSHOT----(30 June 2021 17:48:28) CuisUniversity-4532.image priorSource: 17174539!
+
+----SNAPSHOT----(30 June 2021 17:49:26) CuisUniversity-4532.image priorSource: 17174629!
+
+----QUIT----(30 June 2021 17:49:33) CuisUniversity-4532.image priorSource: 17174719!
