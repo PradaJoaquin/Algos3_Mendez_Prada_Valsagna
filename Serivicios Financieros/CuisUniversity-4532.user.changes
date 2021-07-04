@@ -1,0 +1,2286 @@
+
+
+----QUIT----(9 March 2021 14:58:42) CuisUniversity-4532.image priorSource: 13044060!
+
+----STARTUP---- (9 March 2021 14:58:43) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-4532.image!
+
+
+----QUIT----(9 March 2021 14:58:43) CuisUniversity-4532.image priorSource: 16885479!
+
+----STARTUP---- (17 May 2021 19:10:33) as D:\Admin\Descargas\windows64\CuisUniversity-4532.image!
+
+
+----End fileIn of C:\Users\Joaquin\Desktop\GitHub\Algos3_Mendez_Prada_Valsagna\CodigoRepetido-Ejercicio.st----!
+
+!classRemoval: #CustomerBook stamp: 'JP 5/17/2021 19:12:18'!
+Object subclass: #CustomerBook
+	instanceVariableNames: 'suspended active'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CustomerBookTest stamp: 'JP 5/17/2021 19:12:19'!
+TestCase subclass: #CustomerBookTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #NotFound stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #NotFound
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CantSuspend stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #CantSuspend
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+----QUIT----(17 May 2021 19:12:24) CuisUniversity-4532.image priorSource: 16885703!
+
+----STARTUP---- (4 July 2021 17:04:08) as C:\Users\fedev\Escritorio\Imagen Limpia CUIS\CuisUniversity-4532.image!
+
+
+----End fileIn of C:\Users\fedev\Downloads\ejercicios-2021-1c-main\07-ServiciosFinancieros\ServiciosFinancieros-Ejercicio.st----!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 17:12:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:12:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:12:43'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 17:12:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 17:12:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 17:12:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 17:12:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:12:43'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 17:12:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:13:01'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:13:01'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:15:04'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:15:04'!
+FAILURE!
+!Withdraw class methodsFor: 'instance creation' stamp: 'FV 7/4/2021 17:18:27' prior: 50859910!
+for: aValue
+
+	^ self new initializeFor: aValue * -1. ! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 17:18:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:18:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:18:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 17:18:39'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 17:18:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 17:18:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 17:18:39'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 17:18:39'!
+FAILURE!
+!Withdraw class methodsFor: 'instance creation' stamp: 'FV 7/4/2021 17:19:39' prior: 50860009!
+for: aValue
+
+	^ self new initializeFor: aValue. ! !
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'FV 7/4/2021 17:25:48' prior: 50859934!
+balance
+
+	^transactions sum: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit ) ifTrue: [aTransaction value].
+		(aTransaction isKindOf: Withdraw) ifTrue: [aTransaction value * -1].	
+		]
+	ifEmpty: [ 0 ]! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 17:25:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:25:55'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:25:55'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 17:25:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 17:25:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 17:25:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 17:25:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:26:16'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:26:16'!
+ERROR!
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'FV 7/4/2021 17:26:51' prior: 50860049!
+balance
+
+	^transactions sum: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit ) ifTrue: [aTransaction value].
+		(aTransaction isKindOf: Withdraw) ifTrue: [aTransaction value * -1].	
+		]
+	ifEmpty: [ 0 ]! !
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:27:02'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:27:02'!
+ERROR!
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'FV 7/4/2021 17:30:10' prior: 50860093!
+balance
+
+	^transactions sum: [ :aTransaction | aTransaction xxx.] ifEmpty: [ 0 ].! !
+!AccountTransaction methodsFor: 'value' stamp: 'FV 7/4/2021 17:30:27'!
+xxx
+	self subclassResponsibility.! !
+!Deposit methodsFor: 'value' stamp: 'FV 7/4/2021 17:30:45' overrides: 50860115!
+xxx
+	^self value.! !
+!Withdraw methodsFor: 'value' stamp: 'FV 7/4/2021 17:31:02' overrides: 50860115!
+xxx
+	^self value * -1.! !
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:31:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 17:31:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:31:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:31:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 17:31:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 17:31:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 17:31:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 17:31:14'!
+PASSED!
+
+5 negative.!
+
+5 negated.!
+!Withdraw methodsFor: 'value' stamp: 'FV 7/4/2021 17:31:57' prior: 50860123 overrides: 50860115!
+xxx
+	^self value negated.! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 17:32:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:32:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:32:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 17:32:06'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 17:32:07'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 17:32:07'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 17:32:07'!
+PASSED!
+!Withdraw methodsFor: 'value' stamp: 'FV 7/4/2021 17:36:30'!
+effectOnAccount
+	^self value negated.! !
+!Deposit methodsFor: 'value' stamp: 'FV 7/4/2021 17:36:30'!
+effectOnAccount
+	^self value.! !
+!AccountTransaction methodsFor: 'value' stamp: 'FV 7/4/2021 17:36:30'!
+effectOnAccount
+	self subclassResponsibility.! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 17:36:30' prior: 50860110!
+balance
+
+	^transactions sum: [ :aTransaction | aTransaction effectOnAccount.] ifEmpty: [ 0 ].! !
+
+!methodRemoval: Withdraw #xxx stamp: 'FV 7/4/2021 17:36:30'!
+xxx
+	^self value negated.!
+
+!methodRemoval: Deposit #xxx stamp: 'FV 7/4/2021 17:36:30'!
+xxx
+	^self value.!
+
+!methodRemoval: AccountTransaction #xxx stamp: 'FV 7/4/2021 17:36:30'!
+xxx
+	self subclassResponsibility.!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:37:15'!
+test08
+	
+	
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:38:05' prior: 50860214!
+test08
+	
+	|account|
+	
+	account := ReceptiveAccount ! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:39:03' prior: 50860218!
+test08
+	
+	|account|
+	
+	account := ReceptiveAccount new.
+	
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:39:39' prior: 50860223!
+test08
+	
+	|accountSender accountReceiver|
+	
+	accountSender := ReceptiveAccount new.
+	
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:40:35' prior: 50860228!
+test08
+	
+	|accountSender accountReceiver|
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:41:26' prior: 50860234!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:42:30' prior: 50860241!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	! !
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 17:45:01'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:43:23' prior: 50860248!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:45:29' prior: 50860264!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:45:52' prior: 50860274!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:46:07' prior: 50860284!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender .! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:46:47' prior: 50860294!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance  equals: 0 * peso.! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:46:51' prior: 50860305!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance equals: 0 * peso.! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:47:14' prior: 50860316!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance equals: 0 * peso.
+	self assert: accountReceiver balance equals: 0 * peso.! !
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 17:47:26'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 17:49:06'!
+ERROR!
+!ReceptiveAccountTest class methodsFor: 'no messages' stamp: 'FV 7/4/2021 17:50:35'!
+register: anAmountOfPesos from: accountSender to: accountReceiver
+
+	! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 17:50:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:50:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 17:50:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 17:50:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 17:50:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 17:50:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 17:50:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 17:50:42'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 17:50:42'!
+ERROR!
+
+!methodRemoval: ReceptiveAccountTest class #register:from:to: stamp: 'FV 7/4/2021 17:51:03'!
+register: anAmountOfPesos from: accountSender to: accountReceiver
+
+	!
+!Transfer class methodsFor: 'no messages' stamp: 'FV 7/4/2021 17:51:19'!
+register: anAmountOfPesos from: accountSender to: accountReceiver
+	! !
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 17:51:29'!
+PASSED!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:51:54' prior: 50860327!
+test08
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance equals: 0 * peso.
+	self assert: accountReceiver balance equals: 0 * peso.! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:52:05' prior: 50860394!
+test08
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance equals: 0 * peso.
+	self assert: accountReceiver balance equals: 0 * peso.! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:52:24' prior: 50860407!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance equals: 0 * peso.
+	self assert: accountReceiver balance equals: 0 * peso.! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:54:58'!
+test09
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance equals: 150 * peso.
+	self assert: accountReceiver balance equals: 50 * peso.! !
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 17:55:01'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 17:55:01'!
+FAILURE!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:56:00' prior: 50860434!
+test09
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance .! !
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 17:56:04'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 17:56:04'!
+FAILURE!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 17:58:05' prior: 50860386!
+register: anAmountOfPesos from: accountSender to: accountReceiver
+
+	Withdraw register: anAmountOfPesos  on: accountSender.
+	Deposit register: anAmountOfPesos on: accountReceiver.! !
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 17:58:13'!
+PASSED!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:58:34'!
+test10
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance .! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 17:59:59' prior: 50860485!
+test10
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:01:00' prior: 50860500!
+test10
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:02:28' prior: 50860512!
+test10
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer).
+	self assert: (accountReceiver hasRegistered: aTransfer).
+	
+	! !
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 18:02:35'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 18:02:35'!
+FAILURE!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:04:11' prior: 50860474!
+register: anAmountOfPesos from: accountSender to: accountReceiver
+
+	Withdraw register: anAmountOfPesos  on: accountSender.
+	Deposit register: anAmountOfPesos on: accountReceiver.! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:05:41' prior: 50860545!
+register: anAmountOfPesos from: accountSender to: accountReceiver
+
+	self initializeFor: anAmountOfPesos from: accountSender to: accountReceiver.
+	Withdraw register: anAmountOfPesos  on: accountSender.
+	Deposit register: anAmountOfPesos on: accountReceiver.! !
+
+!methodRemoval: ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:10:13'!
+test08
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 0 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender balance equals: 0 * peso.
+	self assert: accountReceiver balance equals: 0 * peso.!
+
+!methodRemoval: ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 18:11:12'!
+test09
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance .!
+
+!methodRemoval: ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 18:11:16'!
+test10
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer).
+	self assert: (accountReceiver hasRegistered: aTransfer).
+	
+	!
+
+!classRemoval: #Transfer stamp: 'FV 7/4/2021 18:11:25'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 18:18:41'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:18:25'!
+test08
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance.
+	! !
+!Transfer methodsFor: 'no messages' stamp: 'FV 7/4/2021 18:20:16'!
+register: anAmountOfMoney from: accountSender to: accountReceiver! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:21:21' prior: 50860634!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.! !
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:21:31'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:21:31'!
+ERROR!
+
+!methodRemoval: Transfer #register:from:to: stamp: 'FV 7/4/2021 18:21:46'!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.!
+!Transfer class methodsFor: 'no messages' stamp: 'FV 7/4/2021 18:21:50'!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.! !
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:21:55'!
+PASSED!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:22:46'!
+test09
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer).
+	self assert: (accountReceiver hasRegistered: aTransfer).! !
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 18:23:06'!
+FAILURE!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:28:29' prior: 50860660!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aTransaction|
+	
+	aTransaction := self new.
+	accountSender register: aTransaction.
+	accountReceiver register: aTransaction.
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	^aTransaction! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:28:35'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 18:28:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:28:35'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 18:28:52'!
+PASSED!
+!Transfer methodsFor: 'no messages' stamp: 'FV 7/4/2021 18:29:24' overrides: 50860195!
+effectOnAccount
+! !
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:29:48'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:29:48'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:30:08' prior: 50860738 overrides: 50860195!
+effectOnAccount
+	^0! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 18:30:12'!
+PASSED!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:34:35'!
+test10
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 50 * peso equals: aTransfer value.! !
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 18:35:07'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 18:35:07'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:35:41' overrides: 50859823!
+value
+	| value |
+	^value! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:36:11' prior: 50860802 overrides: 50859823!
+value! !
+
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 18:36:21'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:36:32' prior: 50860807 overrides: 50859823!
+value
+	^ value.! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:36:52'!
+initializeFor: aValue
+	value := aValue.! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:37:15' prior: 50860689!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aTransaction|
+	
+	aTransaction := self new initializeFor: anAmountOfMoney.
+	accountSender register: aTransaction.
+	accountReceiver register: aTransaction.
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	^aTransaction! !
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 18:37:20'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 18:37:32'!
+PASSED!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:37:49'!
+test11
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:37:57' prior: 50860883!
+test11
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:38:24' prior: 50860887!
+test11
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 2 equals: accountSender transactions size.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:38:35' prior: 50860899!
+test11
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 2 equals: accountSender transactions size.
+	! !
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 18:39:41'!
+FAILURE!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:48:04'!
+test12
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: accountSender equals: aTransfer transferSender.
+	self assert: accountReceiver equals: aTransfer transferReceiver.
+	! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:48:27'!
+transferSender
+! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:50:38' prior: 50860928!
+test12
+	
+	|accountSender accountReceiver aTransfer aDepositOnAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions.
+	
+	self assert: accountSender equals: aTransfer transferSender.
+	self assert: accountReceiver equals: aTransfer transferReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:51:25' prior: 50860948!
+test12
+	
+	|accountSender accountReceiver aTransfer aDepositOnAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	
+	self assert: accountSender equals: aTransfer transferSender.
+	self assert: accountReceiver equals: aTransfer transferReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:53:38' prior: 50860967!
+test12
+	
+	|accountSender accountReceiver aTransfer aDepositOnAnotherAccount aDepositFromAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	aDepositFromAnotherAccount := accountReceiver  transactions last.
+	
+	self assert: accountSender equals: aDepositFromAnotherAccount transferSender.
+	self assert: accountReceiver equals: aDepositOnAnotherAccount transferReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:53:51' prior: 50860986!
+test12
+	
+	|accountSender accountReceiver aTransfer aDepositOnAnotherAccount aDepositFromAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	aDepositFromAnotherAccount := accountReceiver  transactions last.
+	
+	self assert: accountSender equals: aDepositOnAnotherAccount transferSender.
+	self assert: accountReceiver equals: aDepositFromAnotherAccount transferReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:54:06' prior: 50861009!
+test12
+	
+	|accountSender accountReceiver aDepositOnAnotherAccount aDepositFromAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	aDepositFromAnotherAccount := accountReceiver  transactions last.
+	
+	self assert: accountSender equals: aDepositOnAnotherAccount transferSender.
+	self assert: accountReceiver equals: aDepositFromAnotherAccount transferReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 18:55:48' prior: 50861032!
+test12
+	
+	|accountSender accountReceiver aDepositOnAnotherAccount aDepositFromAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	aDepositFromAnotherAccount := accountReceiver  transactions last.
+	
+	self assert: accountSender equals: aDepositOnAnotherAccount transferSender.
+	self assert: accountReceiver equals: aDepositFromAnotherAccount transferReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 19:05:31' prior: 50861054!
+test12
+	
+	|accountSender accountReceiver aDepositOnAnotherAccount aDepositFromAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	aDepositFromAnotherAccount := accountReceiver  transactions last.
+	
+	
+	self assert: aDepositOnAnotherAccount equals: aDepositFromAnotherAccount counterpart.
+	self assert: accountSender equals: aDepositOnAnotherAccount transferSender.
+	self assert: accountReceiver equals: aDepositFromAnotherAccount transferReceiver.
+	! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 19:06:01'!
+atest11
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 2 equals: accountSender transactions size.
+	! !
+
+!methodRemoval: ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:06:07'!
+test11
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 2 equals: accountSender transactions size.
+	!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 19:06:14'!
+test11
+	
+	|accountSender accountReceiver aDepositOnAnotherAccount aDepositFromAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	aDepositFromAnotherAccount := accountReceiver  transactions last.
+	
+	
+	self assert: aDepositOnAnotherAccount equals: aDepositFromAnotherAccount counterpart.
+	self assert: accountSender equals: aDepositOnAnotherAccount transferSender.
+	self assert: accountReceiver equals: aDepositFromAnotherAccount transferReceiver.
+	! !
+
+!methodRemoval: ReceptiveAccountTest #test12 stamp: 'FV 7/4/2021 19:06:22'!
+test12
+	
+	|accountSender accountReceiver aDepositOnAnotherAccount aDepositFromAnotherAccount|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	aDepositOnAnotherAccount := accountSender transactions last.
+	aDepositFromAnotherAccount := accountReceiver  transactions last.
+	
+	
+	self assert: aDepositOnAnotherAccount equals: aDepositFromAnotherAccount counterpart.
+	self assert: accountSender equals: aDepositOnAnotherAccount transferSender.
+	self assert: accountReceiver equals: aDepositFromAnotherAccount transferReceiver.
+	!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 19:13:40' prior: 50861125!
+test11
+	
+	|accountSender accountReceiver withdrawPartOfTransfer depositPartOfTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	withdrawPartOfTransfer := accountSender transactions last.
+	depositPartOfTransfer := accountReceiver  transactions last.
+	
+	
+	self assert: depositPartOfTransfer equals: withdrawPartOfTransfer counterpart.
+	self assert: withdrawPartOfTransfer equals: depositPartOfTransfer counterpart.
+	! !
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:14:36'!
+ERROR!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:18:39' prior: 50860833!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aTransaction aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountReceiver register: aDepositPartOfTransfer.
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	^aTransaction! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:20:16' prior: 50861198!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountReceiver register: aDepositPartOfTransfer.
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	
+	
+	^self new.! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:20:27' prior: 50861217!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	
+	
+	^self new.! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:21:11' prior: 50861236!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	
+	
+	^self new.! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:22:58' prior: 50861255!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	
+	
+	^self new.! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:23:31' prior: 50861274!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := self new initializeFor: anAmountOfMoney.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	
+	
+	^self new.! !
+
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:24:20'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:24:39'!
+counterpart: aCounterpart
+	| counterPart |
+	counterPart := aCounterpart ! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:25:21' prior: 50861333!
+counterpart: aCounterpart
+	counterpart := aCounterpart ! !
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:25:29'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:25:29'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:25:43'!
+counterpart
+	^counterpart! !
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:25:51'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:25:51'!
+ERROR!
+
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #DepositPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:31:00'!
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Transfer subclass: #ReceiverPartOfTransfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #ReceiverPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:31:09'!
+Transfer subclass: #ReceiverPartOfTransfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classRenamed: #ReceiverPartOfTransfer as: #WithdrawPartOfTransfer stamp: 'FV 7/4/2021 19:32:00'!
+Smalltalk renameClassNamed: #ReceiverPartOfTransfer as: #WithdrawPartOfTransfer!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:32:27' prior: 50861297!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFor: anAmountOfMoney.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+	Withdraw register: anAmountOfMoney on: accountSender.
+	Deposit register: anAmountOfMoney on: accountReceiver.
+	
+	
+	^self new.! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:33:00' prior: 50860748 overrides: 50860195!
+effectOnAccount
+	self subclassResponsibility.! !
+!DepositPartOfTransfer methodsFor: 'no messages' stamp: 'FV 7/4/2021 19:33:13'!
+effectOnT! !
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:33:34' overrides: 50861415!
+effectOnAccount! !
+
+!methodRemoval: DepositPartOfTransfer #effectOnT stamp: 'FV 7/4/2021 19:33:34'!
+effectOnT!
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:34:08' prior: 50861424 overrides: 50861415!
+effectOnAccount
+
+	^value! !
+!WithdrawPartOfTransfer methodsFor: 'no messages' stamp: 'FV 7/4/2021 19:34:18' overrides: 50861415!
+effectOnAccount
+
+	^value negated.! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:34:35' prior: 50861391!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFor: anAmountOfMoney.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+
+	^self new.! !
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:34:39'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:34:39'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:35:53'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:35:53'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:35:53'!
+PASSED!
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:38:22' prior: 50861432 overrides: 50861415!
+effectOnAccount
+
+	^self value! !
+!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:38:26' prior: 50861437 overrides: 50861415!
+effectOnAccount
+
+	^self value negated.! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:38:29'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:38:29'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:38:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:38:41'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:38:41'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:39:11'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:39:11'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:39:35'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:39:35'!
+FAILURE!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:40:33' prior: 50861442!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFor: anAmountOfMoney.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+
+	^self new initializeFor: anAmountOfMoney .! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:41:59'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 19:41:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:41:59'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 19:42:15'!
+PASSED!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 19:46:14' prior: 50860671!
+test09
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer receiverPart).
+	self assert: (accountReceiver hasRegistered: aTransfer senderPart).! !
+
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:47:36'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #DepositPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:47:44'!
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Transfer subclass: #WithdrawPartOfTransfer
+	instanceVariableNames: 'counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #WithdrawPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:47:51'!
+Transfer subclass: #WithdrawPartOfTransfer
+	instanceVariableNames: 'counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value senderPart receiverPart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:48:06'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value senderPart receiverPart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!methodRemoval: Transfer #transferSender stamp: 'FV 7/4/2021 19:48:54'!
+transferSender
+!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:49:04'!
+receiverPart
+	^receiverPart ! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:49:13'!
+senderPart
+	^senderPart
+	! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:49:16' prior: 50861707!
+senderPart
+	^senderPart! !
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:49:22'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:49:22'!
+FAILURE!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:49:41' prior: 50861565!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFor: anAmountOfMoney.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFor: anAmountOfMoney.
+	accountSender register: aWithdrawPartOfTransfer.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFor: anAmountOfMoney.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+
+	^self new initializeFor: anAmountOfMoney .! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:50:56' prior: 50861720!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer|
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFor: anAmountOfMoney.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFor: anAmountOfMoney.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountSender register: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+
+	^self new initializeFor: anAmountOfMoney withDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer.! !
+!Transfer methodsFor: 'initialization' stamp: 'FV 7/4/2021 19:52:59'!
+initializeFor: anAmountOfMoney withDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer
+	value := anAmountOfMoney.
+	senderPart := aDepositPartOfTransfer.
+	receiverPart := aWithdrawPartOfTransfer.! !
+
+!methodRemoval: Transfer #initializeFor: stamp: 'FV 7/4/2021 19:53:08'!
+initializeFor: aValue
+	value := aValue.!
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:53:32'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value depositPart receiverPart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:53:32' prior: 50861711!
+senderPart
+	^depositPart! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:53:32' prior: 50861767!
+initializeFor: anAmountOfMoney withDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer
+	value := anAmountOfMoney.
+	depositPart := aDepositPartOfTransfer.
+	receiverPart := aWithdrawPartOfTransfer.! !
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:53:51'!
+AccountTransaction subclass: #Transfer
+	instanceVariableNames: 'value depositPart withdrawPart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:53:51' prior: 50861703!
+receiverPart
+	^withdrawPart ! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:53:51' prior: 50861794!
+initializeFor: anAmountOfMoney withDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer
+	value := anAmountOfMoney.
+	depositPart := aDepositPartOfTransfer.
+	withdrawPart := aWithdrawPartOfTransfer.! !
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:54:06'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 19:54:06'!
+ERROR!
+
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #DepositPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:55:27'!
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'counterpart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'counterpart transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #DepositPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:58:03'!
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'counterpart transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Transfer subclass: #WithdrawPartOfTransfer
+	instanceVariableNames: 'counterpart transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #WithdrawPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:58:07'!
+Transfer subclass: #WithdrawPartOfTransfer
+	instanceVariableNames: 'counterpart transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #DepositPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:59:16'!
+Transfer subclass: #DepositPartOfTransfer
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Transfer subclass: #WithdrawPartOfTransfer
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #WithdrawPartOfTransfer category: 'ServiciosFinancieros-Ejercicio' stamp: 'FV 7/4/2021 19:59:25'!
+Transfer subclass: #WithdrawPartOfTransfer
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:00:52' prior: 50861744!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer aTransfer|
+	
+	aTransfer := self new initializeFor: anAmountOfMoney withDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer.
+	
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFromTransfer: aTransfer.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFromTransfer: aTransfer.
+	aWithdrawPartOfTransfer counterpart: aDepositPartOfTransfer.
+	aDepositPartOfTransfer counterpart: aWithdrawPartOfTransfer.
+	accountSender register: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+
+	^aTransfer! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:03:50' prior: 50861905!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	|aWithdrawPartOfTransfer aDepositPartOfTransfer aTransfer|
+	
+	aTransfer := self new initializeFor: anAmountOfMoney.
+	
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFromTransfer: aTransfer.
+	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFromTransfer: aTransfer.
+	accountSender register: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	
+	aTransfer setDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer.
+	^aTransfer! !
+!Transfer methodsFor: 'initialization' stamp: 'FV 7/4/2021 20:04:29'!
+initializeFor: anAmountOfMoney
+	value := anAmountOfMoney.! !
+
+!methodRemoval: Transfer #initializeFor:withDepositPart:andWithdrawPart: stamp: 'FV 7/4/2021 20:04:33'!
+initializeFor: anAmountOfMoney withDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer
+	value := anAmountOfMoney.
+	depositPart := aDepositPartOfTransfer.
+	withdrawPart := aWithdrawPartOfTransfer.!
+
+!methodRemoval: Transfer #counterpart: stamp: 'FV 7/4/2021 20:04:50'!
+counterpart: aCounterpart
+	counterpart := aCounterpart !
+!Transfer methodsFor: 'initialization' stamp: 'FV 7/4/2021 20:05:48'!
+setDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer
+	
+	depositPart := aDepositPartOfTransfer.
+	withdrawPart := aWithdrawPartOfTransfer.! !
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:06:44'!
+initializeFromTransfer: aTransfer
+	transfer := aTransfer! !
+!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:06:54'!
+initializeFromTransfer: aTransfer
+	transfer := aTransfer.! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:07:27'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 20:07:27'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:07:27'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:07:53'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:07:53'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:08:27'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:08:27'!
+ERROR!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:09:44' prior: 50860620!
+test08
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance.
+	! !
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:09:53'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:09:53'!
+ERROR!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:10:19' prior: 50862034!
+test08
+	|accountSender accountReceiver|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance.
+	! !
+!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:11:30' prior: 50861509 overrides: 50861415!
+effectOnAccount
+
+	^transfer value negated.! !
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:11:37' prior: 50861504 overrides: 50861415!
+effectOnAccount
+
+	^transfer value! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 20:11:47'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:11:47'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:11:47'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:11:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 20:12:00'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:12:01'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:12:01'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:12:12'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:12:12'!
+FAILURE!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:12:44' prior: 50861349!
+counterpart
+	self subclassResponsibility.! !
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:12:55' overrides: 50862165!
+counterpart
+	^ transfer! !
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:13:19' prior: 50862170 overrides: 50862165!
+counterpart
+	^ transfer senderPart.! !
+!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:13:34' overrides: 50862165!
+counterpart
+	^transfer receiverPart.! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 20:13:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:13:42'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:13:42'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:14:28'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:14:28'!
+FAILURE!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:15:37' prior: 50861813!
+receiverPart
+	^depositPart ! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:02'!
+depositPart
+	^depositPart ! !
+!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:02' prior: 50862180 overrides: 50862165!
+counterpart
+	^transfer depositPart.! !
+!ReceptiveAccountTest methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:02' prior: 50861627!
+test09
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer depositPart).
+	self assert: (accountReceiver hasRegistered: aTransfer senderPart).! !
+
+!methodRemoval: Transfer #receiverPart stamp: 'FV 7/4/2021 20:16:02'!
+receiverPart
+	^depositPart !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:19' prior: 50861790!
+senderPart
+	^withdrawPart! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:31'!
+withdrawPart
+	^withdrawPart! !
+!ReceptiveAccountTest methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:31' prior: 50862242!
+test09
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer depositPart).
+	self assert: (accountReceiver hasRegistered: aTransfer withdrawPart).! !
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:31' prior: 50862175 overrides: 50862165!
+counterpart
+	^ transfer withdrawPart.! !
+
+!methodRemoval: Transfer #senderPart stamp: 'FV 7/4/2021 20:16:31'!
+senderPart
+	^withdrawPart!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:16:38'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:16:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:16:38'!
+FAILURE!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:17:06' prior: 50862270!
+test09
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer withdrawPart).
+	self assert: (accountReceiver hasRegistered: aTransfer depositPart).! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:17:11'!
+PASSED!
+
+!methodRemoval: ReceptiveAccountTest #atest11 stamp: 'FV 7/4/2021 20:17:28'!
+atest11
+	
+	|accountSender accountReceiver |
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 2 equals: accountSender transactions size.
+	!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:21:18'!
+test08TransferIncreasesBalanceOnReceiverAccountAndDecreasesOnSenderAccount
+	|accountSender accountReceiver|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance.
+	! !
+
+!methodRemoval: ReceptiveAccountTest #test08 stamp: 'FV 7/4/2021 20:21:18'!
+test08
+	|accountSender accountReceiver|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 150 * peso equals: accountSender balance.
+	self assert: 50 * peso equals: accountReceiver balance.
+	!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:21:49'!
+test09BothAccountsRegisterTransfer
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer withdrawPart).
+	self assert: (accountReceiver hasRegistered: aTransfer depositPart).! !
+
+!methodRemoval: ReceptiveAccountTest #test09 stamp: 'FV 7/4/2021 20:21:49'!
+test09
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer withdrawPart).
+	self assert: (accountReceiver hasRegistered: aTransfer depositPart).!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:22:23'!
+test09BothAccountsRegisterTheirPartOfTransfer
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer withdrawPart).
+	self assert: (accountReceiver hasRegistered: aTransfer depositPart).! !
+
+!methodRemoval: ReceptiveAccountTest #test09BothAccountsRegisterTransfer stamp: 'FV 7/4/2021 20:22:23'!
+test09BothAccountsRegisterTransfer
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: (accountSender hasRegistered: aTransfer withdrawPart).
+	self assert: (accountReceiver hasRegistered: aTransfer depositPart).!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:22:58'!
+test10ATransferKnowsItsValue
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 50 * peso equals: aTransfer value.! !
+
+!methodRemoval: ReceptiveAccountTest #test10 stamp: 'FV 7/4/2021 20:22:58'!
+test10
+	
+	|accountSender accountReceiver aTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	aTransfer := Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	self assert: 50 * peso equals: aTransfer value.!
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'FV 7/4/2021 20:23:28'!
+test11BothTransferPartsKnowTheirCounterpart
+	
+	|accountSender accountReceiver withdrawPartOfTransfer depositPartOfTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	withdrawPartOfTransfer := accountSender transactions last.
+	depositPartOfTransfer := accountReceiver  transactions last.
+	
+	
+	self assert: depositPartOfTransfer equals: withdrawPartOfTransfer counterpart.
+	self assert: withdrawPartOfTransfer equals: depositPartOfTransfer counterpart.
+	! !
+
+!methodRemoval: ReceptiveAccountTest #test11 stamp: 'FV 7/4/2021 20:23:28'!
+test11
+	
+	|accountSender accountReceiver withdrawPartOfTransfer depositPartOfTransfer|
+	
+	accountSender := ReceptiveAccount new.
+	Deposit register: 200 * peso on: accountSender.
+	accountReceiver := ReceptiveAccount new.
+	
+	Transfer register: 50 * peso from: accountSender to: accountReceiver.
+	
+	
+	withdrawPartOfTransfer := accountSender transactions last.
+	depositPartOfTransfer := accountReceiver  transactions last.
+	
+	
+	self assert: depositPartOfTransfer equals: withdrawPartOfTransfer counterpart.
+	self assert: withdrawPartOfTransfer equals: depositPartOfTransfer counterpart.
+	!
