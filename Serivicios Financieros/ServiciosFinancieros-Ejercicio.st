@@ -1,3 +1,101 @@
+!classDefinition: #PortfolioTest category: 'ServiciosFinancieros-Ejercicio'!
+TestCase subclass: #PortfolioTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:00:14'!
+test01TheBalanceOfAnEmptyPortfolioIs0
+	|aPortfolio|
+	
+	aPortfolio := Portfolio new.
+
+	self assert: aPortfolio balance equals: 0 * peso.
+	! !
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:11:46'!
+test02APortfolioCanCalculateBalanceOfItsAccounts
+	|aPortfolio anotherPortfolio anAccount anotherAccount|
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	aPortfolio := Portfolio new.
+	anotherPortfolio := Portfolio new.
+	aPortfolio add: anAccount.
+	aPortfolio add: anotherPortfolio.
+	anotherPortfolio add: anotherAccount.
+
+	Deposit register: 100 * peso on: anAccount.
+	Deposit register: 150 * peso on: anotherAccount.
+	
+	self assert: 250 * peso equals: aPortfolio balance.! !
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:11:52'!
+test03APortfolioDoesNotRegisterTransaccionsOutsideOfIt
+	|aPortfolio anAccountNotInPortfolio aTransactionNotInPortfolio |
+	
+	anAccountNotInPortfolio := ReceptiveAccount new.
+	aPortfolio := Portfolio new.
+
+	aTransactionNotInPortfolio := Deposit register: 100 * peso on: anAccountNotInPortfolio .
+
+	
+	self deny: (aPortfolio hasRegistered: aTransactionNotInPortfolio).! !
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:11:59'!
+test04APortfolioCanRegisterTransactionsOfItsAccounts
+	|aPortfolio anAccount aTransaction |
+	
+	anAccount := ReceptiveAccount new.
+	aPortfolio := Portfolio new.
+	aPortfolio add: anAccount.
+
+	aTransaction := Deposit register: 100 * peso on: anAccount.
+
+	
+	self assert: (aPortfolio hasRegistered: aTransaction).! !
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:12:07'!
+test05APortfolioCanShowAllOfItsTransactions
+| aPortfolio anotherPortfolio listOfAllTransactions anAccount anotherAccount|
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	aPortfolio := Portfolio new.
+	anotherPortfolio := Portfolio new.
+	aPortfolio add: anAccount.
+	aPortfolio add: anotherPortfolio.
+	anotherPortfolio add: anotherAccount.
+	
+	Deposit register: 100 * peso on: anAccount.
+	Withdraw register: 25 * peso on: anAccount.
+	Deposit register: 500 * peso on: anotherAccount.
+
+	listOfAllTransactions := anAccount transactions.
+	listOfAllTransactions addAll: (anotherAccount transactions).
+	
+	self assert: (aPortfolio transactions) equals: listOfAllTransactions.! !
+
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:09:55'!
+test06AnEmptyPortfolioTransactionsListIsEmpty
+	| aPortfolio |
+	
+	aPortfolio := Portfolio new.
+	
+	self assert: aPortfolio transactions size equals: 0.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'PortfolioTest class' category: 'ServiciosFinancieros-Ejercicio'!
+PortfolioTest class
+	instanceVariableNames: ''!
+
+!PortfolioTest class methodsFor: 'as yet unclassified' stamp: 'FV 7/5/2021 20:59:51'!
+new
+	^self basicNew initialize.! !
+
+
 !classDefinition: #ReceptiveAccountTest category: 'ServiciosFinancieros-Ejercicio'!
 TestCase subclass: #ReceptiveAccountTest
 	instanceVariableNames: ''
@@ -217,110 +315,6 @@ for: aValue
 	^ self new initializeFor: aValue ! !
 
 
-!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio'!
-AccountTransaction subclass: #Transfer
-	instanceVariableNames: 'value depositPart withdrawPart'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'ServiciosFinancieros-Ejercicio'!
-
-!Transfer methodsFor: 'initialization' stamp: 'FV 7/4/2021 20:04:29'!
-initializeFor: anAmountOfMoney
-	value := anAmountOfMoney.! !
-
-!Transfer methodsFor: 'initialization' stamp: 'FV 7/4/2021 20:05:48'!
-setDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer
-	
-	depositPart := aDepositPartOfTransfer.
-	withdrawPart := aWithdrawPartOfTransfer.! !
-
-
-
-!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:12:44'!
-counterpart
-	self subclassResponsibility.! !
-
-!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:02'!
-depositPart
-	^depositPart ! !
-
-!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 19:33:00'!
-effectOnAccount
-	self subclassResponsibility.! !
-
-!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:36:32'!
-value
-	^ value.! !
-
-!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:31'!
-withdrawPart
-	^withdrawPart! !
-
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
-
-!classDefinition: 'Transfer class' category: 'ServiciosFinancieros-Ejercicio'!
-Transfer class
-	instanceVariableNames: ''!
-
-!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:03:50'!
-register: anAmountOfMoney from: accountSender to: accountReceiver
-	|aWithdrawPartOfTransfer aDepositPartOfTransfer aTransfer|
-	
-	aTransfer := self new initializeFor: anAmountOfMoney.
-	
-	
-	aWithdrawPartOfTransfer := WithdrawPartOfTransfer new initializeFromTransfer: aTransfer.
-	aDepositPartOfTransfer := DepositPartOfTransfer new initializeFromTransfer: aTransfer.
-	accountSender register: aWithdrawPartOfTransfer.
-	accountReceiver register: aDepositPartOfTransfer.
-	
-	
-	aTransfer setDepositPart: aDepositPartOfTransfer andWithdrawPart: aWithdrawPartOfTransfer.
-	^aTransfer! !
-
-
-!classDefinition: #DepositPartOfTransfer category: 'ServiciosFinancieros-Ejercicio'!
-Transfer subclass: #DepositPartOfTransfer
-	instanceVariableNames: 'transfer'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'ServiciosFinancieros-Ejercicio'!
-
-!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:31'!
-counterpart
-	^ transfer withdrawPart.! !
-
-!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:11:37'!
-effectOnAccount
-
-	^transfer value! !
-
-!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:06:44'!
-initializeFromTransfer: aTransfer
-	transfer := aTransfer! !
-
-
-!classDefinition: #WithdrawPartOfTransfer category: 'ServiciosFinancieros-Ejercicio'!
-Transfer subclass: #WithdrawPartOfTransfer
-	instanceVariableNames: 'transfer'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'ServiciosFinancieros-Ejercicio'!
-
-!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:02'!
-counterpart
-	^transfer depositPart.! !
-
-!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:11:30'!
-effectOnAccount
-
-	^transfer value negated.! !
-
-!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:06:54'!
-initializeFromTransfer: aTransfer
-	transfer := aTransfer.! !
-
-
 !classDefinition: #Withdraw category: 'ServiciosFinancieros-Ejercicio'!
 AccountTransaction subclass: #Withdraw
 	instanceVariableNames: 'value'
@@ -353,6 +347,41 @@ Withdraw class
 for: aValue
 
 	^ self new initializeFor: aValue. ! !
+
+
+!classDefinition: #Portfolio category: 'ServiciosFinancieros-Ejercicio'!
+Object subclass: #Portfolio
+	instanceVariableNames: 'listOfAccounts'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'FV 7/5/2021 20:57:26'!
+add: anAccount
+
+	listOfAccounts add: anAccount.! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'FV 7/5/2021 21:04:19'!
+balance
+	^ listOfAccounts sum: [:anAccount | anAccount balance] ifEmpty: [^0 * peso].
+! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'FV 7/5/2021 21:27:15'!
+hasRegistered: aTransaction
+	listOfAccounts detect: [:anAccount | anAccount hasRegistered: aTransaction] ifNone: [^false].
+	^true.! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'FV 7/5/2021 20:59:13'!
+initialize
+	
+	listOfAccounts := OrderedCollection new.! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 16:37:26'!
+transactions
+	|allTheTransactions|
+	allTheTransactions := OrderedCollection new.
+	listOfAccounts do: [:anAccount| allTheTransactions addAll: anAccount transactions].
+	^allTheTransactions.! !
 
 
 !classDefinition: #ReceptiveAccount category: 'ServiciosFinancieros-Ejercicio'!
@@ -389,3 +418,116 @@ register: aTransaction
 transactions 
 
 	^ transactions copy! !
+
+
+!classDefinition: #Transfer category: 'ServiciosFinancieros-Ejercicio'!
+Object subclass: #Transfer
+	instanceVariableNames: 'value depositPart withdrawPart'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:02'!
+depositPart
+	^depositPart ! !
+
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 18:36:32'!
+value
+	^ value.! !
+
+!Transfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:31'!
+withdrawPart
+	^withdrawPart! !
+
+
+!Transfer methodsFor: 'initialization' stamp: 'FV 7/7/2021 17:41:00'!
+initializeWith: anAmountOfMoney from: accountSender to: accountReceiver
+	
+	| aDepositPartOfTransfer  aWithdrawPartOfTransfer |
+	
+	
+	aWithdrawPartOfTransfer := WithdrawPartOfTransfer newFromTransfer: self.
+	aDepositPartOfTransfer := DepositPartOfTransfer newFromTransfer: self.
+	accountSender register: aWithdrawPartOfTransfer.
+	accountReceiver register: aDepositPartOfTransfer.
+	
+	value := anAmountOfMoney.
+	depositPart := aDepositPartOfTransfer.
+	withdrawPart := aWithdrawPartOfTransfer.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Transfer class' category: 'ServiciosFinancieros-Ejercicio'!
+Transfer class
+	instanceVariableNames: ''!
+
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:43:14'!
+register: anAmountOfMoney from: accountSender to: accountReceiver
+	
+	^self new initializeWith: anAmountOfMoney from: accountSender to: accountReceiver
+	
+	! !
+
+
+!classDefinition: #XXX category: 'ServiciosFinancieros-Ejercicio'!
+Object subclass: #XXX
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:31:32'!
+counterpart
+	self subclassResponsibility.! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:32:00'!
+effectOnAccount
+	self subclassResponsibility.! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:31:08'!
+initializeFromTransfer: aTransfer
+	transfer := aTransfer! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'XXX class' category: 'ServiciosFinancieros-Ejercicio'!
+XXX class
+	instanceVariableNames: ''!
+
+!XXX class methodsFor: 'as yet unclassified' stamp: 'FV 7/7/2021 17:33:05'!
+newFromTransfer: aTransfer
+	^self new initializeFromTransfer: aTransfer.! !
+
+
+!classDefinition: #DepositPartOfTransfer category: 'ServiciosFinancieros-Ejercicio'!
+XXX subclass: #DepositPartOfTransfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:31'!
+counterpart
+	^ transfer withdrawPart.! !
+
+!DepositPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:11:37'!
+effectOnAccount
+
+	^transfer value! !
+
+
+!classDefinition: #WithdrawPartOfTransfer category: 'ServiciosFinancieros-Ejercicio'!
+XXX subclass: #WithdrawPartOfTransfer
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:16:02'!
+counterpart
+	^transfer depositPart.! !
+
+!WithdrawPartOfTransfer methodsFor: 'as yet unclassified' stamp: 'FV 7/4/2021 20:11:30'!
+effectOnAccount
+
+	^transfer value negated.! !
