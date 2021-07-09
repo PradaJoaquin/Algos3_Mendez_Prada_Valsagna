@@ -1,0 +1,2081 @@
+
+
+----QUIT----(9 March 2021 14:58:42) CuisUniversity-4532.image priorSource: 13044060!
+
+----STARTUP---- (9 March 2021 14:58:43) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-4532.image!
+
+
+----QUIT----(9 March 2021 14:58:43) CuisUniversity-4532.image priorSource: 16885479!
+
+----STARTUP---- (17 May 2021 19:10:33) as D:\Admin\Descargas\windows64\CuisUniversity-4532.image!
+
+
+----End fileIn of C:\Users\Joaquin\Desktop\GitHub\Algos3_Mendez_Prada_Valsagna\CodigoRepetido-Ejercicio.st----!
+
+!classRemoval: #CustomerBook stamp: 'JP 5/17/2021 19:12:18'!
+Object subclass: #CustomerBook
+	instanceVariableNames: 'suspended active'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CustomerBookTest stamp: 'JP 5/17/2021 19:12:19'!
+TestCase subclass: #CustomerBookTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #NotFound stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #NotFound
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CantSuspend stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #CantSuspend
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+----QUIT----(17 May 2021 19:12:24) CuisUniversity-4532.image priorSource: 16885703!
+
+----STARTUP---- (9 July 2021 18:19:34) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+----End fileIn of D:\Admin\Descargas\07-ServiciosFinancieros\ServiciosFinancieros-Solucion-Extra.st----!
+
+TestCase subclass: #AccountSummaryTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Solucion'!
+
+!classDefinition: #AccountSummaryTest category: 'ServiciosFinancieros-Solucion' stamp: 'JP 7/9/2021 18:22:47'!
+TestCase subclass: #AccountSummaryTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Solucion'!
+
+!classDefinition: #AccountSummary category: 'ServiciosFinancieros-Solucion' stamp: 'JP 7/9/2021 18:28:32'!
+Object subclass: #AccountSummary
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Solucion'!
+!AccountSummaryTest methodsFor: 'no messages' stamp: 'JP 7/9/2021 18:28:23'!
+test01
+	
+	
+	| accountSummary |
+	accountSummary := AccountSummary for: ReceptiveAccount new ! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:28:38' prior: 50860776!
+test01
+	
+	| accountSummary |
+	
+	accountSummary := AccountSummary for: ReceptiveAccount new ! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:29:22' prior: 50860783!
+test01
+	
+	| accountSummary |
+	
+	accountSummary := AccountSummary of: ReceptiveAccount new ! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:29:39' prior: 50860790!
+test01
+	
+	| accountSummary |
+	
+	accountSummary := AccountSummary of: ReceptiveAccount new.
+	
+	! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:31:44' prior: 50860797!
+test01
+	
+	
+	
+	! !
+
+!classRemoval: #AccountSummary stamp: 'JP 7/9/2021 18:31:49'!
+Object subclass: #AccountSummary
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Solucion'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:32:42' prior: 50860804!
+test01
+	
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:32:50' prior: 50860815!
+test01
+	
+	| anAccount |
+	
+	anAccount := ReceptiveAccount new.
+	
+	! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:34:55' prior: 50860821!
+test01
+	
+	| anAccount |
+	
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount summary equals: 'Balance = 0 pesos'
+	
+	! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:35:04' prior: 50860827!
+test01
+	
+	| anAccount |
+	
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount summary equals: 'Balance = 0 pesos'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:36:19' prior: 50860835!
+test01
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'
+	
+	self assert: anAccount summary equals: 'Balance = 0 pesos'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:36:30' prior: 50860843!
+test01
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	
+	self assert: anAccount summary equals: 'Balance = 0 pesos'! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:36:37' prior: 50860853!
+test01
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+
+expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.!
+
+expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.!
+
+expectedSummary2 := OrderedCollection with: 'Balance = 0 pesos'.!
+
+expectedSummary = expectedSummary2!
+
+expectedSummary2 := OrderedCollection with: 'Balance = 1 pesos'.!
+
+expectedSummary = expectedSummary2!
+
+expectedSummary = expectedSummary2!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 18:38:20'!
+ERROR!
+!ReceptiveAccount methodsFor: 'nil' stamp: 'JP 7/9/2021 18:39:09'!
+summary
+
+	^OrderedCollection with: 'Balance = 0 pesos'! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 18:39:20'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:41:18'!
+test02
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:45:14' prior: 50860893!
+test02
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:45:56' prior: 50860903!
+test02
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:46:19' prior: 50860913!
+test02
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:49:23' prior: 50860886!
+summary
+	
+	
+	
+	^OrderedCollection with: 'Balance = 0 pesos'! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:51:50' prior: 50860936!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions isEmpty ifTrue: [^OrderedCollection with: 'Balance = 0 pesos']
+	
+	^OrderedCollection with: 'Balance = 0 pesos'! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:53:23' prior: 50860942!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [^summary add: 'Balance = 0 pesos'].
+	
+	^(summary add: 'Depósito por 10 pesos' ) add: 'Balance = 10 pesos'! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 18:53:46'!
+ERROR!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:55:52' prior: 50860951!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [^summary add: 'Balance = 0 pesos'].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 18:55:57'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 18:55:57'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 18:55:57'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 18:55:57'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:56:30' prior: 50860963!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 18:56:35'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 18:56:36'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:57:28'!
+test03
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 18:58:48' prior: 50860998!
+test03
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Withdraw register: 10 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!PortfolioTest methodsFor: 'tests' stamp: 'JP 7/9/2021 19:00:18' prior: 50859741!
+test02BalanceOfPortfolioWithOneAccountIsAccountBalance
+
+	| account portfolio |
+	
+	account := ReceptiveAccount new.
+	Deposit register: 100 * peso on: account.
+	portfolio := Portfolio with: account.
+	
+	self assert: account balance equals: portfolio balance! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:03:04' prior: 50861010!
+test03
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Withdraw register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Salida por 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:05:22' prior: 50860983!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction].
+	
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccountTest methodsFor: 'tests' stamp: 'JP 7/9/2021 19:08:23' prior: 50860034!
+test03WithdrawDecreasesBalanceOnTransactionValue 
+
+	| account |
+	
+	account := ReceptiveAccount new.
+	Deposit register: 100 * peso on: account.
+	Withdraw register: 50 * peso on: account.
+		
+	self assert: 50 * peso equals: account balance
+! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:09:48' prior: 50861034!
+test03
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Deposit register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:10:11' prior: 50861049!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction].
+	
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:12:52' prior: 50861087!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: aTransaction ].
+	
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:13:02'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:15:01' prior: 50861099!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value].
+	
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:18:01' prior: 50861114!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString , 's'].
+	
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:18:11' prior: 50861128!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value , 's'].
+	
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:18:31' prior: 50861142!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value , 's'].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:18:50' prior: 50861156!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString , 's'].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:18:51' prior: 50861170!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString, 's'].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:18:54' prior: 50861184!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString , 's'].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary! !
+
+(10 * peso) asString!
+
+(10 * peso) asString!
+
+(10 * peso) asString!
+
+(10 * peso) asString!
+
+(10 * peso) asString!
+
+(10 * peso) asString!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:20:48' prior: 50861198!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:21:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:21:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:21:10'!
+PASSED!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:21:19' prior: 50861216!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:21:25'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:21:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:21:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:21:25'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:20:48' prior: 50861236!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	(transactions isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'JP 7/9/2021 19:22:18' prior: 50860410 overrides: 50860223!
+balance
+
+	^transactions 
+		inject: 0 * peso
+		into: [ :currentBalance :transaction | transaction affectBalance: currentBalance ]! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/9/2021 19:22:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/9/2021 19:22:31'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/9/2021 19:22:31'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/9/2021 19:22:31'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/9/2021 19:22:31'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/9/2021 19:22:31'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/9/2021 19:22:31'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/9/2021 19:22:31'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/9/2021 19:22:34'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/9/2021 19:22:35'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/9/2021 19:22:35'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/9/2021 19:22:35'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/9/2021 19:22:40'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/9/2021 19:22:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:22:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:22:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:22:48'!
+PASSED!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:22:59' prior: 50861256!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: 'Depósito por ' , aTransaction value asString].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:23:02'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:23:02'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:23:02'!
+PASSED!
+
+----SNAPSHOT----(9 July 2021 19:23:41) CuisUniversity-4532.image priorSource: 16898108!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:24:18'!
+test04
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Withdraw register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Extracción por 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:25:23' prior: 50861388!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | (aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString]].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:27:17' prior: 50861423!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw ) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString]].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:27:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:27:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:27:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:27:25'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:28:04'!
+test05
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Withdraw register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Extracción por 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:29:29' prior: 50861460!
+test05
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Extracción por 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:31:06' prior: 50861475!
+test05
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:31:13'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:31:22' prior: 50861435!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString]].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:31:55' prior: 50861510!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
+		
+		].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:32:01'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:32:01'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:32:01'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:32:01'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:32:01'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:32:01'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:33:58'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:34:29' prior: 50861491!
+test05
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anotherAccount summary equals: expectedSummary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:34:33'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:34:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:34:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:34:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:34:34'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:34:44'!
+test06
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anotherAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:35:30' prior: 50861590!
+test06
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Salida por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	 
+	self assert: anAccount summary equals: expectedSummary! !
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 19:35:33'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:36:03' prior: 50861525!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Salida por transferencia de ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferWithdrawLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
+		].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:36:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:36:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:36:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:36:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:36:12'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 19:36:12'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:36:53' prior: 50861627!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferWithdrawLeg ) ifTrue: [summary add: 'Salida por transferencia de ' , aTransaction value asString].
+		].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:36:57'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:36:57'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:36:57'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:36:57'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:36:57'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 19:36:57'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:38:26'!
+test07
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Salida por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	 
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:39:57' prior: 50861703!
+test07
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := Portfolio new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Salida por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	 
+	self assert: anAccount summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:40:49' prior: 50861721!
+test07
+	
+	| anAccount expectedSummary |
+	
+	anAccount := Portfolio new.
+
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	 
+	self assert: anAccount summary equals: expectedSummary! !
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 19:41:07'!
+ERROR!
+!Portfolio methodsFor: 'nil' stamp: 'JP 7/9/2021 19:41:42'!
+summary
+
+	^OrderedCollection with: 'Balance = 0 pesos'! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:41:45'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:41:45'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:41:45'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:41:45'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:41:45'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 19:41:45'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 19:41:45'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:42:11' prior: 50861738!
+test07
+	
+	| aPortfolio expectedSummary |
+	
+	aPortfolio := Portfolio new.
+
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:42:15'!
+test08
+	
+	| aPortfolio expectedSummary |
+	
+	aPortfolio := Portfolio new.
+
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:43:17' prior: 50861781!
+test08
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio new.
+	
+
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:44:31' prior: 50861791!
+test08
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:44:51' prior: 50861803!
+test08
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:44:53' prior: 50861816!
+test08
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 19:44:54'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:45:31' prior: 50861749!
+summary
+
+	OrderedCollection with: 'Balance = 0 pesos'! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:46:33' prior: 50861846!
+summary
+
+	accounts isEmpty ifTrue: [^OrderedCollection with: 'Balance = 0 pesos'].! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:46:41' prior: 50861851!
+summary
+
+	(accounts isEmpty) ifTrue: [^OrderedCollection with: 'Balance = 0 pesos'].! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:46:54' prior: 50861857!
+summary
+
+	(accounts isEmpty) ifTrue: [^OrderedCollection with: 'Balance = 0 pesos'].
+	
+	^accounts last! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:47:22' prior: 50861863!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	(accounts isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'].
+	
+	^accounts last! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:48:09' prior: 50861870!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	(accounts isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:48:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:48:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:48:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:48:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:48:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 19:48:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 19:48:12'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 19:48:12'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:48:43' prior: 50861878!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	(accounts isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary ].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:48:44' prior: 50861908!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	(accounts isEmpty) ifTrue: [summary add: 'Balance = 0 pesos'. ^summary].
+	
+	summary add: 'Depósito por 10 pesos'.
+	summary add: 'Balance = 10 pesos'.
+	^summary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:48:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:48:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:48:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:48:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:48:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 19:48:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 19:48:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 19:48:47'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 19:48:47'!
+FAILURE!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:49:02' prior: 50861830!
+test08
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 19:49:14'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:49:30'!
+test09
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:50:50' prior: 50861987!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio AnotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:50:58' prior: 50862001!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:51:21' prior: 50862016!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:51:29' prior: 50862031!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:52:14' prior: 50862049!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	anotherPortfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:52:45' prior: 50862067!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:52:56' prior: 50862087!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:53:10' prior: 50862107!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:53:20' prior: 50862128!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:53:25' prior: 50862149!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 15 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 19:54:09' prior: 50862169!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+
+----SNAPSHOT----(9 July 2021 19:56:49) CuisUniversity-4532.image priorSource: 16952135!
+
+!testRun: #AccountSummaryTest #test09 stamp: 'JP 7/9/2021 19:56:54'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:02:25' prior: 50861918!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	accounts do: [:anAccount | summary addAll: anAccount summary].
+	
+	summary add: 'Balance = 10 pesos'.
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:04:04' prior: 50862215!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	accounts do: [:anAccount | summary addAll: anAccount summaryWithoutBalance].
+	
+	summary add: 'Balance = 10 pesos'.
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:05:56' prior: 50862224!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	accounts do: [:anAccount | summary addAll: anAccount summaryWithoutBalance].
+	
+	summary add: 'Balance = ', self balance .
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:06:05' prior: 50862233!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	accounts do: [:anAccount | summary addAll: anAccount summaryWithoutBalance].
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:06:09' prior: 50862243!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	accounts do: [:anAccount | summary addAll: anAccount summaryWithoutBalance].
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+
+----SNAPSHOT----(9 July 2021 20:06:11) CuisUniversity-4532.image priorSource: 16977879!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:07:03'!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	accounts do: [:anAccount | summary addAll: anAccount summaryWithoutBalance].
+	
+	^summary ! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:07:16'!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferWithdrawLeg ) ifTrue: [summary add: 'Salida por transferencia de ' , aTransaction value asString].
+		].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:07:19' prior: 50862273!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferWithdrawLeg ) ifTrue: [summary add: 'Salida por transferencia de ' , aTransaction value asString].
+		].
+
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:07:24'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09 stamp: 'JP 7/9/2021 20:07:24'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:07:24'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:07:43'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09 stamp: 'JP 7/9/2021 20:07:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:07:43'!
+FAILURE!
+!Portfolio methodsFor: 'main protocol' stamp: 'JP 7/9/2021 20:07:57' prior: 50860269 overrides: 50860223!
+balance
+	
+	^accounts sum: [ :anAccount | anAccount balance ] ifEmpty: [ 0 * peso]! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09 stamp: 'JP 7/9/2021 20:08:06'!
+PASSED!
+
+----SNAPSHOT----(9 July 2021 20:08:17) CuisUniversity-4532.image priorSource: 16979564!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:09:07' prior: 50861665!
+summary
+	
+	| summary |
+	summary := self summaryWithoutBalance.
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 20:09:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09 stamp: 'JP 7/9/2021 20:09:12'!
+PASSED!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:09:38' prior: 50862253!
+summary
+	
+	| summary |
+	summary := self summaryWithoutBalance 
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:09:41' prior: 50862429!
+summary
+	
+	| summary |
+	summary := self summaryWithoutBalance.
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+
+!testRun: #AccountSummaryTest #test01 stamp: 'JP 7/9/2021 20:09:42'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02 stamp: 'JP 7/9/2021 20:09:42'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03 stamp: 'JP 7/9/2021 20:09:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04 stamp: 'JP 7/9/2021 20:09:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05 stamp: 'JP 7/9/2021 20:09:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06 stamp: 'JP 7/9/2021 20:09:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:09:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08 stamp: 'JP 7/9/2021 20:09:43'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09 stamp: 'JP 7/9/2021 20:09:43'!
+PASSED!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:11:14'!
+test01AccountSummaryBalanceIs0PesosOnEmptyAccount
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test01 stamp: 'JP 7/9/2021 20:11:14'!
+test01
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:12:54'!
+test02DepositTransactionShowsOnSummary
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test02 stamp: 'JP 7/9/2021 20:12:54'!
+test02
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:13:44'!
+test03MultipleDepositsTransactionsShowOnSummary
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Deposit register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test03 stamp: 'JP 7/9/2021 20:13:44'!
+test03
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Deposit register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:14:07'!
+test04WithdrawTransactionShowsOnSummary
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Withdraw register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Extracción por 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test04 stamp: 'JP 7/9/2021 20:14:07'!
+test04
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Withdraw register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Extracción por 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:15:13'!
+test03MultipleTransactionsShowOnSummary
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Deposit register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test03MultipleDepositsTransactionsShowOnSummary stamp: 'JP 7/9/2021 20:15:13'!
+test03MultipleDepositsTransactionsShowOnSummary
+	
+	| anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	Deposit register: 5 * peso on: anAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	
+	self assert: anAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:15:48'!
+test05TransferDepositLegShowOnSummary
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anotherAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test05 stamp: 'JP 7/9/2021 20:15:48'!
+test05
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anotherAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:16:12'!
+test06TransferWithdrawLegShowsOnSummary
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Salida por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	 
+	self assert: anAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test06 stamp: 'JP 7/9/2021 20:16:12'!
+test06
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Salida por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	 
+	self assert: anAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:16:18'!
+test05TransferDepositLegShowsOnSummary
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anotherAccount summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test05TransferDepositLegShowOnSummary stamp: 'JP 7/9/2021 20:16:18'!
+test05TransferDepositLegShowOnSummary
+	
+	| anAccount anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
+	
+	self assert: anotherAccount summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:16:59'!
+test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio
+	
+	| aPortfolio expectedSummary |
+	
+	aPortfolio := Portfolio new.
+
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test07 stamp: 'JP 7/9/2021 20:16:59'!
+test07
+	
+	| aPortfolio expectedSummary |
+	
+	aPortfolio := Portfolio new.
+
+	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:18:12'!
+test08CanShowSummaryWithPortfolioWithASingleAccount
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test08 stamp: 'JP 7/9/2021 20:18:12'!
+test08
+	
+	| aPortfolio anAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:19:18'!
+test09SummaryCanBeCalculatedRecursibleInPortfolioWithMultipleAccounts
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test09 stamp: 'JP 7/9/2021 20:19:18'!
+test09
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:19:59'!
+test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary! !
+
+!methodRemoval: AccountSummaryTest #test09SummaryCanBeCalculatedRecursibleInPortfolioWithMultipleAccounts stamp: 'JP 7/9/2021 20:19:59'!
+test09SummaryCanBeCalculatedRecursibleInPortfolioWithMultipleAccounts
+	
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
+	 
+	self assert: aPortfolio summary equals: expectedSummary!
+
+----SNAPSHOT----(9 July 2021 20:20:15) CuisUniversity-4532.image priorSource: 16983858!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/9/2021 20:20:19'!
+PASSED!
+
+----SNAPSHOT----(9 July 2021 20:20:38) CuisUniversity-4532.image priorSource: 16997932!
+
+----SNAPSHOT----(9 July 2021 20:24:13) CuisUniversity-4532.image priorSource: 16999073!
+
+----SNAPSHOT----(9 July 2021 20:25:42) CuisUniversity-4532.image priorSource: 16999162!
+
+----SNAPSHOT----(9 July 2021 20:25:52) CuisUniversity-4532.image priorSource: 16999251!
+
+----QUIT----(9 July 2021 20:25:54) CuisUniversity-4532.image priorSource: 16999340!
+
+----STARTUP---- (9 July 2021 20:27:11) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+----QUIT----(9 July 2021 20:27:35) CuisUniversity-4532.image priorSource: 16999429!
