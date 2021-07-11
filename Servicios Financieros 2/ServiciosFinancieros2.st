@@ -435,6 +435,99 @@ test07AccountKnowsItsTransactions
 ! !
 
 
+!classDefinition: #TransferNetTest category: 'ServiciosFinancieros2'!
+TestCase subclass: #TransferNetTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:30:20'!
+test01AccountSummaryTransferNetIs0PesosOnEmptyAccount
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:33:34'!
+test02BothAccountsOfTransferHaveOppositeTransferNet
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:35:50'!
+test03TransferNetIgnoresAnyNonTransferTransactions
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
+	
+	self assert: anAccount transferNet equals: 3 * peso.
+	self assert: anotherAccount transferNet equals: -3 * peso.! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:36:08'!
+test04EmptyPortfolioTransferNetIs0Peso
+
+	| aPortfolio  |
+	
+	aPortfolio := Portfolio new.
+	 
+	self assert: aPortfolio transferNet equals: 0 * peso
+	! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:37:06'!
+test05CanShowTransferNetWithPortfolioWithASingleAccount
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.! !
+
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:37:57'!
+test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts
+
+	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	outsidePortfolioAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	Transfer amount: 2 * peso from: outsidePortfolioAccount to: anotherAccount.
+	 
+	self assert: aPortfolio transferNet equals: 2 * peso.! !
+
+
 !classDefinition: #TransferTest category: 'ServiciosFinancieros2'!
 TestCase subclass: #TransferTest
 	instanceVariableNames: ''
@@ -708,6 +801,16 @@ summaryWithoutBalance
 	
 	^summary ! !
 
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:28:23'!
+transferNet
+
+	| transferNet |
+	transferNet := 0 * peso.
+	
+	accounts do: [:anAccount | transferNet := transferNet + anAccount transferNet ].
+	
+	^transferNet! !
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
 !classDefinition: 'Portfolio class' category: 'ServiciosFinancieros2'!
@@ -800,20 +903,22 @@ summary
 	summary add: 'Balance = ' , self balance asString.
 	^summary! !
 
-!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:07:19'!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:45:23'!
 summaryWithoutBalance
 	
 	| summary |
 	summary := OrderedCollection new.
 	
-	transactions do: [:aTransaction | 
-		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
-		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
-		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
-		(aTransaction isKindOf: TransferWithdrawLeg ) ifTrue: [summary add: 'Salida por transferencia de ' , aTransaction value asString].
-		].
+	transactions do: [:aTransaction | summary add: aTransaction asString.].
 
 	^summary! !
+
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:09:25'!
+transferNet
+	
+	^transactions 
+	inject: 0 * peso
+	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]! !
 
 
 !classDefinition: #AccountTransaction category: 'ServiciosFinancieros2'!
@@ -831,6 +936,17 @@ value
 
 !AccountTransaction methodsFor: 'balance' stamp: 'HAW 5/25/2019 11:25:39'!
 affectBalance: aBalance
+
+	self subclassResponsibility ! !
+
+
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:05'!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:42:36'!
+asString
 
 	self subclassResponsibility ! !
 
@@ -858,6 +974,17 @@ value
 affectBalance: aBalance
 
 	^aBalance + value ! !
+
+
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:13:04'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet! !
+
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:43:19'!
+asString
+
+	^'Depósito por ' , self value asString! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -900,6 +1027,17 @@ initializeWith: aTransfer
 
 	transfer := aTransfer! !
 
+
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:16'!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:45:13'!
+asString
+
+	self subclassResponsibility! !
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
 !classDefinition: 'TransferLeg class' category: 'ServiciosFinancieros2'!
@@ -935,6 +1073,17 @@ affectBalance: aBalance
 
 	^aBalance + self value! !
 
+
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:06'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet + self value! !
+
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:44:30'!
+asString
+	
+	^'Entrada por transferencia de ' , self value asString! !
+
 
 !classDefinition: #TransferWithdrawLeg category: 'ServiciosFinancieros2'!
 TransferLeg subclass: #TransferWithdrawLeg
@@ -953,6 +1102,17 @@ depositLeg
 affectBalance: aBalance
 
 	^aBalance - self value! !
+
+
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:22'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet - self value! !
+
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:44:55'!
+asString
+
+	^'Salida por transferencia de ' , self value asString! !
 
 
 !classDefinition: #Withdraw category: 'ServiciosFinancieros2'!
@@ -978,6 +1138,17 @@ value
 affectBalance: aBalance
 
 	^aBalance - value! !
+
+
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:55'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet! !
+
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:43:50'!
+asString
+
+	^'Extracción por ' , self value asString! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 

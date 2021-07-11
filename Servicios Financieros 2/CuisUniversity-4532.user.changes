@@ -2079,3 +2079,1098 @@ PASSED!
 
 
 ----QUIT----(9 July 2021 20:27:35) CuisUniversity-4532.image priorSource: 16999429!
+
+----STARTUP---- (11 July 2021 16:13:48) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/11/2021 16:16:13'!
+PASSED!
+
+Object subclass: #XXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #XXX category: 'ServiciosFinancieros2' stamp: 'JP 7/11/2021 16:22:54'!
+Object subclass: #XXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!XXX methodsFor: 'nil' stamp: 'JP 7/11/2021 16:25:18'!
+summaryFor: anAcount
+
+	! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:25:49' prior: 50862939!
+summaryFor: anAcount
+
+	| summary |
+	summary := OrderedCollection new.
+	! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:40:39' prior: 50862943!
+summaryFor: anAcount
+
+	| summary |
+	summary := OrderedCollection new.
+	
+	anAcount transactions do: [:aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferWithdrawLeg ) ifTrue: [summary add: 'Salida por transferencia de ' , aTransaction value asString].
+		].
+
+	^summary	! !
+
+!classRemoval: #XXX stamp: 'JP 7/11/2021 16:41:00'!
+Object subclass: #XXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/11/2021 16:41:08'!
+PASSED!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:42:01' prior: 50862297!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: aTransaction asString.
+		(aTransaction isKindOf: Deposit) ifTrue: [summary add: 'Depósito por ' , aTransaction value asString].
+		(aTransaction isKindOf: Withdraw) ifTrue: [summary add: 'Extracción por ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferDepositLeg ) ifTrue: [summary add: 'Entrada por transferencia de ' , aTransaction value asString].
+		(aTransaction isKindOf: TransferWithdrawLeg ) ifTrue: [summary add: 'Salida por transferencia de ' , aTransaction value asString].
+		].
+
+	^summary! !
+!AccountTransaction methodsFor: 'nil' stamp: 'JP 7/11/2021 16:42:36' overrides: 16881101!
+asString
+
+	self subclassResponsibility ! !
+!Deposit methodsFor: 'nil' stamp: 'JP 7/11/2021 16:42:55' overrides: 50863034!
+asString
+
+	^''! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:43:19' prior: 50863038 overrides: 50863034!
+asString
+
+	^'Depósito por ' , self value asString! !
+!Withdraw methodsFor: 'nil' stamp: 'JP 7/11/2021 16:43:50' overrides: 50863034!
+asString
+
+	^'Extracción por ' , self value asString! !
+!TransferWithdrawLeg methodsFor: 'nil' stamp: 'JP 7/11/2021 16:44:05' overrides: 50863034!
+asString! !
+!TransferDepositLeg methodsFor: 'nil' stamp: 'JP 7/11/2021 16:44:08' overrides: 50863034!
+asString! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:44:30' prior: 50863057 overrides: 50863034!
+asString
+	
+	^'Entrada por transferencia de ' , self value asString! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:44:55' prior: 50863053 overrides: 50863034!
+asString
+
+	^'Salida por transferencia de ' , self value asString! !
+!TransferLeg methodsFor: 'nil' stamp: 'JP 7/11/2021 16:45:13' overrides: 50863034!
+asString
+
+	self subclassResponsibility! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:45:23' prior: 50863011!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: aTransaction asString.].
+
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/11/2021 16:45:27'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/11/2021 16:45:28'!
+PASSED!
+
+TestCase subclass: #TransferNetTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #TransferNetTest category: 'ServiciosFinancieros2' stamp: 'JP 7/11/2021 16:46:51'!
+TestCase subclass: #TransferNetTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!TransferNetTest methodsFor: 'nil' stamp: 'JP 7/11/2021 16:48:47'!
+test01
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:48:54' prior: 50863132!
+test01
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.! !
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 16:50:51'!
+ERROR!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:51:18'!
+transferNet
+	
+	^0 * peso! !
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 16:51:30'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 16:51:30'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:51:47'!
+test02
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:55:03' prior: 50863157!
+test02
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount. 
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 16:55:08'!
+FAILURE!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:55:57' prior: 50863164!
+test02
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 16:56:02'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:56:33' prior: 50863148!
+transferNet
+	
+	^self balance! !
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 16:56:49'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 16:56:49'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 16:56:49'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:57:40'!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 16:57:42'!
+FAILURE!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:58:31' prior: 50863205!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anotherAccount transferNet equals: 5 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:58:38' prior: 50863220!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 16:58:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 16:58:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 16:58:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 16:58:39'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:58:59' prior: 50863231!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anotherAccount transferNet equals: 5 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:59:33' prior: 50863252!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:01:33' prior: 50863179!
+test02
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 17:01:37'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 17:01:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 17:01:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:01:38'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 17:02:37'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:03:37' prior: 50863265!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:03:58' prior: 50863303!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:04:02'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:06:11' prior: 50863194!
+transferNet
+	
+	transactions inject: 0 * peso into: [:currentTransferNet] ! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:06:27' prior: 50863278!
+test02
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:06:44' prior: 50863319!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:06:50' prior: 50863358!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
+	
+	self assert: anAccount transferNet equals: 3 * peso.
+	self assert: anotherAccount transferNet equals: -3 * peso.! !
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:06:52'!
+ERROR!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:56:33' prior: 50863339!
+transferNet
+	
+	^self balance! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:07:25' prior: 50863399!
+transferNet
+	
+	transactions inject: 0 * peso into: [:currentTransferNet]! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:09:25' prior: 50863404!
+transferNet
+	
+	^transactions 
+	inject: 0 * peso
+	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]! !
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:10:51'!
+affectTransferNet: currentTransferNet
+
+	self subclassResponsibility ! !
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:05' prior: 50863418!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:13' overrides: 50863424!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:16' overrides: 50863424!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:22' overrides: 50863436!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:27' overrides: 50863436!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:31' overrides: 50863424!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility ! !
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:36' prior: 50863454 overrides: 50863424!
+affectTransferNet: aTransferNet! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:44' prior: 50863430 overrides: 50863424!
+affectTransferNet: aTransferNet! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:06' prior: 50863442 overrides: 50863436!
+affectTransferNet: aTransferNet
+
+	^aTransferNet + self value! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:22' prior: 50863448 overrides: 50863436!
+affectTransferNet: aTransferNet
+
+	^aTransferNet - self value! !
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:12:28'!
+ERROR!
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:12:28'!
+ERROR!
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:55' prior: 50863460 overrides: 50863424!
+affectTransferNet: aTransferNet
+
+	^aTransferNet! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:13:04' prior: 50863465 overrides: 50863424!
+affectTransferNet: aTransferNet
+
+	^aTransferNet! !
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:13:12'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 17:13:19'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 17:13:19'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:13:19'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:15:29'!
+test04
+
+	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:15:32' prior: 50863507!
+test04
+
+	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:16:23' prior: 50863511!
+test04
+
+	| aPortfolio  |
+	
+	aPortfolio := Portfolio new.
+	 
+	self assert: aPortfolio transferNet equals: 0 * peso
+	! !
+
+!testRun: #TransferNetTest #test04 stamp: 'JP 7/11/2021 17:16:25'!
+ERROR!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:16:39'!
+transferNet
+
+	^0*peso! !
+
+!testRun: #TransferNetTest #test04 stamp: 'JP 7/11/2021 17:16:46'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'JP 7/11/2021 17:16:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 17:16:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 17:16:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:16:48'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'JP 7/11/2021 17:16:48'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:16:58'!
+test05
+
+	| aPortfolio  |
+	
+	aPortfolio := Portfolio new.
+	 
+	self assert: aPortfolio transferNet equals: 0 * peso
+	! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:18:03' prior: 50863542!
+test05
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+
+	 
+	self assert: aPortfolio summary equals: 0.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:19:59' prior: 50863549!
+test05
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount 
+	
+	
+	self assert: aPortfolio summary equals: 10.! !
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:20:06' prior: 50863560!
+test05
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio summary equals: 10.! !
+
+!testRun: #TransferNetTest #test05 stamp: 'JP 7/11/2021 17:20:08'!
+FAILURE!
+
+!testRun: #TransferNetTest #test05 stamp: 'JP 7/11/2021 17:20:17'!
+FAILURE!
+
+!testRun: #TransferNetTest #test05 stamp: 'JP 7/11/2021 17:20:17'!
+FAILURE!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:20:33' prior: 50863573!
+test05
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.! !
+
+!testRun: #TransferNetTest #test05 stamp: 'JP 7/11/2021 17:20:35'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:21:26' prior: 50863524!
+transferNet
+
+	accounts isEmpty ifTrue:[^0*peso].
+	
+	^accounts last transferNet	! !
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 17:21:31'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 17:21:31'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:21:31'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'JP 7/11/2021 17:21:31'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'JP 7/11/2021 17:21:31'!
+PASSED!
+!TransferNetTest methodsFor: 'nil' stamp: 'JP 7/11/2021 17:25:09'!
+test06
+
+	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	outsidePortfolioAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	Transfer amount: 2 * peso from: outsidePortfolioAccount to: anotherAccount.
+	 
+	self assert: aPortfolio transferNet equals: 2 * peso.! !
+
+!testRun: #TransferNetTest #test06 stamp: 'JP 7/11/2021 17:25:11'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:26:00' prior: 50863608!
+transferNet
+
+	accounts isEmpty ifTrue:[^0*peso].
+	
+	^accounts transferNet	! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:28:23' prior: 50863652!
+transferNet
+
+	| transferNet |
+	transferNet := 0 * peso.
+	
+	accounts do: [:anAccount | transferNet := transferNet + anAccount transferNet ].
+	
+	^transferNet! !
+
+!testRun: #TransferNetTest #test01 stamp: 'JP 7/11/2021 17:28:27'!
+PASSED!
+
+!testRun: #TransferNetTest #test02 stamp: 'JP 7/11/2021 17:28:28'!
+PASSED!
+
+!testRun: #TransferNetTest #test03 stamp: 'JP 7/11/2021 17:28:28'!
+PASSED!
+
+!testRun: #TransferNetTest #test04 stamp: 'JP 7/11/2021 17:28:28'!
+PASSED!
+
+!testRun: #TransferNetTest #test05 stamp: 'JP 7/11/2021 17:28:28'!
+PASSED!
+
+!testRun: #TransferNetTest #test06 stamp: 'JP 7/11/2021 17:28:28'!
+PASSED!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:29:52'!
+AccountSummaryBalanceIs0PesosOnEmptyAccount
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.! !
+
+!methodRemoval: TransferNetTest #test01 stamp: 'JP 7/11/2021 17:29:53'!
+test01
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:30:05'!
+test01AccountSummaryBalanceIs0PesosOnEmptyAccount
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.! !
+
+!methodRemoval: TransferNetTest #AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/11/2021 17:30:05'!
+AccountSummaryBalanceIs0PesosOnEmptyAccount
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:30:20'!
+test01AccountSummaryTransferNetIs0PesosOnEmptyAccount
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.! !
+
+!methodRemoval: TransferNetTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/11/2021 17:30:20'!
+test01AccountSummaryBalanceIs0PesosOnEmptyAccount
+
+	| anAccount |
+	anAccount := ReceptiveAccount new.
+	
+	self assert: anAccount transferNet equals: 0 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:32:18'!
+test02BothAccountsOfTransferShowsOppositeTransferNet
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+
+!methodRemoval: TransferNetTest #test02 stamp: 'JP 7/11/2021 17:32:18'!
+test02
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:33:34'!
+test02BothAccountsOfTransferHaveOppositeTransferNet
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.! !
+
+!methodRemoval: TransferNetTest #test02BothAccountsOfTransferShowsOppositeTransferNet stamp: 'JP 7/11/2021 17:33:34'!
+test02BothAccountsOfTransferShowsOppositeTransferNet
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	
+	anotherAccount := ReceptiveAccount new.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	
+	self assert: anAccount transferNet equals: 5 * peso.
+	self assert: anotherAccount transferNet equals: -5 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:34:41'!
+test03TransferNetOnlyCountsTransfers
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
+	
+	self assert: anAccount transferNet equals: 3 * peso.
+	self assert: anotherAccount transferNet equals: -3 * peso.! !
+
+!methodRemoval: TransferNetTest #test03 stamp: 'JP 7/11/2021 17:34:41'!
+test03
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
+	
+	self assert: anAccount transferNet equals: 3 * peso.
+	self assert: anotherAccount transferNet equals: -3 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:35:50'!
+test03TransferNetIgnoresAnyNonTransferTransactions
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
+	
+	self assert: anAccount transferNet equals: 3 * peso.
+	self assert: anotherAccount transferNet equals: -3 * peso.! !
+
+!methodRemoval: TransferNetTest #test03TransferNetOnlyCountsTransfers stamp: 'JP 7/11/2021 17:35:50'!
+test03TransferNetOnlyCountsTransfers
+
+	| anAccount anotherAccount |
+	anAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anotherAccount.
+	Withdraw register: 2 * peso on: anotherAccount.
+	
+	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
+	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
+	
+	self assert: anAccount transferNet equals: 3 * peso.
+	self assert: anotherAccount transferNet equals: -3 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:36:08'!
+test04EmptyPortfolioTransferNetIs0Peso
+
+	| aPortfolio  |
+	
+	aPortfolio := Portfolio new.
+	 
+	self assert: aPortfolio transferNet equals: 0 * peso
+	! !
+
+!methodRemoval: TransferNetTest #test04 stamp: 'JP 7/11/2021 17:36:08'!
+test04
+
+	| aPortfolio  |
+	
+	aPortfolio := Portfolio new.
+	 
+	self assert: aPortfolio transferNet equals: 0 * peso
+	!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:36:36'!
+test05Portfo
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.! !
+
+!methodRemoval: TransferNetTest #test05 stamp: 'JP 7/11/2021 17:36:37'!
+test05
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:36:57'!
+test05CanShowSummaryWithPortfolioWithASingleAccount
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.! !
+
+!methodRemoval: TransferNetTest #test05Portfo stamp: 'JP 7/11/2021 17:36:57'!
+test05Portfo
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:37:06'!
+test05CanShowTransferNetWithPortfolioWithASingleAccount
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.! !
+
+!methodRemoval: TransferNetTest #test05CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/11/2021 17:37:06'!
+test05CanShowSummaryWithPortfolioWithASingleAccount
+
+	| aPortfolio anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount new.
+	anotherAccount := ReceptiveAccount new.
+	
+	aPortfolio := Portfolio with: anAccount.
+	
+	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
+	
+	self assert: aPortfolio transferNet equals: 10 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:37:25'!
+test06SummaryShowsRecursivelyInPortfolioWithMultipleAccounts
+
+	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	outsidePortfolioAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	Transfer amount: 2 * peso from: outsidePortfolioAccount to: anotherAccount.
+	 
+	self assert: aPortfolio transferNet equals: 2 * peso.! !
+
+!methodRemoval: TransferNetTest #test06 stamp: 'JP 7/11/2021 17:37:26'!
+test06
+
+	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	outsidePortfolioAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	Transfer amount: 2 * peso from: outsidePortfolioAccount to: anotherAccount.
+	 
+	self assert: aPortfolio transferNet equals: 2 * peso.!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:37:57'!
+test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts
+
+	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	outsidePortfolioAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	Transfer amount: 2 * peso from: outsidePortfolioAccount to: anotherAccount.
+	 
+	self assert: aPortfolio transferNet equals: 2 * peso.! !
+
+!methodRemoval: TransferNetTest #test06SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/11/2021 17:37:57'!
+test06SummaryShowsRecursivelyInPortfolioWithMultipleAccounts
+
+	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount |
+	
+	anAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	anotherAccount := ReceptiveAccount new.
+	Deposit register: 5 * peso on: anotherAccount.
+	
+	anotherPortfolio := Portfolio with: anotherAccount.
+	
+	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	
+	outsidePortfolioAccount := ReceptiveAccount new.
+	Deposit register: 10 * peso on: anAccount.
+	
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	Transfer amount: 2 * peso from: outsidePortfolioAccount to: anotherAccount.
+	 
+	self assert: aPortfolio transferNet equals: 2 * peso.!
+
+----SNAPSHOT----(11 July 2021 17:38:01) CuisUniversity-4532.image priorSource: 16999623!
+
+----SNAPSHOT----(11 July 2021 17:38:37) CuisUniversity-4532.image priorSource: 17036905!
+
+----SNAPSHOT----(11 July 2021 17:38:44) CuisUniversity-4532.image priorSource: 17036995!
+
+----QUIT----(11 July 2021 17:38:51) CuisUniversity-4532.image priorSource: 17037085!
+
+----STARTUP---- (11 July 2021 17:38:57) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+----QUIT----(11 July 2021 17:39:07) CuisUniversity-4532.image priorSource: 17037175!
