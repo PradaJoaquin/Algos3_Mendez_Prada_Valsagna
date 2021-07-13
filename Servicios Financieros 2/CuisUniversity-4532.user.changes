@@ -3174,3 +3174,1638 @@ test06SummaryShowsRecursivelyInPortfolioWithMultipleAccounts
 
 
 ----QUIT----(11 July 2021 17:39:07) CuisUniversity-4532.image priorSource: 17037175!
+
+----STARTUP---- (12 July 2021 19:05:35) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:24:15' prior: 50862265!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	accounts do: [:anAccount | summary addAll: anAccount summaryWithoutBalance].
+	
+	self transactions do: [:aTransaction | summary add: aTransaction asString]
+	
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:24:35' prior: 50864075!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	self transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:24:53' prior: 50862436!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:24:59' prior: 50864095!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	self transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/12/2021 20:25:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/12/2021 20:25:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/12/2021 20:25:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/12/2021 20:25:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/12/2021 20:25:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/12/2021 20:25:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:25:31'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:25:32'!
+PASSED!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:26:16' prior: 50862400!
+summary
+	
+	| summary |
+	summary := self summaryWithoutBalance.
+	
+	transactions do: [:aTransaction | summary add: aTransaction asString.].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:26:22' prior: 50864202!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: aTransaction asString.].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:26:26'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:26:26'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 20:26:26'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:26:26'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 20:26:27'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 20:26:27'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 20:26:27'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:26:27'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:26:27'!
+PASSED!
+
+!methodRemoval: ReceptiveAccount #summaryWithoutBalance stamp: 'JP 7/12/2021 20:26:31'!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: aTransaction asString.].
+
+	^summary!
+
+!methodRemoval: Portfolio #summaryWithoutBalance stamp: 'JP 7/12/2021 20:26:36'!
+summaryWithoutBalance
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	self transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	^summary !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:26:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:26:48'!
+PASSED!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:26:54'!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	self transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+
+!methodRemoval: Portfolio #summary stamp: 'JP 7/12/2021 20:26:54'!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	self transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary !
+
+!methodRemoval: ReceptiveAccount #summary stamp: 'JP 7/12/2021 20:27:08'!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	transactions do: [:aTransaction | summary add: aTransaction asString.].
+
+	summary add: 'Balance = ' , self balance asString.
+	^summary!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:27:10'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:27:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 20:27:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:27:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 20:27:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 20:27:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 20:27:11'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:27:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:27:12'!
+PASSED!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:28:01' prior: 50863658!
+transferNet
+
+	^self transactions 
+	inject: 0 * peso
+	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]! !
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:28:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/12/2021 20:28:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/12/2021 20:28:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/12/2021 20:28:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:28:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:28:14'!
+PASSED!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:29:36'!
+transferNet
+
+	^self transactions 
+	inject: 0 * peso
+	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]! !
+
+!methodRemoval: Portfolio #transferNet stamp: 'JP 7/12/2021 20:29:37'!
+transferNet
+
+	^self transactions 
+	inject: 0 * peso
+	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]!
+
+!methodRemoval: ReceptiveAccount #transferNet stamp: 'JP 7/12/2021 20:29:41'!
+transferNet
+	
+	^transactions 
+	inject: 0 * peso
+	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:29:46'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:29:46'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 20:29:46'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:29:46'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 20:29:46'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 20:29:46'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 20:29:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:29:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:29:47'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:29:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/12/2021 20:29:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/12/2021 20:29:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/12/2021 20:29:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:29:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:29:50'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/12/2021 20:29:52'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/12/2021 20:29:52'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/12/2021 20:29:52'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/12/2021 20:29:52'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/12/2021 20:29:52'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/12/2021 20:29:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/12/2021 20:29:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 20:29:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 20:29:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/12/2021 20:29:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/12/2021 20:29:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/12/2021 20:29:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/12/2021 20:29:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/12/2021 20:29:56'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/12/2021 20:30:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 20:30:04'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 20:30:05'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/12/2021 20:30:05'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/12/2021 20:30:05'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/12/2021 20:30:05'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/12/2021 20:30:05'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/12/2021 20:30:05'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/12/2021 20:30:05'!
+PASSED!
+
+----SNAPSHOT----(12 July 2021 20:30:14) CuisUniversity-4532.image priorSource: 17037371!
+
+----SNAPSHOT----(12 July 2021 20:31:24) CuisUniversity-4532.image priorSource: 17058755!
+!FormSection methodsFor: 'initialization' stamp: 'JP 7/12/2021 20:31:43' prior: 50814657!
+initializeWithTitle: aTitle withExplanation: anExplanation withColor: aColor
+
+	| titleLayoutSpec |
+
+	title := aTitle.
+	explanation := anExplanation.
+
+	self separation: 3.
+	self color: aColor.
+
+	titleMorph := LabelMorph
+		contents: title
+		font: Preferences windowTitleFont
+		emphasis: 1.
+	titleLayoutSpec := LayoutSpec
+		fixedWidth: titleMorph morphWidth
+		fixedHeight: titleMorph morphHeight.
+	titleLayoutSpec offAxisEdgeWeight: 0.03.
+
+	self addMorph: titleMorph layoutSpec: titleLayoutSpec.
+
+	explanation isEmpty ifFalse: [
+		explanationMorph := ImmutableTextModelMorph
+			withText: anExplanation
+			withColor: aColor
+			withWidth: self fixedWidthForTexts.
+		self addMorph: explanationMorph.
+	].! !
+!LabeledInput methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:32:03' prior: 50814774!
+withLabel: aLabel withWidth: aWidth withModel: aTextModel usingAs: focusMover
+
+	| labelLayoutSpec inputMorphLayoutSpec |
+
+	self separation: 5.
+	self layoutSpec: (LayoutSpec proportionalWidth: 0.95 fixedHeight: LabeledInput recommendedHeight).
+
+	labelMorph := LabelMorph contents: aLabel.
+	labelLayoutSpec := LayoutSpec
+		fixedWidth: aWidth
+		fixedHeight: labelMorph morphHeight
+		offAxisEdgeWeight: #center.
+	self addMorph: labelMorph layoutSpec: labelLayoutSpec.
+
+	inputMorph := TabPassingTextModelMorph withModel: aTextModel.
+	inputMorph textMorph focusMover: focusMover.
+	focusMover addFocusReceiver: inputMorph textMorph.
+	inputMorph hideScrollBarsIndefinitely.
+	inputMorphLayoutSpec :=
+		LayoutSpec
+			fixedWidth: LabeledInput inputWidth * 0.7
+			fixedHeight: labelMorph morphHeight + 2.
+	self addMorph: inputMorph layoutSpec: inputMorphLayoutSpec.
+
+
+
+	! !
+!MessageKeywordsAndParametersTable methodsFor: 'GUI building' stamp: 'JP 7/12/2021 20:32:19' prior: 50815089!
+buildColumnTitlesRowFor: inputColumnsTitles
+
+	| columnsTitles row |
+
+	row := LayoutMorph newRow.
+	row color: self backgroundColor.
+	row separation: self columnSeparation.
+
+	columnsTitles := OrderedCollection newFrom: inputColumnsTitles.
+	columnsTitles addFirst: ''.
+	self needsToReorderRows ifTrue: [columnsTitles addLast: 'Change order'].
+	columnsTitles withIndexDo: [:aColumnTitle :columnIndex | | columnTitleLayoutSpec titleLayout |
+		titleLayout := LayoutMorph newRow.
+		titleLayout color: self backgroundColor .
+		titleLayout axisEdgeWeight: #center.
+		titleLayout addMorph: (LabelMorph contents: aColumnTitle).
+		columnTitleLayoutSpec := LayoutSpec fixedWidth: (columnWidths at: columnIndex).
+		row
+			addMorph: titleLayout
+			layoutSpec: columnTitleLayoutSpec].
+
+	^row
+
+	! !
+!MessageKeywordsAndParametersTable methodsFor: 'initialization' stamp: 'JP 7/12/2021 20:32:31' prior: 50814979!
+withRows: rowsTitles withColor: aColor withPreviewModel: aPreviewModel withRefactoringModel: aRefactoringModel
+
+	| rowsSeparation recommendedHeight numberOfRows columnsTitlesRow changeOrderButtons tableWidth inputColumnsTitles |
+
+	backgroundColor := aColor.
+	rowModels := OrderedCollection new.
+	previewModel := aPreviewModel.
+	refactoringModel := aRefactoringModel.
+	variablesToParametrize := rowsTitles.
+
+	rowsSeparation := 4.
+	self separation: rowsSeparation.
+
+	"Calculate table height"
+	numberOfRows := (rowsTitles size + 1).
+	recommendedHeight :=  self rowHeight * numberOfRows + (rowsSeparation * (numberOfRows + 1)) * 1.1.
+
+	"Calculate column widths"
+	inputColumnsTitles := #('Keyword' 'Parameter name').
+	columnWidths := self columnWidthsRequiredForRowTitles: rowsTitles forInputColumns: inputColumnsTitles size.
+
+	"Calculate table width"
+	tableWidth := columnWidths sum + (self columnSeparation * (columnWidths size + 1)) * 1.1.
+
+	self layoutSpec: (LayoutSpec fixedWidth: tableWidth fixedHeight: recommendedHeight).
+
+	"Buid the columns titles row"
+	columnsTitlesRow := self buildColumnTitlesRowFor: inputColumnsTitles.
+	self addMorph: columnsTitlesRow layoutSpec: self rowsLayoutSpec.
+
+	"Build the input rows"
+	rowsTitles withIndexDo: [:aRowTitle :index | | aRow changeOrderModel keywordInputMorph inputMorphLayoutSpec parameternameInputMorph |
+		aRow := LayoutMorph newRow.
+		aRow color: self backgroundColor; separation: self columnSeparation.
+
+		aRow
+			addMorph: (LabelMorph contents: aRowTitle)
+			layoutSpec: (LayoutSpec fixedWidth: (columnWidths at: 1)).
+
+		inputMorphLayoutSpec := LayoutSpec fixedWidth: (columnWidths at: 2) fixedHeight: self rowHeight.
+
+		keywordInputMorph := self buildInputMorphWith: (aRefactoringModel keywordModelOf: aRowTitle).
+		aRow addMorph: keywordInputMorph layoutSpec: inputMorphLayoutSpec.
+
+		parameternameInputMorph := self buildInputMorphWith: (aRefactoringModel parameterModelOf: aRowTitle).
+		aRow addMorph: parameternameInputMorph layoutSpec: inputMorphLayoutSpec.
+
+		self needsToReorderRows ifTrue: [
+			changeOrderModel := ChangeRowOrderButtonModel for: (rowsTitles size - (index - 1)) notifying: self.
+			rowModels addFirst: changeOrderModel.
+			changeOrderButtons := self buildChangeOrderButtonsWith: changeOrderModel.
+			aRow addMorph: changeOrderButtons layoutSpec: (LayoutSpec fixedWidth: (columnWidths last))].
+
+		self addMorph: aRow layoutSpec: self rowsLayoutSpec.
+	].! !
+
+----QUIT----(12 July 2021 20:43:01) CuisUniversity-4532.image priorSource: 17058845!
+
+----STARTUP---- (12 July 2021 20:43:20) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+!classDefinition: #SummaryMaker category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 20:45:40'!
+Object subclass: #SummaryMaker
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!SummaryMaker class methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:45:40'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:45:40'!
+initializeFor: anAccount
+	account := anAccount.! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:45:40'!
+compute
+
+	^account transactions 
+	inject: 0 * peso
+	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]! !
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:45:40' prior: 50864394!
+transferNet
+	^(SummaryMaker for: self) compute! !
+
+----SNAPSHOT----(12 July 2021 20:46:05) CuisUniversity-4532.image priorSource: 17064161!
+
+!classRenamed: #SummaryMaker as: #TransferNetMaker stamp: 'JP 7/12/2021 20:47:03'!
+Smalltalk renameClassNamed: #SummaryMaker as: #TransferNetMaker!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:47:03' prior: 50864938!
+transferNet
+	^(TransferNetMaker for: self) compute! !
+
+!classDefinition: #SummaryMakerr category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 20:48:13'!
+Object subclass: #SummaryMakerr
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!SummaryMakerr class methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:48:13'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+!SummaryMakerr methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:48:13'!
+initializeFor: anAccount
+	account := anAccount.! !
+!SummaryMakerr methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:48:13'!
+compute
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	account transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	summary add: 'Balance = ', account balance asString.
+	^summary ! !
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:48:13' prior: 50864303!
+summary
+	^(SummaryMakerr for: self) compute! !
+
+----SNAPSHOT----(12 July 2021 20:48:28) CuisUniversity-4532.image priorSource: 17065329!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:48:48' prior: 50864983!
+summary
+	^(SummaryMakerr for: self) compute! !
+
+Object subclass: #SummaryMaker
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #SummaryMaker category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 20:49:04'!
+Object subclass: #SummaryMaker
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:49:19' prior: 50864991!
+summary
+	^(SummaryMaker for: self) compute! !
+
+!classRemoval: #SummaryMakerr stamp: 'JP 7/12/2021 20:49:25'!
+Object subclass: #SummaryMakerr
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:26:54' prior: 50865008!
+summary
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	self transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	summary add: 'Balance = ', self balance asString.
+	^summary ! !
+
+!classRemoval: #SummaryMaker stamp: 'JP 7/12/2021 20:50:12'!
+Object subclass: #SummaryMaker
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #SummaryMaker category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 20:50:40'!
+Object subclass: #SummaryMaker
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!SummaryMaker class methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:50:40'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:50:40'!
+initializeFor: anAccount
+	account := anAccount.! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:50:40'!
+compute
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	account transactions do: [:aTransaction | summary add: aTransaction asString].
+	
+	summary add: 'Balance = ', account balance asString.
+	^summary ! !
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:50:40' prior: 50865019!
+summary
+	^(SummaryMaker for: self) compute! !
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:56:57'!
+xxx: aReport! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:57:12' overrides: 50865068!
+xxx: aReport! !
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:57:17' overrides: 50865068!
+xxx: aReport! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:57:21' overrides: 50865076!
+xxx: aReport! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:57:24' overrides: 50865076!
+xxx: aReport! !
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:57:28' overrides: 50865068!
+xxx: aReport! !
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:57:37' prior: 50865068!
+xxx: aReport
+
+	self subclassResponsibility ! !
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:57:42' prior: 50865076 overrides: 50865092!
+xxx: aReport
+
+	self subclassResponsibility ! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:59:34' prior: 50865072 overrides: 50865092!
+xxx: aReport
+
+	aReport incluirDeposito! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:59:40' prior: 50865103 overrides: 50865092!
+xxx: aReport
+
+	aReport incluirDeposit! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:59:46' prior: 50865108 overrides: 50865092!
+xxx: aReport
+
+	aReport includeDeposit! !
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:43'!
+beAddedTo: aReport
+
+	self subclassResponsibility ! !
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:43'!
+beAddedTo: aReport! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:43' overrides: 50865117!
+beAddedTo: aReport! !
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:44'!
+beAddedTo: aReport
+
+	self subclassResponsibility ! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:44' overrides: 50865131!
+beAddedTo: aReport
+
+	aReport includeDeposit! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:44' overrides: 50865117!
+beAddedTo: aReport! !
+
+!methodRemoval: TransferLeg #xxx: stamp: 'JP 7/12/2021 21:00:44'!
+xxx: aReport
+
+	self subclassResponsibility !
+
+!methodRemoval: Withdraw #xxx: stamp: 'JP 7/12/2021 21:00:44'!
+xxx: aReport!
+
+!methodRemoval: TransferWithdrawLeg #xxx: stamp: 'JP 7/12/2021 21:00:44'!
+xxx: aReport!
+
+!methodRemoval: AccountTransaction #xxx: stamp: 'JP 7/12/2021 21:00:44'!
+xxx: aReport
+
+	self subclassResponsibility !
+
+!methodRemoval: Deposit #xxx: stamp: 'JP 7/12/2021 21:00:44'!
+xxx: aReport
+
+	aReport includeDeposit!
+
+!methodRemoval: TransferDepositLeg #xxx: stamp: 'JP 7/12/2021 21:00:44'!
+xxx: aReport!
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:53' prior: 50865136 overrides: 50865131!
+beAddedTo: aReport
+
+	aReport addDeposit! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:01:54' prior: 50865141 overrides: 50865117!
+beAddedTo: aReport
+
+	aReport addDepositLeg! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:02:23' prior: 50865127 overrides: 50865117!
+beAddedTo: aReport
+
+	aReport addTransferWithdrawLeg! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:02:32' prior: 50865170 overrides: 50865117!
+beAddedTo: aReport
+
+	aReport addTransferDepositLeg! !
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:02:47' prior: 50865122 overrides: 50865131!
+beAddedTo: aReport
+
+	aReport addWithdraw! !
+!SummaryMaker methodsFor: 'nil' stamp: 'JP 7/12/2021 21:05:04'!
+addWithdraw
+
+	! !
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:06:02' prior: 50865188 overrides: 50865131!
+beAddedTo: aReport
+
+	aReport addWithdraw: self! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:06:11' prior: 50865176 overrides: 50865117!
+beAddedTo: aReport
+
+	aReport addTransferWithdrawLeg: self! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:06:17' prior: 50865182 overrides: 50865117!
+beAddedTo: aReport
+
+	aReport addTransferDepositLeg: self! !
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:06:26' prior: 50865164 overrides: 50865131!
+beAddedTo: aReport
+
+	aReport addDeposit: self! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:08:03'!
+addWithdraw: aWithdraw
+	
+	^'Extracción por ' , aWithdraw value asString
+	! !
+
+!methodRemoval: SummaryMaker #addWithdraw stamp: 'JP 7/12/2021 21:08:08'!
+addWithdraw
+
+	!
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:08:58'!
+addTransferWithdrawLeg: aTransferWithdrawLeg
+	
+	^'Salida por transferencia de ' , aTransferWithdrawLeg value asString
+	! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:09:19'!
+addTransferDepositLeg: aTransferDepositLeg
+	
+	^'Salida por transferencia de ' , aTransferDepositLeg value asString
+	! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:09:36'!
+addDeposit: aDeposit
+	
+	^'Salida por transferencia de ' , aDeposit value asString
+	! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:10:15' prior: 50865235!
+addTransferDepositLeg: aTransferDepositLeg
+	
+	^'Entrada por transferencia de '  , aTransferDepositLeg value asString
+	! !
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:10:26' prior: 50865242!
+addDeposit: aDeposit
+	
+	^'Depósito por ' , aDeposit value asString
+	! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:11:05'!
+PASSED!
+!SummaryMaker methodsFor: 'evaluating' stamp: 'JP 7/12/2021 21:12:54' prior: 50865053!
+compute
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	account transactions do: [:aTransaction | summary add: (aTransaction beAddedTo: self)].
+	
+	summary add: 'Balance = ', account balance asString.
+	^summary ! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:12:58'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:12:58'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 21:12:58'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:12:59'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 21:12:59'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 21:12:59'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 21:12:59'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:12:59'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:12:59'!
+FAILURE!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:13:08'!
+FAILURE!
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:31' prior: 50865215 overrides: 50865131!
+beAddedTo: aReport
+
+	^aReport addDeposit: self! !
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:37' prior: 50865209 overrides: 50865117!
+beAddedTo: aReport
+
+	^aReport addTransferDepositLeg: self! !
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:41' prior: 50865203 overrides: 50865117!
+beAddedTo: aReport
+
+	^aReport addTransferWithdrawLeg: self! !
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:44' prior: 50865197 overrides: 50865131!
+beAddedTo: aReport
+
+	^aReport addWithdraw: self! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:14:47'!
+PASSED!
+
+!methodRemoval: TransferDepositLeg #asString stamp: 'JP 7/12/2021 21:15:09'!
+asString
+	
+	^'Entrada por transferencia de ' , self value asString!
+
+!methodRemoval: TransferWithdrawLeg #asString stamp: 'JP 7/12/2021 21:15:13'!
+asString
+
+	^'Salida por transferencia de ' , self value asString!
+
+!methodRemoval: Withdraw #asString stamp: 'JP 7/12/2021 21:15:18'!
+asString
+
+	^'Extracción por ' , self value asString!
+
+!methodRemoval: TransferLeg #asString stamp: 'JP 7/12/2021 21:15:25'!
+asString
+
+	self subclassResponsibility!
+
+!methodRemoval: Deposit #asString stamp: 'JP 7/12/2021 21:15:29'!
+asString
+
+	^'Depósito por ' , self value asString!
+
+!methodRemoval: AccountTransaction #asString stamp: 'JP 7/12/2021 21:15:33'!
+asString
+
+	self subclassResponsibility !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:15:36'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:15:37'!
+PASSED!
+
+!classRenamed: #TransferNetMaker as: #TransferNetCalculator stamp: 'JP 7/12/2021 21:16:53'!
+Smalltalk renameClassNamed: #TransferNetMaker as: #TransferNetCalculator!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:16:53' prior: 50864950!
+transferNet
+	^(TransferNetCalculator for: self) compute! !
+!TransferNetCalculator methodsFor: 'evaluating' stamp: 'JP 7/12/2021 21:21:20' prior: 50864930!
+compute
+
+	^account transactions sum: [:transaction | transaction beAddedTo: self]! !
+
+----End fileIn of D:\Admin\Descargas\Imagen servicios 2\Packages\TerseGuide.pck.st----!
+!TransferNetCalculator methodsFor: 'nil' stamp: 'JP 7/12/2021 21:24:30'!
+addWithdraw: aWithdraw! !
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:24:45'!
+addTransferLegWithdraw: aTransferLegWithdraw! !
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:25:03'!
+addTransferWithdrawLeg: aTransferWithdrawLeg! !
+
+!methodRemoval: TransferNetCalculator #addTransferLegWithdraw: stamp: 'JP 7/12/2021 21:25:05'!
+addTransferLegWithdraw: aTransferLegWithdraw!
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:25:16'!
+addTransferDepositLeg: aTransferDepositLeg! !
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:25:25'!
+addDeposit: aDeposit! !
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:25:37' prior: 50868419!
+addDeposit: aDeposit
+
+	^0 * peso! !
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:10' prior: 50868405!
+addTransferWithdrawLeg: aTransferWithdrawLeg
+
+	^aTransferWithdrawLeg value negated ! !
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:27' prior: 50868396!
+addWithdraw: aWithdraw
+
+	^0 * peso! !
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:39' prior: 50868414!
+addTransferDepositLeg: aTransferDepositLeg
+
+	^aTransferDepositLeg value ! !
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:26:50'!
+ERROR!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/12/2021 21:26:51'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/12/2021 21:26:51'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/12/2021 21:26:51'!
+ERROR!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:26:51'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:26:51'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:27:07'!
+ERROR!
+!TransferNetCalculator methodsFor: 'evaluating' stamp: 'JP 7/12/2021 21:27:38' prior: 50865465!
+compute
+
+	^account transactions sum: [:transaction | transaction beAddedTo: self] ifEmpty: [^ 0 * peso]! !
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:27:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/12/2021 21:27:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/12/2021 21:27:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/12/2021 21:27:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:27:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:27:41'!
+PASSED!
+
+!methodRemoval: Deposit #affectTransferNet: stamp: 'JP 7/12/2021 21:27:49'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet!
+
+!methodRemoval: AccountTransaction #affectTransferNet: stamp: 'JP 7/12/2021 21:27:56'!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility !
+
+!methodRemoval: TransferLeg #affectTransferNet: stamp: 'JP 7/12/2021 21:28:05'!
+affectTransferNet: aTransferNet
+
+	self subclassResponsibility !
+!TransferLeg methodsFor: 'nil' stamp: 'JP 7/12/2021 21:28:19' overrides: 50860467!
+affectBalance: aBalance
+
+	self subclassResponsibility ! !
+
+!methodRemoval: TransferDepositLeg #affectTransferNet: stamp: 'JP 7/12/2021 21:28:38'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet + self value!
+
+!methodRemoval: TransferWithdrawLeg #affectTransferNet: stamp: 'JP 7/12/2021 21:28:42'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet - self value!
+
+!methodRemoval: Withdraw #affectTransferNet: stamp: 'JP 7/12/2021 21:28:45'!
+affectTransferNet: aTransferNet
+
+	^aTransferNet!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/12/2021 21:28:49'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/12/2021 21:28:50'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/12/2021 21:28:51'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/12/2021 21:28:51'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/12/2021 21:28:51'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/12/2021 21:28:51'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/12/2021 21:28:51'!
+PASSED!
+
+----SNAPSHOT----(12 July 2021 21:28:56) CuisUniversity-4532.image priorSource: 17066766!
+
+Object subclass: #Report
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #Report category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 21:29:48'!
+Object subclass: #Report
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+Report subclass: #SummaryMaker
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #SummaryMaker category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 21:30:24'!
+Report subclass: #SummaryMaker
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+Report subclass: #TransferNetCalculator
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #TransferNetCalculator category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 21:30:42'!
+Report subclass: #TransferNetCalculator
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+Report subclass: #SummaryMaker
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+Report subclass: #SummaryMaker
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #SummaryMaker category: 'ServiciosFinancieros2' stamp: 'JP 7/12/2021 21:32:06'!
+Report subclass: #SummaryMaker
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!Report methodsFor: 'nil' stamp: 'JP 7/12/2021 21:32:45'!
+compute
+
+	self subclassResponsibility ! !
+!Report methodsFor: 'nil' stamp: 'JP 7/12/2021 21:33:06'!
+initializeFor: anAccount
+
+	self subclassResponsibility ! !
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:09' prior: 50868754!
+initializeFor: anAccount
+
+	self subclassResponsibility ! !
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:47'!
+addDeposit: aDeposit
+
+	self subclassResponsibility ! !
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:57'!
+addWithdraw: aWithdraw
+
+	self subclassResponsibility ! !
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:34:28'!
+addTransferWithdrawLeg: aTransferWithdrawLeg
+
+	self subclassResponsibility ! !
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:34:35'!
+addTransferDepositLeg: aTransferDepositLeg
+
+	self subclassResponsibility ! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:34:39'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:34:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/12/2021 21:34:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/12/2021 21:34:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/12/2021 21:34:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/12/2021 21:34:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/12/2021 21:34:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:34:40'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/12/2021 21:34:41'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/12/2021 21:34:42'!
+PASSED!
+
+----SNAPSHOT----(12 July 2021 21:35:19) CuisUniversity-4532.image priorSource: 17185405!
+
+----SNAPSHOT----(12 July 2021 21:35:34) CuisUniversity-4532.image priorSource: 17193412!
+
+----SNAPSHOT----(12 July 2021 21:36:22) CuisUniversity-4532.image priorSource: 17193502!
+
+----QUIT----(12 July 2021 21:36:27) CuisUniversity-4532.image priorSource: 17193592!
+
+----STARTUP---- (12 July 2021 21:54:17) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+----QUIT----(12 July 2021 21:54:24) CuisUniversity-4532.image priorSource: 17193682!

@@ -671,6 +671,15 @@ addTransactionsTo: aCollectionOfTransactions
 
 	self subclassResponsibility ! !
 
+
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:50:40'!
+summary
+	^(SummaryMaker for: self) compute! !
+
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:16:53'!
+transferNet
+	^(TransferNetCalculator for: self) compute! !
+
 
 !classDefinition: #Portfolio category: 'ServiciosFinancieros2'!
 Account subclass: #Portfolio
@@ -782,35 +791,6 @@ signalCanNotAddAccount
 	self error: self class canNotAddAccountErrorMessage! !
 
 
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:09:41'!
-summary
-	
-	| summary |
-	summary := self summaryWithoutBalance.
-	
-	summary add: 'Balance = ', self balance asString.
-	^summary ! !
-
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:07:03'!
-summaryWithoutBalance
-	
-	| summary |
-	summary := OrderedCollection new.
-	
-	accounts do: [:anAccount | summary addAll: anAccount summaryWithoutBalance].
-	
-	^summary ! !
-
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:28:23'!
-transferNet
-
-	| transferNet |
-	transferNet := 0 * peso.
-	
-	accounts do: [:anAccount | transferNet := transferNet + anAccount transferNet ].
-	
-	^transferNet! !
-
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
 !classDefinition: 'Portfolio class' category: 'ServiciosFinancieros2'!
@@ -894,32 +874,6 @@ isComposedBy: anAccount
 	^self = anAccount ! !
 
 
-!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:09:07'!
-summary
-	
-	| summary |
-	summary := self summaryWithoutBalance.
-
-	summary add: 'Balance = ' , self balance asString.
-	^summary! !
-
-!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:45:23'!
-summaryWithoutBalance
-	
-	| summary |
-	summary := OrderedCollection new.
-	
-	transactions do: [:aTransaction | summary add: aTransaction asString.].
-
-	^summary! !
-
-!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:09:25'!
-transferNet
-	
-	^transactions 
-	inject: 0 * peso
-	into: [ :currentTransferNet :transaction | transaction affectTransferNet: currentTransferNet ]! !
-
 
 !classDefinition: #AccountTransaction category: 'ServiciosFinancieros2'!
 Object subclass: #AccountTransaction
@@ -940,13 +894,8 @@ affectBalance: aBalance
 	self subclassResponsibility ! !
 
 
-!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:05'!
-affectTransferNet: aTransferNet
-
-	self subclassResponsibility ! !
-
-!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:42:36'!
-asString
+!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:44'!
+beAddedTo: aReport
 
 	self subclassResponsibility ! !
 
@@ -976,15 +925,10 @@ affectBalance: aBalance
 	^aBalance + value ! !
 
 
-!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:13:04'!
-affectTransferNet: aTransferNet
+!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:31'!
+beAddedTo: aReport
 
-	^aTransferNet! !
-
-!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:43:19'!
-asString
-
-	^'Depósito por ' , self value asString! !
+	^aReport addDeposit: self! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1028,15 +972,15 @@ initializeWith: aTransfer
 	transfer := aTransfer! !
 
 
-!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:11:16'!
-affectTransferNet: aTransferNet
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:28:19'!
+affectBalance: aBalance
 
 	self subclassResponsibility ! !
 
-!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:45:13'!
-asString
+!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:43'!
+beAddedTo: aReport
 
-	self subclassResponsibility! !
+	self subclassResponsibility ! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1074,15 +1018,10 @@ affectBalance: aBalance
 	^aBalance + self value! !
 
 
-!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:06'!
-affectTransferNet: aTransferNet
+!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:37'!
+beAddedTo: aReport
 
-	^aTransferNet + self value! !
-
-!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:44:30'!
-asString
-	
-	^'Entrada por transferencia de ' , self value asString! !
+	^aReport addTransferDepositLeg: self! !
 
 
 !classDefinition: #TransferWithdrawLeg category: 'ServiciosFinancieros2'!
@@ -1104,15 +1043,10 @@ affectBalance: aBalance
 	^aBalance - self value! !
 
 
-!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:22'!
-affectTransferNet: aTransferNet
+!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:41'!
+beAddedTo: aReport
 
-	^aTransferNet - self value! !
-
-!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:44:55'!
-asString
-
-	^'Salida por transferencia de ' , self value asString! !
+	^aReport addTransferWithdrawLeg: self! !
 
 
 !classDefinition: #Withdraw category: 'ServiciosFinancieros2'!
@@ -1140,15 +1074,10 @@ affectBalance: aBalance
 	^aBalance - value! !
 
 
-!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:12:55'!
-affectTransferNet: aTransferNet
+!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:44'!
+beAddedTo: aReport
 
-	^aTransferNet! !
-
-!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 16:43:50'!
-asString
-
-	^'Extracción por ' , self value asString! !
+	^aReport addWithdraw: self! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1171,6 +1100,152 @@ register: aValue on: account
 	account register: transaction.
 		
 	^ transaction! !
+
+
+!classDefinition: #Report category: 'ServiciosFinancieros2'!
+Object subclass: #Report
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:47'!
+addDeposit: aDeposit
+
+	self subclassResponsibility ! !
+
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:34:35'!
+addTransferDepositLeg: aTransferDepositLeg
+
+	self subclassResponsibility ! !
+
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:34:28'!
+addTransferWithdrawLeg: aTransferWithdrawLeg
+
+	self subclassResponsibility ! !
+
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:57'!
+addWithdraw: aWithdraw
+
+	self subclassResponsibility ! !
+
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:32:45'!
+compute
+
+	self subclassResponsibility ! !
+
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:09'!
+initializeFor: anAccount
+
+	self subclassResponsibility ! !
+
+
+!classDefinition: #SummaryMaker category: 'ServiciosFinancieros2'!
+Report subclass: #SummaryMaker
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!SummaryMaker methodsFor: 'initialization' stamp: 'JP 7/12/2021 20:50:40'!
+initializeFor: anAccount
+	account := anAccount.! !
+
+
+!SummaryMaker methodsFor: 'evaluating' stamp: 'JP 7/12/2021 21:12:54'!
+compute
+	
+	| summary |
+	summary := OrderedCollection new.
+	
+	account transactions do: [:aTransaction | summary add: (aTransaction beAddedTo: self)].
+	
+	summary add: 'Balance = ', account balance asString.
+	^summary ! !
+
+
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:10:26'!
+addDeposit: aDeposit
+	
+	^'Depósito por ' , aDeposit value asString
+	! !
+
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:10:15'!
+addTransferDepositLeg: aTransferDepositLeg
+	
+	^'Entrada por transferencia de '  , aTransferDepositLeg value asString
+	! !
+
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:08:58'!
+addTransferWithdrawLeg: aTransferWithdrawLeg
+	
+	^'Salida por transferencia de ' , aTransferWithdrawLeg value asString
+	! !
+
+!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:08:03'!
+addWithdraw: aWithdraw
+	
+	^'Extracción por ' , aWithdraw value asString
+	! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'SummaryMaker class' category: 'ServiciosFinancieros2'!
+SummaryMaker class
+	instanceVariableNames: ''!
+
+!SummaryMaker class methodsFor: 'instance creation' stamp: 'JP 7/12/2021 20:50:40'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+
+
+!classDefinition: #TransferNetCalculator category: 'ServiciosFinancieros2'!
+Report subclass: #TransferNetCalculator
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!TransferNetCalculator methodsFor: 'initialization' stamp: 'JP 7/12/2021 20:45:40'!
+initializeFor: anAccount
+	account := anAccount.! !
+
+
+!TransferNetCalculator methodsFor: 'evaluating' stamp: 'JP 7/12/2021 21:27:38'!
+compute
+
+	^account transactions sum: [:transaction | transaction beAddedTo: self] ifEmpty: [^ 0 * peso]! !
+
+
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:25:37'!
+addDeposit: aDeposit
+
+	^0 * peso! !
+
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:39'!
+addTransferDepositLeg: aTransferDepositLeg
+
+	^aTransferDepositLeg value ! !
+
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:10'!
+addTransferWithdrawLeg: aTransferWithdrawLeg
+
+	^aTransferWithdrawLeg value negated ! !
+
+!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:27'!
+addWithdraw: aWithdraw
+
+	^0 * peso! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'TransferNetCalculator class' category: 'ServiciosFinancieros2'!
+TransferNetCalculator class
+	instanceVariableNames: ''!
+
+!TransferNetCalculator class methodsFor: 'instance creation' stamp: 'JP 7/12/2021 20:45:40'!
+for: anAccount
+	^self new initializeFor: anAccount! !
 
 
 !classDefinition: #Transfer category: 'ServiciosFinancieros2'!
