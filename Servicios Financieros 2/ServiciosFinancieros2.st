@@ -5,74 +5,79 @@ TestCase subclass: #AccountSummaryTest
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:11:14'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:11:13'!
 test01AccountSummaryBalanceIs0PesosOnEmptyAccount
 	
-	| anAccount expectedSummary |
+	| anAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
+	summary := (SummaryMaker for: anAccount) compute.
 	
 	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
 	
-	self assert: anAccount summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:12:54'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:10:58'!
 test02DepositTransactionShowsOnSummary
 	
-	| anAccount expectedSummary |
+	| anAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
+	summary := (SummaryMaker for: anAccount) compute.
 	
 	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
 	
-	self assert: anAccount summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:15:13'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:11:24'!
 test03MultipleTransactionsShowOnSummary
 	
-	| anAccount expectedSummary |
+	| anAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
 	Deposit register: 5 * peso on: anAccount.
+	summary := (SummaryMaker for: anAccount) compute.
 	
 	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
 	
-	self assert: anAccount summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:14:07'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:11:33'!
 test04WithdrawTransactionShowsOnSummary
 	
-	| anAccount expectedSummary |
+	| anAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
 	Withdraw register: 5 * peso on: anAccount.
+	summary := (SummaryMaker for: anAccount) compute.
 	
 	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Extracción por 5 pesos' with: 'Balance = 5 pesos'.
 	
-	self assert: anAccount summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:16:18'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:12:00'!
 test05TransferDepositLegShowsOnSummary
 	
-	| anAccount anotherAccount expectedSummary |
+	| anAccount anotherAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
 	
 	anotherAccount := ReceptiveAccount new.
 	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	summary := (SummaryMaker for: anotherAccount) compute.
 	
 	expectedSummary := OrderedCollection with: 'Entrada por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
 	
-	self assert: anotherAccount summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:16:12'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:14:12'!
 test06TransferWithdrawLegShowsOnSummary
 	
-	| anAccount anotherAccount expectedSummary |
+	| anAccount anotherAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
@@ -80,39 +85,43 @@ test06TransferWithdrawLegShowsOnSummary
 	anotherAccount := ReceptiveAccount new.
 	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
 	
+	summary := (SummaryMaker for: anAccount) compute.
+	
 	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Salida por transferencia de 5 pesos' with: 'Balance = 5 pesos'.
 	 
-	self assert: anAccount summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:16:59'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:13:07'!
 test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio
 	
-	| aPortfolio expectedSummary |
+	| aPortfolio expectedSummary summary |
 	
 	aPortfolio := Portfolio new.
+	summary := (SummaryMaker for: aPortfolio) compute.
 
 	expectedSummary := OrderedCollection with: 'Balance = 0 pesos'.
 	 
-	self assert: aPortfolio summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:18:12'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:13:29'!
 test08CanShowSummaryWithPortfolioWithASingleAccount
 	
-	| aPortfolio anAccount expectedSummary |
+	| aPortfolio anAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
 	
 	aPortfolio := Portfolio with: anAccount.
+	summary := (SummaryMaker for: aPortfolio) compute.
 
 	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Balance = 10 pesos'.
 	 
-	self assert: aPortfolio summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
-!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/9/2021 20:19:59'!
+!AccountSummaryTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:13:41'!
 test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts
 	
-	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary |
+	| aPortfolio anAccount anotherPortfolio anotherAccount expectedSummary summary |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
@@ -123,10 +132,11 @@ test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts
 	anotherPortfolio := Portfolio with: anotherAccount.
 	
 	aPortfolio := Portfolio with: anAccount with: anotherPortfolio.
+	summary := (SummaryMaker for: aPortfolio) compute.
 	
 	expectedSummary := OrderedCollection with: 'Depósito por 10 pesos' with: 'Depósito por 5 pesos' with: 'Balance = 15 pesos'.
 	 
-	self assert: aPortfolio summary equals: expectedSummary! !
+	self assert: summary equals: expectedSummary! !
 
 
 !classDefinition: #PortfolioTest category: 'ServiciosFinancieros2'!
@@ -344,6 +354,59 @@ test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd
 			self assert: portfolioToModify accountsIsEmpty ]! !
 
 
+!classDefinition: #PortfolioTreePrinterTest category: 'ServiciosFinancieros2'!
+TestCase subclass: #PortfolioTreePrinterTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:13:01'!
+test01
+
+	| aPortfolio   expectedTree portfolioTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:12:27'!
+test02
+
+	| aPortfolio anAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:39:20'!
+test03
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+
 !classDefinition: #ReceptiveAccountTest category: 'ServiciosFinancieros2'!
 TestCase subclass: #ReceptiveAccountTest
 	instanceVariableNames: ''
@@ -442,31 +505,35 @@ TestCase subclass: #TransferNetTest
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:30:20'!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:15:43'!
 test01AccountSummaryTransferNetIs0PesosOnEmptyAccount
 
-	| anAccount |
+	| anAccount transferNet |
 	anAccount := ReceptiveAccount new.
+	transferNet := (TransferNetCalculator for: anAccount) compute.
 	
-	self assert: anAccount transferNet equals: 0 * peso.! !
+	self assert: transferNet equals: 0 * peso.! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:33:34'!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:16:46'!
 test02BothAccountsOfTransferHaveOppositeTransferNet
 
-	| anAccount anotherAccount |
+	| anAccount anotherAccount transferNetAnAccount transferNetAnotherAccount |
 	anAccount := ReceptiveAccount new.
 	
 	anotherAccount := ReceptiveAccount new.
 	
 	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
 	
-	self assert: anAccount transferNet equals: 5 * peso.
-	self assert: anotherAccount transferNet equals: -5 * peso.! !
+	transferNetAnAccount := (TransferNetCalculator for: anAccount) compute.
+	transferNetAnotherAccount := (TransferNetCalculator for: anotherAccount) compute.
+	
+	self assert: transferNetAnAccount equals: 5 * peso.
+	self assert: transferNetAnotherAccount equals: -5 * peso.! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:35:50'!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:17:31'!
 test03TransferNetIgnoresAnyNonTransferTransactions
 
-	| anAccount anotherAccount |
+	| anAccount anotherAccount transferNetAnAccount transferNetAnotherAccount |
 	anAccount := ReceptiveAccount new.
 	Deposit register: 5 * peso on: anAccount.
 	
@@ -477,23 +544,28 @@ test03TransferNetIgnoresAnyNonTransferTransactions
 	Transfer amount: 5 * peso from: anotherAccount to: anAccount.
 	Transfer amount: 2 * peso from: anAccount to: anotherAccount.
 	
-	self assert: anAccount transferNet equals: 3 * peso.
-	self assert: anotherAccount transferNet equals: -3 * peso.! !
+	transferNetAnAccount := (TransferNetCalculator for: anAccount) compute.
+	transferNetAnotherAccount := (TransferNetCalculator for: anotherAccount) compute.
+	
+	self assert: transferNetAnAccount equals: 3 * peso.
+	self assert: transferNetAnotherAccount equals: -3 * peso.! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:36:08'!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:17:47'!
 test04EmptyPortfolioTransferNetIs0Peso
 
-	| aPortfolio  |
+	| aPortfolio  transferNet |
 	
 	aPortfolio := Portfolio new.
 	 
-	self assert: aPortfolio transferNet equals: 0 * peso
+	transferNet := (TransferNetCalculator for: aPortfolio) compute.
+	
+	self assert: transferNet equals: 0 * peso
 	! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:37:06'!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:18:00'!
 test05CanShowTransferNetWithPortfolioWithASingleAccount
 
-	| aPortfolio anAccount anotherAccount |
+	| aPortfolio anAccount anotherAccount transferNet |
 	
 	anAccount := ReceptiveAccount new.
 	anotherAccount := ReceptiveAccount new.
@@ -502,12 +574,14 @@ test05CanShowTransferNetWithPortfolioWithASingleAccount
 	
 	Transfer amount: 10 * peso from: anotherAccount to: anAccount.
 	
-	self assert: aPortfolio transferNet equals: 10 * peso.! !
+	transferNet := (TransferNetCalculator for: aPortfolio) compute.
+	
+	self assert: transferNet equals: 10 * peso.! !
 
-!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/11/2021 17:37:57'!
+!TransferNetTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:18:19'!
 test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts
 
-	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount |
+	| aPortfolio anAccount anotherPortfolio anotherAccount outsidePortfolioAccount transferNet |
 	
 	anAccount := ReceptiveAccount new.
 	Deposit register: 10 * peso on: anAccount.
@@ -524,8 +598,9 @@ test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts
 	
 	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
 	Transfer amount: 2 * peso from: outsidePortfolioAccount to: anotherAccount.
+	transferNet := (TransferNetCalculator for: aPortfolio) compute.
 	 
-	self assert: aPortfolio transferNet equals: 2 * peso.! !
+	self assert: transferNet equals: 2 * peso.! !
 
 
 !classDefinition: #TransferTest category: 'ServiciosFinancieros2'!
@@ -634,7 +709,7 @@ test06CannotTransferAZeroAmount
 
 !classDefinition: #Account category: 'ServiciosFinancieros2'!
 Object subclass: #Account
-	instanceVariableNames: ''
+	instanceVariableNames: 'name'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
@@ -672,13 +747,38 @@ addTransactionsTo: aCollectionOfTransactions
 	self subclassResponsibility ! !
 
 
-!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 20:50:40'!
-summary
-	^(SummaryMaker for: self) compute! !
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:02:54'!
+initializeWithName: aName
 
-!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:16:53'!
-transferNet
-	^(TransferNetCalculator for: self) compute! !
+	self subclassResponsibility ! !
+
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:42:05'!
+name
+
+	^name! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Account class' category: 'ServiciosFinancieros2'!
+Account class
+	instanceVariableNames: ''!
+
+!Account class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:07:58'!
+named: aName
+	
+	"Si bien ambos accounts responden este mismo mensaje igual, creemos que subirlo a esta clase seria dañino para la legibilidad del codigo, ya que account es una clase abstracta de la cual no se deberia poder instanciar directamente"
+	
+	self subclassResponsibility! !
+
+!Account class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:04:23'!
+new
+
+	self subclassResponsibility! !
+
+!Account class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:51:56'!
+noNameAccount
+
+	^'Nameless Account'! !
 
 
 !classDefinition: #Portfolio category: 'ServiciosFinancieros2'!
@@ -688,11 +788,12 @@ Account subclass: #Portfolio
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
 
-!Portfolio methodsFor: 'initialization' stamp: 'HAW 5/25/2019 12:03:18'!
-initialize
+!Portfolio methodsFor: 'initialization' stamp: 'JP 7/14/2021 16:47:15'!
+initializeWithName: aName
 
 	accounts := OrderedCollection new.
-	parents := OrderedCollection new.! !
+	parents := OrderedCollection new.
+	name := aName! !
 
 
 !Portfolio methodsFor: 'main protocol' stamp: 'JP 7/9/2021 20:07:57'!
@@ -715,6 +816,11 @@ transactions
 	
 	^transactions ! !
 
+
+!Portfolio methodsFor: 'accounts management' stamp: 'JP 7/14/2021 17:31:17'!
+accounts
+
+	^accounts copy! !
 
 !Portfolio methodsFor: 'accounts management' stamp: 'HAW 5/25/2019 11:49:20'!
 accountsIncludes: anAccount
@@ -802,6 +908,31 @@ canNotAddAccountErrorMessage
 	
 	^'Can not add repeated account to a portfolio'! !
 
+!Portfolio class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:04:05'!
+named: aName
+
+	^self new initializeWithName: aName! !
+
+!Portfolio class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:09:37'!
+named: aName with: anAccount
+
+	^(self named: aName) 
+		add: anAccount;
+		yourself! !
+
+!Portfolio class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:40:06'!
+named: aName with: anAccount with: anotherAccount
+
+	^(self named: aName)
+		add: anAccount;
+		add: anotherAccount;
+		yourself! !
+
+!Portfolio class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:53:50'!
+new 
+
+	^self basicNew initializeWithName: self noNameAccount! !
+
 !Portfolio class methodsFor: 'as yet unclassified' stamp: 'HAW 5/25/2019 11:18:21'!
 with: anAccount
 
@@ -825,11 +956,11 @@ Account subclass: #ReceptiveAccount
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
 
-!ReceptiveAccount methodsFor: 'initialization' stamp: 'HernanWilkinson 7/13/2011 18:35'!
-initialize
+!ReceptiveAccount methodsFor: 'initialization' stamp: 'JP 7/14/2021 16:49:49'!
+initializeWithName: aName
 
-	super initialize.
-	transactions := OrderedCollection new.! !
+	transactions := OrderedCollection new.
+	name := aName ! !
 
 
 !ReceptiveAccount methodsFor: 'main protocol' stamp: 'JP 7/9/2021 19:22:18'!
@@ -873,6 +1004,21 @@ isComposedBy: anAccount
 
 	^self = anAccount ! !
 
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'ReceptiveAccount class' category: 'ServiciosFinancieros2'!
+ReceptiveAccount class
+	instanceVariableNames: ''!
+
+!ReceptiveAccount class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:04:09'!
+named: aName
+
+	^self new initializeWithName: aName! !
+
+!ReceptiveAccount class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:52:13'!
+new
+
+	^(self basicNew) initializeWithName: self noNameAccount! !
 
 
 !classDefinition: #AccountTransaction category: 'ServiciosFinancieros2'!
@@ -1102,6 +1248,42 @@ register: aValue on: account
 	^ transaction! !
 
 
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2'!
+Object subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:43:58'!
+compute
+	
+	| tree |
+	tree := OrderedCollection new.
+	
+	tree add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	tree add: '	Cuenta de Lucho'.
+	^tree.! !
+
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:32:18'!
+initializeFor: anAccount
+
+	portfolio := anAccount.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'PortfolioTreePrinter class' category: 'ServiciosFinancieros2'!
+PortfolioTreePrinter class
+	instanceVariableNames: ''!
+
+!PortfolioTreePrinter class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:56:40'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+
+
 !classDefinition: #Report category: 'ServiciosFinancieros2'!
 Object subclass: #Report
 	instanceVariableNames: 'account'
@@ -1134,10 +1316,10 @@ compute
 
 	self subclassResponsibility ! !
 
-!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:09'!
+!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:21:20'!
 initializeFor: anAccount
 
-	self subclassResponsibility ! !
+	account := anAccount.! !
 
 
 !classDefinition: #SummaryMaker category: 'ServiciosFinancieros2'!
@@ -1146,10 +1328,6 @@ Report subclass: #SummaryMaker
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
-
-!SummaryMaker methodsFor: 'initialization' stamp: 'JP 7/12/2021 20:50:40'!
-initializeFor: anAccount
-	account := anAccount.! !
 
 
 !SummaryMaker methodsFor: 'evaluating' stamp: 'JP 7/12/2021 21:12:54'!
@@ -1205,10 +1383,6 @@ Report subclass: #TransferNetCalculator
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
-
-!TransferNetCalculator methodsFor: 'initialization' stamp: 'JP 7/12/2021 20:45:40'!
-initializeFor: anAccount
-	account := anAccount.! !
 
 
 !TransferNetCalculator methodsFor: 'evaluating' stamp: 'JP 7/12/2021 21:27:38'!
