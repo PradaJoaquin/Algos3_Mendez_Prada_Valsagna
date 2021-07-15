@@ -139,6 +139,113 @@ test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts
 	self assert: summary equals: expectedSummary! !
 
 
+!classDefinition: #PortfolioDetailedTreePrinterTest category: 'ServiciosFinancieros2'!
+TestCase subclass: #PortfolioDetailedTreePrinterTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:11:41'!
+test01
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Balance = 0 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:11:25'!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho' with: '		Balance = 0 pesos' with: '	Balance = 0 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:12:34'!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:22:21'!
+test04
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Cuenta de Juan'.
+	expectedDetailedTree add: '		Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:32:12'!
+test05
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount anotherPortfolio |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	anotherPortfolio := Portfolio named: 'Portfolio de Juan' with: anotherAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Portfolio de Juan'.
+	expectedDetailedTree add: '		Cuenta de Juan'.
+	expectedDetailedTree add: '			Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '			Balance = 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+
 !classDefinition: #PortfolioTest category: 'ServiciosFinancieros2'!
 TestCase subclass: #PortfolioTest
 	instanceVariableNames: ''
@@ -361,10 +468,10 @@ TestCase subclass: #PortfolioTreePrinterTest
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
 
-!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:13:01'!
-test01
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:53:08'!
+test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName
 
-	| aPortfolio   expectedTree portfolioTree |
+	| aPortfolio expectedTree portfolioTree |
 	
 	aPortfolio := Portfolio named: 'Portfolio 1'.
 	 
@@ -373,8 +480,8 @@ test01
 	
 	self assert: portfolioTree equals: expectedTree! !
 
-!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:12:27'!
-test02
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:53:46'!
+test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount
 
 	| aPortfolio anAccount expectedTree portfolioTree |
 	
@@ -387,8 +494,8 @@ test02
 	
 	self assert: portfolioTree equals: expectedTree! !
 
-!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:39:20'!
-test03
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:55:14'!
+test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts
 
 	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree |
 	
@@ -403,6 +510,28 @@ test03
 	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
 	
 	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:56:12'!
+test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree portfolioTreePrinter|
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTreePrinter := (PortfolioTreePrinter for: aPortfolio).
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	portfolioTree := portfolioTreePrinter compute.
+	portfolioTree := portfolioTreePrinter compute.
 	
 	self assert: portfolioTree equals: expectedTree! !
 
@@ -724,6 +853,11 @@ hasRegistered: aTransaction
 
 	self subclassResponsibility ! !
 
+!Account methodsFor: 'main protocol' stamp: 'JP 7/14/2021 17:42:05'!
+name
+
+	^name! !
+
 !Account methodsFor: 'main protocol' stamp: 'HAW 5/25/2019 12:23:15'!
 transactions
 
@@ -746,16 +880,16 @@ addTransactionsTo: aCollectionOfTransactions
 
 	self subclassResponsibility ! !
 
-
-!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:02:54'!
-initializeWithName: aName
+!Account methodsFor: 'private' stamp: 'JP 7/15/2021 15:09:50'!
+beAddedTo: aReport
 
 	self subclassResponsibility ! !
 
-!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:42:05'!
-name
 
-	^name! !
+!Account methodsFor: 'initialization' stamp: 'JP 7/14/2021 17:02:54'!
+initializeWithName: aName
+
+	self subclassResponsibility ! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -852,6 +986,11 @@ addTransactionsTo: aCollectionOfTransactions
 
 	accounts do: [ :anAccount | anAccount addTransactionsTo: aCollectionOfTransactions ]! !
 
+!Portfolio methodsFor: 'private' stamp: 'JP 7/15/2021 15:12:08'!
+beAddedTo: aReport
+
+	aReport addPortfolio: self.! !
+
 
 !Portfolio methodsFor: 'composition' stamp: 'HAW 5/25/2019 12:17:31'!
 addRootParentsTo: rootParents
@@ -895,7 +1034,6 @@ rootParents
 signalCanNotAddAccount
 	
 	self error: self class canNotAddAccountErrorMessage! !
-
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -993,6 +1131,11 @@ addTransactionsTo: aCollectionOfTransactions
 
 	aCollectionOfTransactions addAll: transactions ! !
 
+!ReceptiveAccount methodsFor: 'private' stamp: 'JP 7/15/2021 15:12:18'!
+beAddedTo: aReport
+
+	aReport addReceptiveAccount: self.! !
+
 
 !ReceptiveAccount methodsFor: 'composition' stamp: 'HAW 5/25/2019 12:03:32'!
 addedTo: aPortfolio 
@@ -1021,6 +1164,160 @@ new
 	^(self basicNew) initializeWithName: self noNameAccount! !
 
 
+!classDefinition: #AccountReport category: 'ServiciosFinancieros2'!
+Object subclass: #AccountReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!AccountReport methodsFor: 'initialization' stamp: 'JP 7/15/2021 17:10:05'!
+initializeFor: anAccount
+
+	self subclassResponsibility ! !
+
+
+!AccountReport methodsFor: 'Public' stamp: 'JP 7/15/2021 17:29:50'!
+compute 
+
+	self subclassResponsibility ! !
+
+
+!AccountReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:08:16'!
+addPortfolio: aPortfolio
+
+	self subclassResponsibility ! !
+
+!AccountReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:08:04'!
+addReceptiveAccount: aReceptiveAccount
+
+	self subclassResponsibility ! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'AccountReport class' category: 'ServiciosFinancieros2'!
+AccountReport class
+	instanceVariableNames: ''!
+
+!AccountReport class methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:10:25'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+
+
+!classDefinition: #PortfolioTreeReport category: 'ServiciosFinancieros2'!
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!PortfolioTreeReport methodsFor: 'initialization' stamp: 'JP 7/15/2021 17:28:08'!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.
+	currentIndentation := ''! !
+
+
+!PortfolioTreeReport methodsFor: 'Public' stamp: 'JP 7/15/2021 17:27:59'!
+compute
+	
+	report := OrderedCollection new.
+	currentIndentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy! !
+
+
+!PortfolioTreeReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:27:51'!
+addIndentation
+
+	currentIndentation := currentIndentation , '	'.! !
+
+!PortfolioTreeReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:27:33'!
+addPortfolio: aPortfolio
+
+	self subclassResponsibility ! !
+
+!PortfolioTreeReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:27:43'!
+addReceptiveAccount: aReceptiveAccount
+
+	self subclassResponsibility ! !
+
+!PortfolioTreeReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:41:19'!
+addSentenceToReport: aSentence
+
+	report add: (currentIndentation , aSentence).! !
+
+!PortfolioTreeReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:28:17'!
+revertIndentation
+	
+	currentIndentation := currentIndentation copyFrom: 1 to: (currentIndentation size - 1).! !
+
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2'!
+PortfolioTreeReport subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:42:13'!
+addPortfolio: aPortfolio
+	
+	self addSentenceToReport: aPortfolio name.
+
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self addSentenceToReport: 'Balance = ' , aPortfolio balance asString.
+	
+	self revertIndentation.! !
+
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:44:45'!
+addReceptiveAccount: aReceptiveAccount
+
+	self addSentenceToReport: aReceptiveAccount name.
+	
+	self addIndentation.
+	
+	self addSummaryToReportFrom: aReceptiveAccount.
+	
+	self revertIndentation.! !
+
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:44:27'!
+addSummaryToReportFrom: anAccount
+
+	| summary |
+	summary := (SummaryMaker for: anAccount) compute.
+	report addAll: (summary collect: [:aTransactionSentence | currentIndentation , aTransactionSentence]).! !
+
+
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2'!
+PortfolioTreeReport subclass: #PortfolioTreePrinter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!PortfolioTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:45:14'!
+addPortfolio: aPortfolio
+	
+	self addSentenceToReport: aPortfolio name.
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self revertIndentation.! !
+
+!PortfolioTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:45:31'!
+addReceptiveAccount: aReceptiveAccount
+	
+	self addSentenceToReport: aReceptiveAccount name.! !
+
+
 !classDefinition: #AccountTransaction category: 'ServiciosFinancieros2'!
 Object subclass: #AccountTransaction
 	instanceVariableNames: ''
@@ -1040,7 +1337,7 @@ affectBalance: aBalance
 	self subclassResponsibility ! !
 
 
-!AccountTransaction methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:44'!
+!AccountTransaction methodsFor: 'Private' stamp: 'JP 7/12/2021 21:00:44'!
 beAddedTo: aReport
 
 	self subclassResponsibility ! !
@@ -1071,7 +1368,7 @@ affectBalance: aBalance
 	^aBalance + value ! !
 
 
-!Deposit methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:31'!
+!Deposit methodsFor: 'Private' stamp: 'JP 7/12/2021 21:14:31'!
 beAddedTo: aReport
 
 	^aReport addDeposit: self! !
@@ -1118,13 +1415,14 @@ initializeWith: aTransfer
 	transfer := aTransfer! !
 
 
-!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:28:19'!
-affectBalance: aBalance
+!TransferLeg methodsFor: 'Private' stamp: 'JP 7/12/2021 21:00:43'!
+beAddedTo: aReport
 
 	self subclassResponsibility ! !
 
-!TransferLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:00:43'!
-beAddedTo: aReport
+
+!TransferLeg methodsFor: 'balance' stamp: 'JP 7/12/2021 21:28:19'!
+affectBalance: aBalance
 
 	self subclassResponsibility ! !
 
@@ -1164,7 +1462,7 @@ affectBalance: aBalance
 	^aBalance + self value! !
 
 
-!TransferDepositLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:37'!
+!TransferDepositLeg methodsFor: 'Private' stamp: 'JP 7/12/2021 21:14:37'!
 beAddedTo: aReport
 
 	^aReport addTransferDepositLeg: self! !
@@ -1189,7 +1487,7 @@ affectBalance: aBalance
 	^aBalance - self value! !
 
 
-!TransferWithdrawLeg methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:41'!
+!TransferWithdrawLeg methodsFor: 'Private' stamp: 'JP 7/12/2021 21:14:41'!
 beAddedTo: aReport
 
 	^aReport addTransferWithdrawLeg: self! !
@@ -1220,7 +1518,7 @@ affectBalance: aBalance
 	^aBalance - value! !
 
 
-!Withdraw methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:14:44'!
+!Withdraw methodsFor: 'Private' stamp: 'JP 7/12/2021 21:14:44'!
 beAddedTo: aReport
 
 	^aReport addWithdraw: self! !
@@ -1248,82 +1546,48 @@ register: aValue on: account
 	^ transaction! !
 
 
-!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2'!
-Object subclass: #PortfolioTreePrinter
-	instanceVariableNames: 'portfolio'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'ServiciosFinancieros2'!
-
-!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:43:58'!
-compute
-	
-	| tree |
-	tree := OrderedCollection new.
-	
-	tree add: portfolio name.
-	
-	portfolio accounts do: [].
-	
-	tree add: '	Cuenta de Lucho'.
-	^tree.! !
-
-!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 17:32:18'!
-initializeFor: anAccount
-
-	portfolio := anAccount.! !
-
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
-
-!classDefinition: 'PortfolioTreePrinter class' category: 'ServiciosFinancieros2'!
-PortfolioTreePrinter class
-	instanceVariableNames: ''!
-
-!PortfolioTreePrinter class methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:56:40'!
-for: anAccount
-	^self new initializeFor: anAccount! !
-
-
-!classDefinition: #Report category: 'ServiciosFinancieros2'!
-Object subclass: #Report
+!classDefinition: #TransactionReport category: 'ServiciosFinancieros2'!
+Object subclass: #TransactionReport
 	instanceVariableNames: 'account'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'ServiciosFinancieros2'!
 
-!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:47'!
-addDeposit: aDeposit
-
-	self subclassResponsibility ! !
-
-!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:34:35'!
-addTransferDepositLeg: aTransferDepositLeg
-
-	self subclassResponsibility ! !
-
-!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:34:28'!
-addTransferWithdrawLeg: aTransferWithdrawLeg
-
-	self subclassResponsibility ! !
-
-!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:33:57'!
-addWithdraw: aWithdraw
-
-	self subclassResponsibility ! !
-
-!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:32:45'!
+!TransactionReport methodsFor: 'Public' stamp: 'JP 7/12/2021 21:32:45'!
 compute
 
 	self subclassResponsibility ! !
 
-!Report methodsFor: 'as yet unclassified' stamp: 'JP 7/14/2021 16:21:20'!
+
+!TransactionReport methodsFor: 'initialization' stamp: 'JP 7/14/2021 16:21:20'!
 initializeFor: anAccount
 
 	account := anAccount.! !
 
+
+!TransactionReport methodsFor: 'add' stamp: 'JP 7/12/2021 21:33:47'!
+addDeposit: aDeposit
+
+	self subclassResponsibility ! !
+
+!TransactionReport methodsFor: 'add' stamp: 'JP 7/12/2021 21:34:35'!
+addTransferDepositLeg: aTransferDepositLeg
+
+	self subclassResponsibility ! !
+
+!TransactionReport methodsFor: 'add' stamp: 'JP 7/12/2021 21:34:28'!
+addTransferWithdrawLeg: aTransferWithdrawLeg
+
+	self subclassResponsibility ! !
+
+!TransactionReport methodsFor: 'add' stamp: 'JP 7/12/2021 21:33:57'!
+addWithdraw: aWithdraw
+
+	self subclassResponsibility ! !
+
 
 !classDefinition: #SummaryMaker category: 'ServiciosFinancieros2'!
-Report subclass: #SummaryMaker
+TransactionReport subclass: #SummaryMaker
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
@@ -1342,25 +1606,25 @@ compute
 	^summary ! !
 
 
-!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:10:26'!
+!SummaryMaker methodsFor: 'add' stamp: 'JP 7/12/2021 21:10:26'!
 addDeposit: aDeposit
 	
 	^'Depósito por ' , aDeposit value asString
 	! !
 
-!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:10:15'!
+!SummaryMaker methodsFor: 'add' stamp: 'JP 7/12/2021 21:10:15'!
 addTransferDepositLeg: aTransferDepositLeg
 	
 	^'Entrada por transferencia de '  , aTransferDepositLeg value asString
 	! !
 
-!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:08:58'!
+!SummaryMaker methodsFor: 'add' stamp: 'JP 7/12/2021 21:08:58'!
 addTransferWithdrawLeg: aTransferWithdrawLeg
 	
 	^'Salida por transferencia de ' , aTransferWithdrawLeg value asString
 	! !
 
-!SummaryMaker methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:08:03'!
+!SummaryMaker methodsFor: 'add' stamp: 'JP 7/12/2021 21:08:03'!
 addWithdraw: aWithdraw
 	
 	^'Extracción por ' , aWithdraw value asString
@@ -1378,7 +1642,7 @@ for: anAccount
 
 
 !classDefinition: #TransferNetCalculator category: 'ServiciosFinancieros2'!
-Report subclass: #TransferNetCalculator
+TransactionReport subclass: #TransferNetCalculator
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
@@ -1391,22 +1655,22 @@ compute
 	^account transactions sum: [:transaction | transaction beAddedTo: self] ifEmpty: [^ 0 * peso]! !
 
 
-!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:25:37'!
+!TransferNetCalculator methodsFor: 'add' stamp: 'JP 7/12/2021 21:25:37'!
 addDeposit: aDeposit
 
 	^0 * peso! !
 
-!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:39'!
+!TransferNetCalculator methodsFor: 'add' stamp: 'JP 7/12/2021 21:26:39'!
 addTransferDepositLeg: aTransferDepositLeg
 
 	^aTransferDepositLeg value ! !
 
-!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:10'!
+!TransferNetCalculator methodsFor: 'add' stamp: 'JP 7/12/2021 21:26:10'!
 addTransferWithdrawLeg: aTransferWithdrawLeg
 
 	^aTransferWithdrawLeg value negated ! !
 
-!TransferNetCalculator methodsFor: 'as yet unclassified' stamp: 'JP 7/12/2021 21:26:27'!
+!TransferNetCalculator methodsFor: 'add' stamp: 'JP 7/12/2021 21:26:27'!
 addWithdraw: aWithdraw
 
 	^0 * peso! !

@@ -6686,3 +6686,3852 @@ compute
 ----SNAPSHOT----(14 July 2021 17:46:58) CuisUniversity-4532.image priorSource: 17225842!
 
 ----QUIT----(14 July 2021 17:47:00) CuisUniversity-4532.image priorSource: 17263898!
+
+----STARTUP---- (14 July 2021 17:47:11) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+----QUIT----(14 July 2021 17:47:59) CuisUniversity-4532.image priorSource: 17263988!
+
+----STARTUP---- (15 July 2021 14:17:43) as D:\Admin\Descargas\Imagen servicios 2\CuisUniversity-4532.image!
+
+
+!testRun: #PortfolioTreePrinterTest #test03 stamp: 'JP 7/15/2021 14:21:55'!
+ERROR!
+
+!testRun: #PortfolioTreePrinterTest #test03 stamp: 'JP 7/15/2021 14:21:55'!
+ERROR!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:26:36' prior: 50871140!
+compute
+	
+	| tree |
+	tree := OrderedCollection new.
+	
+	tree add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	tree add: '	Cuenta de Lucho'.
+	^tree.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:27:58' prior: 50871169!
+compute
+	
+	| tree |
+	tree := OrderedCollection new.
+	
+	tree add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	tree add: '	Cuenta de Lucho'.
+	^tree.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:29:41' prior: 50871178!
+compute
+	
+	| tree |
+	tree := OrderedCollection new.
+	
+	tree add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	tree add: '	Cuenta de Lucho'.
+	^tree.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:31:36'!
+writeAccountWith: anIdentation
+	
+	| tree |
+	tree := OrderedCollection new.
+	
+	tree add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	tree add: '	Cuenta de Lucho'.
+	^tree.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:31:55' prior: 50870981!
+initializeFor: anAccount
+	
+	portfolio := anAccount.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:32:03' prior: 50871187!
+compute
+	
+	| treee |
+	treee := OrderedCollection new.
+	
+	treee add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	treee add: '	Cuenta de Lucho'.
+	^treee.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:32:22' prior: 50871204!
+initializeFor: anAccount
+	
+	portfolio := anAccount.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:32:38' prior: 50871195!
+writeAccountWith: anIdentation
+	
+	| treee |
+	treee := OrderedCollection new.
+	
+	treee add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	treee add: '	Cuenta de Lucho'.
+	^treee.! !
+
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 14:32:47'!
+Object subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio report'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:32:46' prior: 50871218!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:34:03' prior: 50871209!
+compute
+
+	self writeAccountWith: ''.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:34:43' prior: 50871248!
+compute
+
+	self writeAccountWith: ''.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:34:57' prior: 50871253!
+compute
+
+	self writeAccountWith: ''.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:35:24' prior: 50871223!
+writeAccountWith: anIdentation
+	
+	report add: portfolio name.
+	
+	portfolio accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:36:03' prior: 50871258!
+compute
+
+	self writeAccountWith: ''.
+	^report ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:36:52' prior: 50871263!
+writeAccountWith: anIdentation
+	
+	report add: (anIdentation, portfolio name).
+	
+	portfolio accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:37:03' prior: 50871276!
+writeAccountWith: anIdentation
+	
+	report add: (anIdentation , portfolio name).
+	
+	portfolio accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:39:18'!
+writeAccount: anAccount With: anIdentation
+	
+	report add: (anIdentation , portfolio name).
+	
+	portfolio accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+
+!methodRemoval: PortfolioTreePrinter #writeAccountWith: stamp: 'JP 7/15/2021 14:39:23'!
+writeAccountWith: anIdentation
+	
+	report add: (anIdentation , portfolio name).
+	
+	portfolio accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:39:39' prior: 50871292!
+writeAccount: anAccount With: anIdentation
+	
+	report add: (anIdentation , anAccount name).
+	
+	anAccount accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:39:49' prior: 50871271!
+compute
+
+	self writeAccount: portfolio With: ''.
+	^report ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:39:54' prior: 50871317!
+compute
+
+	self writeAccount: portfolio WithIdentation: ''.
+	^report ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:40:31'!
+writeAccount: anAccount WithIdentation: anIdentation
+	
+	report add: (anIdentation , anAccount name).
+	
+	anAccount accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+
+!methodRemoval: PortfolioTreePrinter #writeAccount:With: stamp: 'JP 7/15/2021 14:40:33'!
+writeAccount: anAccount With: anIdentation
+	
+	report add: (anIdentation , anAccount name).
+	
+	anAccount accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:41:09' prior: 50871328!
+writeAccount: anAccount WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , anAccount name).
+	newIdentation := anIdentation , '	'.
+	
+	anAccount accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:41:15' prior: 50871345!
+writeAccount: anAccount WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , anAccount name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	anAccount accounts do: [].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:43:03' prior: 50871356!
+writeAccount: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | 
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name).].].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:43:19'!
+writePortfolio: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | 
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name).].].
+	
+	report add: '	Cuenta de Lucho'.! !
+
+!methodRemoval: PortfolioTreePrinter #writeAccount:WithIdentation: stamp: 'JP 7/15/2021 14:43:23'!
+writeAccount: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | 
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name).].].
+	
+	report add: '	Cuenta de Lucho'.!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:43:33' prior: 50871323!
+compute
+
+	self writePortfolio: portfolio WithIdentation: ''.
+	^report ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:44:51' prior: 50871381!
+writePortfolio: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | 
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name)].
+		(anAccount isKindOf: Portfolio ) ifTrue: [report add: (newIdentation , anAccount name)].].
+	
+	report add: '	Cuenta de Lucho'.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:46:57' prior: 50871415!
+writePortfolio: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | 
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name)].
+		(anAccount isKindOf: Portfolio ) ifTrue: [self writePortfolio: anAccount WithIdentation: newIdentation].].! !
+
+!testRun: #PortfolioTreePrinterTest #test01 stamp: 'JP 7/15/2021 14:47:11'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02 stamp: 'JP 7/15/2021 14:47:11'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03 stamp: 'JP 7/15/2021 14:47:11'!
+PASSED!
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:48:02'!
+test04
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!testRun: #PortfolioTreePrinterTest #test04 stamp: 'JP 7/15/2021 14:48:06'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test01 stamp: 'JP 7/15/2021 14:48:06'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02 stamp: 'JP 7/15/2021 14:48:06'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03 stamp: 'JP 7/15/2021 14:48:06'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04 stamp: 'JP 7/15/2021 14:48:06'!
+PASSED!
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:48:25' prior: 50871456!
+test04
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	portfolioTree compute.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!testRun: #PortfolioTreePrinterTest #test04 stamp: 'JP 7/15/2021 14:48:26'!
+ERROR!
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:49:17' prior: 50871500!
+test04
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree portfolioTreePrinter |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTreePrinter := (PortfolioTreePrinter for: aPortfolio).
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	
+	
+	self assert: portfolioTree equals: expectedTree! !
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:50:18' prior: 50871532!
+test04
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree portfolioTreePrinter|
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTreePrinter := (PortfolioTreePrinter for: aPortfolio).
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	portfolioTree := portfolioTreePrinter compute.
+	portfolioTree := portfolioTreePrinter compute.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!testRun: #PortfolioTreePrinterTest #test04 stamp: 'JP 7/15/2021 14:50:20'!
+FAILURE!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:50:36' prior: 50871409!
+compute
+	
+	report := OrderedCollection new.
+	self writePortfolio: portfolio WithIdentation: ''.
+	^report ! !
+
+!testRun: #PortfolioTreePrinterTest #test01 stamp: 'JP 7/15/2021 14:51:22'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02 stamp: 'JP 7/15/2021 14:51:22'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03 stamp: 'JP 7/15/2021 14:51:22'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04 stamp: 'JP 7/15/2021 14:51:22'!
+PASSED!
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:51:34' prior: 50870884!
+test01
+
+	| aPortfolio expectedTree portfolioTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:52:16' prior: 50871614!
+test01
+
+	| aPortfolio expectedTree portfolioTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:53:08'!
+test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName
+
+	| aPortfolio expectedTree portfolioTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!methodRemoval: PortfolioTreePrinterTest #test01 stamp: 'JP 7/15/2021 14:53:08'!
+test01
+
+	| aPortfolio expectedTree portfolioTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioTree equals: expectedTree!
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:53:46'!
+test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount
+
+	| aPortfolio anAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!methodRemoval: PortfolioTreePrinterTest #test02 stamp: 'JP 7/15/2021 14:53:46'!
+test02
+
+	| aPortfolio anAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho'.
+	
+	self assert: portfolioTree equals: expectedTree!
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:55:14'!
+test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!methodRemoval: PortfolioTreePrinterTest #test03 stamp: 'JP 7/15/2021 14:55:14'!
+test03
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	self assert: portfolioTree equals: expectedTree!
+!PortfolioTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 14:56:12'!
+test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree portfolioTreePrinter|
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTreePrinter := (PortfolioTreePrinter for: aPortfolio).
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	portfolioTree := portfolioTreePrinter compute.
+	portfolioTree := portfolioTreePrinter compute.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!methodRemoval: PortfolioTreePrinterTest #test04 stamp: 'JP 7/15/2021 14:56:13'!
+test04
+
+	| aPortfolio anotherPortfolio anAccount anotherAccount aThirdAccount expectedTree portfolioTree portfolioTreePrinter|
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'.
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	aThirdAccount := ReceptiveAccount named: 'Cuenta de Serge'.
+	
+	anotherPortfolio := Portfolio named: 'Portfolio de Ayudantes' with: anotherAccount with: aThirdAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	portfolioTreePrinter := (PortfolioTreePrinter for: aPortfolio).
+	
+	expectedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '	Portfolio de Ayudantes' with: '		Cuenta de Juan' with: '		Cuenta de Serge'.
+	
+	portfolioTree := portfolioTreePrinter compute.
+	portfolioTree := portfolioTreePrinter compute.
+	
+	self assert: portfolioTree equals: expectedTree!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:02:51' prior: 50871596!
+compute
+	
+	report := report clear.
+	self writePortfolio: portfolio WithIdentation: ''.
+	^report ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:03:04' prior: 50871817!
+compute
+	
+	report := OrderedCollection new.
+	self writePortfolio: portfolio WithIdentation: ''.
+	^report ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:03:34' prior: 50871824!
+compute
+	
+	report := OrderedCollection new.
+	self writePortfolio: portfolio WithIdentation: ''.
+	^report copy! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 15:03:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/15/2021 15:03:50'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/15/2021 15:03:51'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/15/2021 15:03:52'!
+PASSED!
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:09:44'!
+beAddedTo: aReport
+
+	! !
+!Account methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:09:50' prior: 50872015!
+beAddedTo: aReport
+
+	self subclassResponsibility ! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:10:05' overrides: 50872019!
+beAddedTo: aReport
+
+	self subclassResponsibility ! !
+!ReceptiveAccount methodsFor: 'nil' stamp: 'JP 7/15/2021 15:10:08' overrides: 50872019!
+beAddedTo: aReport
+
+	self subclassResponsibility ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:11:09' prior: 50871432!
+writePortfolio: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name)].
+		(anAccount isKindOf: Portfolio ) ifTrue: [self writePortfolio: anAccount WithIdentation: newIdentation].].! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:11:36'!
+addReceptiveAccount: aReceptiveAccount! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:11:49'!
+addPortfolio: aPortfolio! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:12:08' prior: 50872024 overrides: 50872019!
+beAddedTo: aReport
+
+	aReport addPortfolio: self.! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:12:18' prior: 50872029 overrides: 50872019!
+beAddedTo: aReport
+
+	aReport addReceptiveAccount: self.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:20:19' prior: 50872034!
+writePortfolio: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name)].
+		(anAccount isKindOf: Portfolio ) ifTrue: [self writePortfolio: anAccount WithIdentation: newIdentation].].! !
+
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 15:20:52'!
+Object subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio report currentIdentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:20:51' prior: 50872051!
+addReceptiveAccount: aReceptiveAccount
+
+	report add: (currentIdentation , aReceptiveAccount name)! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:21:17' prior: 50872056!
+addPortfolio: aPortfolio
+
+	self writePortfolio: aPortfolio WithIdentation: currentIdentation ! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:24:35'!
+writePortfolio: aPortfolio
+	
+	| newIdentation |
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name)].
+		(anAccount isKindOf: Portfolio ) ifTrue: [self writePortfolio: anAccount WithIdentation: newIdentation].].
+	
+	! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:24:55' prior: 50872113!
+writePortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (currentIdentation , anAccount name)].
+		(anAccount isKindOf: Portfolio ) ifTrue: [self writePortfolio: anAccount WithIdentation: currentIdentation].].
+	
+	! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:26:04' prior: 50872130!
+writePortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:26:14' prior: 50872107!
+addPortfolio: aPortfolio
+
+	self writePortfolio: aPortfolio! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:26:59' prior: 50872147!
+writePortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: currentIdentation size - 1.
+	
+	! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:27:05' prior: 50872163!
+writePortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).
+	
+	! !
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 15:27:08'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 15:27:09'!
+ERROR!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:27:09'!
+ERROR!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 15:27:09'!
+ERROR!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 15:27:12'!
+ERROR!
+
+!methodRemoval: PortfolioTreePrinter #writePortfolio:WithIdentation: stamp: 'JP 7/15/2021 15:27:25'!
+writePortfolio: aPortfolio WithIdentation: anIdentation
+	
+	| newIdentation |
+	report add: (anIdentation , aPortfolio name).
+	
+	newIdentation := anIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.
+		(anAccount isKindOf: ReceptiveAccount) ifTrue: [report add: (newIdentation , anAccount name)].
+		(anAccount isKindOf: Portfolio ) ifTrue: [self writePortfolio: anAccount WithIdentation: newIdentation].].!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:27:32' prior: 50871831!
+compute
+	
+	report := OrderedCollection new.
+	self writePortfolio: portfolio.
+	^report copy! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:27:43' prior: 50871241!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.
+	currentIdentation := ''! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:27:58' prior: 50872227!
+compute
+	
+	report := OrderedCollection new.
+	currentIdentation := ''.
+	
+	self writePortfolio: portfolio.
+	^report copy! !
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 15:28:09'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 15:28:09'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:28:09'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 15:28:09'!
+PASSED!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:29:15' prior: 50872176!
+writePortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).
+	! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:29:54' prior: 50872157!
+addPortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:30:00' prior: 50872241!
+compute
+	
+	report := OrderedCollection new.
+	currentIdentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy! !
+
+!methodRemoval: PortfolioTreePrinter #writePortfolio: stamp: 'JP 7/15/2021 15:30:07'!
+writePortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).
+	!
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 15:30:10'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 15:30:10'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:30:10'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 15:30:10'!
+PASSED!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:30:29' prior: 50872279!
+addPortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).
+	self revertIdentation! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:30:32' prior: 50872329!
+addPortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).
+	self revertIdentation.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:30:45' prior: 50872342!
+addPortfolio: aPortfolio
+	
+	report add: (currentIdentation , aPortfolio name).
+	
+	currentIdentation := currentIdentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self revertIdentation.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:30:58'!
+revertIdentation
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:31:25'!
+revertIndentation
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).! !
+
+!methodRemoval: PortfolioTreePrinter #revertIdentation stamp: 'JP 7/15/2021 15:31:29'!
+revertIdentation
+	
+	currentIdentation := currentIdentation copyFrom: 1 to: (currentIdentation size - 1).!
+
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 15:31:41'!
+Object subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:31:41' prior: 50872234!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.
+	currentIndentation := ''! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:31:41' prior: 50872292!
+compute
+	
+	report := OrderedCollection new.
+	currentIndentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:31:41' prior: 50872373!
+revertIndentation
+	
+	currentIndentation := currentIndentation copyFrom: 1 to: (currentIndentation size - 1).! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:31:41' prior: 50872356!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	currentIndentation := currentIndentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self revertIdentation.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:31:41' prior: 50872100!
+addReceptiveAccount: aReceptiveAccount
+
+	report add: (currentIndentation , aReceptiveAccount name)! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:31:52' prior: 50872417!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	currentIndentation := currentIndentation , '	'.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self revertIndentation.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:32:05' prior: 50872435!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self revertIndentation.! !
+!PortfolioTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:32:14'!
+addIndentation
+
+	currentIndentation := currentIndentation , '	'.! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/15/2021 15:33:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 15:33:42'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 15:33:43'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/15/2021 15:33:43'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/15/2021 15:33:43'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/15/2021 15:33:43'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/15/2021 15:33:43'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/15/2021 15:33:43'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/15/2021 15:33:43'!
+PASSED!
+
+----SNAPSHOT----(15 July 2021 15:33:48) CuisUniversity-4532.image priorSource: 17264184!
+
+----SNAPSHOT----(15 July 2021 15:34:12) CuisUniversity-4532.image priorSource: 17311622!
+
+----SNAPSHOT----(15 July 2021 15:36:59) CuisUniversity-4532.image priorSource: 17311712!
+
+TestCase subclass: #PortfolioDetailedTreePrinterTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioDetailedTreePrinterTest category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 15:37:43'!
+TestCase subclass: #PortfolioDetailedTreePrinterTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioDetailedTreePrinterTest methodsFor: 'no messages' stamp: 'JP 7/15/2021 15:41:04'!
+test01
+
+	| aPortfolio |
+	aPortfolio := Portfolio new.! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:41:27' prior: 50872662!
+test01
+
+	| aPortfolio expectedTree portfolioTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioTree := (PortfolioTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 15:41:55'!
+Object subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:42:00' prior: 50872668!
+test01
+
+	| aPortfolio expectedTree portfolioTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioTree equals: expectedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:42:13' prior: 50872689!
+test01
+
+	| aPortfolio expectedTree  portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioDetailedTree equals: expectedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:42:21' prior: 50872703!
+test01
+
+	| aPortfolio expectedTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioDetailedTree equals: expectedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:42:38' prior: 50872717!
+test01
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:43:16' prior: 50872731!
+test01
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: 'Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinter methodsFor: 'no messages' stamp: 'JP 7/15/2021 15:43:36'!
+compute! !
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 15:43:58'!
+Object subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: 'portfolio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioDetailedTreePrinter methodsFor: 'nil' stamp: 'JP 7/15/2021 15:43:56'!
+initializeFor: anAccount
+	
+	portfolio := anAccount.! !
+!PortfolioDetailedTreePrinter class methodsFor: 'no messages' stamp: 'JP 7/15/2021 15:44:06'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:44:44' prior: 50872760!
+compute
+
+	^OrderedCollection with: 'Portfolio 1' with: 'Balance = 0'! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:44:52'!
+PASSED!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:45:01'!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: 'Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:45:20' prior: 50872792!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: 'Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:45:35' prior: 50872807!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: 'Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:45:44' prior: 50872824!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount .
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: 'Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:45:45' prior: 50872841!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: 'Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:46:57' prior: 50872859!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho' with: '		Balance = 0' with: '	Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:47:12' prior: 50872783!
+compute
+
+	^OrderedCollection with: 'Portfolio 1' with: '	Balance = 0'! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:47:16'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:47:16'!
+FAILURE!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:47:20' prior: 50872746!
+test01
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:47:22'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:47:22'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 15:47:22'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 15:47:22'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:47:37'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 15:47:39'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 15:47:39'!
+FAILURE!
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 15:48:36'!
+Object subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: 'portfolio report'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:48:34' prior: 50872896!
+compute
+	
+	report := OrderedCollection new.
+	
+	^OrderedCollection with: 'Portfolio 1' with: '	Balance = 0'! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:50:35' prior: 50872953!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	^OrderedCollection with: 'Portfolio 1' with: '	Balance = 0'! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:51:14' prior: 50872960!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:51:16'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 15:51:16'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 15:51:16'!
+FAILURE!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:51:43' prior: 50872971!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'. ^report
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:51:54' prior: 50872991!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 15:51:55'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 15:51:55'!
+PASSED!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:55:24' prior: 50872877!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho' with: '		Balance = 0' with: '	Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:55:28'!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho' with: '		Balance = 0' with: '	Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 15:57:25' prior: 50873040!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 15:57:53'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 15:57:53'!
+FAILURE!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:02:14' prior: 50873003!
+compute
+	
+	report := OrderedCollection new.
+	
+	
+	
+	
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:03:00' prior: 50873087!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	
+	
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:03:01' prior: 50873099!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	
+	
+	
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:03:03' prior: 50873112!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	
+	
+	
+	
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:03:15' prior: 50873125!
+compute
+	
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:04:00' prior: 50873138!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := SummaryMaker for: (portfolio accounts last). 
+	
+	
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:04:10' prior: 50873153!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := SummaryMaker for: (portfolio accounts last) compute. 
+	
+	
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:04:49' prior: 50873170!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := SummaryMaker for: (portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio name.
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:05:29' prior: 50873188!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := SummaryMaker for: (portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	summary 
+	
+	
+	report add: 'Portfolio 1'.
+	
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	report add: '	Cuenta de Lucho'.
+	report add: '		Balance = 0'.
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:08:12' prior: 50873207!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := SummaryMaker for: (portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = 0'.
+	^report ! !
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 16:08:24'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 16:08:24'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 16:08:24'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 16:08:24'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:08:27'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:08:27'!
+ERROR!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:08:27'!
+ERROR!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:08:34'!
+ERROR!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:08:39'!
+ERROR!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:08:53' prior: 50873226!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := SummaryMaker for: (portfolio accounts last compute). 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = 0'.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:08:56'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:08:56'!
+ERROR!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:08:56'!
+ERROR!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:09:06' prior: 50873275!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := SummaryMaker for: (portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:09:18' prior: 50873300!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := (SummaryMaker for: (portfolio accounts last)) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:09:23' prior: 50873317!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = 0'.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:09:26'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:09:26'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:09:26'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:09:27'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:09:35'!
+FAILURE!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:09:49' prior: 50873021!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho' with: '		Balance = 0' with: '	Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:09:55' prior: 50873366!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho' with: '		Balance = 0' with: '	Balance = 0'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:10:57' prior: 50873334!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = 0'.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:11:13' prior: 50873404!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = 0 pesos'.
+	^report ! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:11:25' prior: 50873385!
+test02
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio 1' with: anAccount.
+	
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Cuenta de Lucho' with: '		Balance = 0 pesos' with: '	Balance = 0 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:11:29'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:11:30'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:11:30'!
+FAILURE!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:11:41' prior: 50872908!
+test01
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree |
+	
+	aPortfolio := Portfolio named: 'Portfolio 1'.
+	 
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio 1' with: '	Balance = 0 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:11:42'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:11:42'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:11:42'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:11:42'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:11:42'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:11:46'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:11:46'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:11:46'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:11:46'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:11:47'!
+FAILURE!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:12:16' prior: 50873059!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:12:30' prior: 50873512!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:12:34' prior: 50873535!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:13:03'!
+FAILURE!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:14:44' prior: 50873421!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: portfolio balance.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:14:50' prior: 50873583!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	' , portfolio balance.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:14:57' prior: 50873600!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	' , portfolio balance asString .
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:14:58' prior: 50873617!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	' , portfolio balance asString.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:15:03' prior: 50873635!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	' , portfolio balance.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:15:06'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:15:07'!
+ERROR!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:15:07'!
+ERROR!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:15:16' prior: 50873653!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	' , portfolio balance asString .
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:15:17' prior: 50873679!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	' , portfolio balance asString.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:15:19'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:15:19'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:15:19'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:15:20'!
+FAILURE!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:15:48' prior: 50873697!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	summary := (SummaryMaker for: portfolio accounts last) compute. 
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = ' , portfolio balance asString.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:15:52'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:15:52'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:15:52'!
+PASSED!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:18:17' prior: 50873558!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:18:28' prior: 50873753!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:18:46' prior: 50873781!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:19:46' prior: 50873809!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:21:09' prior: 50873832!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5'.
+	expectedDetailedTree add: '	Cuenta de Juan'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:21:42' prior: 50873858!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5'.
+	expectedDetailedTree add: '	Cuenta de Juan'.
+	expectedDetailedTree add: '		Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5'.
+	expectedDetailedTree add: '	Balance = 10'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:22:04' prior: 50873891!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Cuenta de Juan'.
+	expectedDetailedTree add: '		Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:22:21'!
+test04
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Cuenta de Juan'.
+	expectedDetailedTree add: '		Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:12:34' prior: 50873929!
+test03
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount.
+	
+	Deposit register: 10 * peso on: anAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection with: 'Portfolio de Algo3' with: '	Cuenta de Lucho' with: '		Depósito por 10 pesos' with: '		Balance = 10 pesos' with: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:22:43'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 16:22:57'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:23:06'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:23:06'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:23:06'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 16:23:06'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 16:23:06'!
+FAILURE!
+
+(OrderedCollection new) do: [:andads | andads ]!
+
+(OrderedCollection new) do: [:andads | andads ]!
+
+(OrderedCollection new) do: [:andads | andads ]!
+
+(OrderedCollection new) do: [:andads | andads ]!
+
+(OrderedCollection new) do: [:andads | andads ]!
+
+(OrderedCollection new) do: [:andads | andads ]!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:27:44' prior: 50873726!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	portfolio accounts do: [:anAccount | summary := (SummaryMaker for: anAccount) compute.].
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = ' , portfolio balance asString.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:27:57' prior: 50874058!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	portfolio accounts do: [:anAccount | summary := (SummaryMaker for: anAccount) compute.].
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = ' , portfolio balance asString.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:28:02' prior: 50874077!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	portfolio accounts do: [:anAccount | summary := (SummaryMaker for: anAccount) compute.].
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = ' , portfolio balance asString.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:28:32' prior: 50874096!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	
+	report add: portfolio name.
+	portfolio accounts ifEmpty: [report add: '	Balance = 0 pesos'. ^report].
+	
+	portfolio accounts do: [:anAccount | summary := (SummaryMaker for: anAccount) compute.
+		report add: '	' , anAccount name.
+		].
+	
+	report add: '	' , portfolio accounts last name.
+	
+	report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+	
+	report add: '	Balance = ' , portfolio balance asString.
+	^report ! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:29:06' prior: 50874115!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	report add: portfolio name.
+	
+	portfolio accounts do: [:anAccount | summary := (SummaryMaker for: anAccount) compute.
+		report add: '	' , anAccount name.
+		report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+		].
+	
+	report add: '	Balance = ' , portfolio balance asString.
+	^report ! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:29:10'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:29:10'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:29:10'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 16:29:10'!
+PASSED!
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:30:42'!
+test05
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount anotherPortfolio |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	anotherPortfolio := Portfolio named: 'Portfolio de Juan' with: anotherAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Cuenta de Juan'.
+	expectedDetailedTree add: '		Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:31:32' prior: 50874162!
+test05
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount anotherPortfolio |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	anotherPortfolio := Portfolio named: 'Portfolio de Juan' with: anotherAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Portfolio de Juan'.
+	expectedDetailedTree add: '		Cuenta de Juan'.
+	expectedDetailedTree add: '			Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '			Balance = 5 pesos'.
+	expectedDetailedTree add: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+!PortfolioDetailedTreePrinterTest methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:32:12' prior: 50874204!
+test05
+
+	| aPortfolio expectedDetailedTree portfolioDetailedTree anAccount anotherAccount anotherPortfolio |
+	
+	anAccount := ReceptiveAccount named: 'Cuenta de Lucho'. 
+	anotherAccount := ReceptiveAccount named: 'Cuenta de Juan'.
+	anotherPortfolio := Portfolio named: 'Portfolio de Juan' with: anotherAccount.
+	
+	aPortfolio := Portfolio named: 'Portfolio de Algo3' with: anAccount with: anotherPortfolio.
+	
+	Deposit register: 10 * peso on: anAccount.
+	Transfer amount: 5 * peso from: anAccount to: anotherAccount.
+	
+	portfolioDetailedTree := (PortfolioDetailedTreePrinter for: aPortfolio) compute.
+	expectedDetailedTree := OrderedCollection new.
+	
+	expectedDetailedTree add: 'Portfolio de Algo3'.
+	expectedDetailedTree add: '	Cuenta de Lucho'.
+	expectedDetailedTree add: '		Depósito por 10 pesos'.
+	expectedDetailedTree add: '		Salida por transferencia de 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Portfolio de Juan'.
+	expectedDetailedTree add: '		Cuenta de Juan'.
+	expectedDetailedTree add: '			Entrada por transferencia de 5 pesos'.
+	expectedDetailedTree add: '			Balance = 5 pesos'.
+	expectedDetailedTree add: '		Balance = 5 pesos'.
+	expectedDetailedTree add: '	Balance = 10 pesos'.
+	
+	self assert: portfolioDetailedTree equals: expectedDetailedTree! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 16:46:58'!
+FAILURE!
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 16:50:56'!
+Object subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioDetailedTreePrinter methodsFor: 'nil' stamp: 'JP 7/15/2021 16:50:54'!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'nil' stamp: 'JP 7/15/2021 16:51:06'!
+addIndentation
+
+	currentIndentation := currentIndentation , '	'.! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:51:19'!
+addReceptiveAccount: aReceptiveAccount
+
+	report add: (currentIndentation , aReceptiveAccount name)! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:51:54' prior: 50874135!
+compute
+	
+	| summary |
+	report := OrderedCollection new.
+	report add: portfolio name.
+	
+	portfolio accounts do: [:anAccount | summary := (SummaryMaker for: anAccount) compute.
+		report add: '	' , anAccount name.
+		report addAll: (summary collect: [:aTransactionSentence | '		' , aTransactionSentence]).
+		].
+	
+	report add: '	Balance = ' , portfolio balance asString.
+	report.
+	
+	report := OrderedCollection new.
+	currentIndentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:52:08' prior: 50872772!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.
+	currentIndentation := ''! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:52:17'!
+revertIndentation
+	
+	currentIndentation := currentIndentation copyFrom: 1 to: (currentIndentation size - 1).! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:54:35' prior: 50874318!
+addReceptiveAccount: aReceptiveAccount
+
+	| summary |
+	report add: (currentIndentation , aReceptiveAccount name).
+	self addIndentation.
+	
+	summary := (SummaryMaker for: aReceptiveAccount) compute.
+	report addAll: (summary collect: [:aTransactionSentence | currentIndentation , aTransactionSentence]).
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:55:55' prior: 50874303!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	report add: currentIndentation, '	Balance = ' , portfolio balance asString.
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:56:06' prior: 50874325!
+compute
+	
+	report := OrderedCollection new.
+	currentIndentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:56:11'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:56:12'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:56:12'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 16:56:12'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 16:56:12'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:56:18'!
+FAILURE!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:56:48' prior: 50874372!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	report add: currentIndentation, 'Balance = ' , portfolio balance asString.
+	
+	self revertIndentation.! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:56:51'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:56:52'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:56:52'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 16:56:52'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 16:56:52'!
+FAILURE!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 16:56:52'!
+FAILURE!
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:58:20' prior: 50874410!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	report add: currentIndentation, 'Balance = ' , aPortfolio balance asString.
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 16:58:23' prior: 50874440!
+addPortfolio: aPortfolio
+	
+	report add: (currentIndentation , aPortfolio name).
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	report add: currentIndentation, 'Balance = ' , aPortfolio balance asString.
+	
+	self revertIndentation.! !
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 16:58:24'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 16:58:25'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 16:58:25'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 16:58:25'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 16:58:25'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:01:53'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 17:01:54'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/15/2021 17:01:55'!
+PASSED!
+
+Object subclass: #Report
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #Report category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:05:35'!
+Object subclass: #Report
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classRenamed: #Report as: #TransactionReport stamp: 'JP 7/15/2021 17:05:43'!
+Smalltalk renameClassNamed: #Report as: #TransactionReport!
+
+Object subclass: #AccountReport
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #AccountReport category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:05:58'!
+Object subclass: #AccountReport
+	instanceVariableNames: 'account'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+AccountReport subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:06:07'!
+AccountReport subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+AccountReport subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:06:22'!
+AccountReport subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!AccountReport methodsFor: 'no messages' stamp: 'JP 7/15/2021 17:08:04'!
+addReceptiveAccount: aReceptiveAccount
+
+	self subclassResponsibility ! !
+!AccountReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:08:16'!
+addPortfolio: aPortfolio
+
+	self subclassResponsibility ! !
+!AccountReport methodsFor: 'nil' stamp: 'JP 7/15/2021 17:10:05'!
+initializeFor: anAccount
+
+	self subclassResponsibility ! !
+!AccountReport class methodsFor: 'no messages' stamp: 'JP 7/15/2021 17:10:25'!
+for: anAccount
+	^self new initializeFor: anAccount! !
+
+!methodRemoval: PortfolioDetailedTreePrinter class #for: stamp: 'JP 7/15/2021 17:10:30'!
+for: anAccount
+	^self new initializeFor: anAccount!
+
+!methodRemoval: PortfolioTreePrinter class #for: stamp: 'JP 7/15/2021 17:10:34'!
+for: anAccount
+	^self new initializeFor: anAccount!
+
+Object subclass: #AccountReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #AccountReport category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:13:25'!
+Object subclass: #AccountReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+----SNAPSHOT----(15 July 2021 17:23:20) CuisUniversity-4532.image priorSource: 17311802!
+
+Object subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreeReport category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:24:46'!
+Object subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreeReport category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:24:55'!
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+PortfolioTreeReport subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:25:03'!
+PortfolioTreeReport subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+PortfolioTreeReport subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:25:11'!
+PortfolioTreeReport subclass: #PortfolioTreePrinter
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+Object subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreeReport category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:25:49'!
+Object subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreeReport category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:26:21'!
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+PortfolioTreeReport subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioDetailedTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:26:56'!
+PortfolioTreeReport subclass: #PortfolioDetailedTreePrinter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+PortfolioTreeReport subclass: #PortfolioTreePrinter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreePrinter category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:27:01'!
+PortfolioTreeReport subclass: #PortfolioTreePrinter
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+
+!classDefinition: #PortfolioTreeReport category: 'ServiciosFinancieros2' stamp: 'JP 7/15/2021 17:27:05'!
+AccountReport subclass: #PortfolioTreeReport
+	instanceVariableNames: 'portfolio report currentIndentation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros2'!
+!PortfolioTreeReport methodsFor: 'no messages' stamp: 'JP 7/15/2021 17:27:22' overrides: 50874736!
+addPortfolio: aPortfolio
+
+	self subclassResponsibility ! !
+!PortfolioTreeReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:27:33' prior: 50874905 overrides: 50874736!
+addPortfolio: aPortfolio
+
+	self subclassResponsibility ! !
+!PortfolioTreeReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:27:43' overrides: 50874731!
+addReceptiveAccount: aReceptiveAccount
+
+	self subclassResponsibility ! !
+!PortfolioTreeReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:27:51'!
+addIndentation
+
+	currentIndentation := currentIndentation , '	'.! !
+!PortfolioTreeReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:27:59'!
+compute
+	
+	report := OrderedCollection new.
+	currentIndentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy! !
+!PortfolioTreeReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:28:08' overrides: 50874740!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.
+	currentIndentation := ''! !
+!PortfolioTreeReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:28:17'!
+revertIndentation
+	
+	currentIndentation := currentIndentation copyFrom: 1 to: (currentIndentation size - 1).! !
+
+!methodRemoval: PortfolioTreePrinter #revertIndentation stamp: 'JP 7/15/2021 17:28:26'!
+revertIndentation
+	
+	currentIndentation := currentIndentation copyFrom: 1 to: (currentIndentation size - 1).!
+
+!methodRemoval: PortfolioDetailedTreePrinter #revertIndentation stamp: 'JP 7/15/2021 17:28:36'!
+revertIndentation
+	
+	currentIndentation := currentIndentation copyFrom: 1 to: (currentIndentation size - 1).!
+
+!methodRemoval: PortfolioDetailedTreePrinter #compute stamp: 'JP 7/15/2021 17:28:47'!
+compute
+	
+	report := OrderedCollection new.
+	currentIndentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy!
+
+!methodRemoval: PortfolioDetailedTreePrinter #initializeFor: stamp: 'JP 7/15/2021 17:28:50'!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.
+	currentIndentation := ''!
+
+!methodRemoval: PortfolioDetailedTreePrinter #addIndentation stamp: 'JP 7/15/2021 17:28:54'!
+addIndentation
+
+	currentIndentation := currentIndentation , '	'.!
+
+!methodRemoval: PortfolioTreePrinter #addIndentation stamp: 'JP 7/15/2021 17:29:02'!
+addIndentation
+
+	currentIndentation := currentIndentation , '	'.!
+
+!methodRemoval: PortfolioTreePrinter #compute stamp: 'JP 7/15/2021 17:29:04'!
+compute
+	
+	report := OrderedCollection new.
+	currentIndentation := ''.
+	
+	self addPortfolio: portfolio.
+	^report copy!
+
+!methodRemoval: PortfolioTreePrinter #initializeFor: stamp: 'JP 7/15/2021 17:29:08'!
+initializeFor: anAccount
+	
+	portfolio := anAccount.
+	report := OrderedCollection new.
+	currentIndentation := ''!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:29:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:29:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/15/2021 17:29:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:29:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/15/2021 17:29:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/15/2021 17:29:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/15/2021 17:29:12'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:29:13'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/15/2021 17:29:14'!
+PASSED!
+
+----SNAPSHOT----(15 July 2021 17:29:40) CuisUniversity-4532.image priorSource: 17379816!
+!AccountReport methodsFor: 'as yet unclassified' stamp: 'JP 7/15/2021 17:29:50'!
+compute 
+
+	self subclassResponsibility ! !
+
+----SNAPSHOT----(15 July 2021 17:30:03) CuisUniversity-4532.image priorSource: 17393211!
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:38:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:38:08'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/15/2021 17:38:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:38:10'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/15/2021 17:38:11'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/15/2021 17:38:11'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/15/2021 17:38:11'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/15/2021 17:38:11'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/15/2021 17:38:11'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/15/2021 17:38:11'!
+PASSED!
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:39:52' prior: 50874453 overrides: 50874911!
+addPortfolio: aPortfolio
+	
+	self addSentenceToReport.
+	report add: (currentIndentation , aPortfolio name).
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	report add: currentIndentation, 'Balance = ' , aPortfolio balance asString.
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:40:59'!
+addSentenceToReport: aSentence
+
+	report add: (currentIndentation , aSentence).! !
+!PortfolioTreeReport methodsFor: 'Private' stamp: 'JP 7/15/2021 17:41:19'!
+addSentenceToReport: aSentence
+
+	report add: (currentIndentation , aSentence).! !
+
+!methodRemoval: PortfolioDetailedTreePrinter #addSentenceToReport: stamp: 'JP 7/15/2021 17:41:19'!
+addSentenceToReport: aSentence
+
+	report add: (currentIndentation , aSentence).!
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:41:49' prior: 50875393 overrides: 50874911!
+addPortfolio: aPortfolio
+	
+	self addSentenceToReport: aPortfolio name.
+
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	report add: currentIndentation, 'Balance = ' , aPortfolio balance asString.
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:42:13' prior: 50875423 overrides: 50874911!
+addPortfolio: aPortfolio
+	
+	self addSentenceToReport: aPortfolio name.
+
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self addSentenceToReport: 'Balance = ' , aPortfolio balance asString.
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:42:30' prior: 50874358 overrides: 50874917!
+addReceptiveAccount: aReceptiveAccount
+
+	| summary |
+	self addSentenceToReport: aReceptiveAccount name.
+	
+	self addIndentation.
+	
+	summary := (SummaryMaker for: aReceptiveAccount) compute.
+	report addAll: (summary collect: [:aTransactionSentence | currentIndentation , aTransactionSentence]).
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:43:53' prior: 50875449 overrides: 50874917!
+addReceptiveAccount: aReceptiveAccount
+
+	| summary |
+	self addSentenceToReport: aReceptiveAccount name.
+	
+	self addIndentation.
+	
+	self addSummaryToReportFrom: aReceptiveAccount.
+	summary := (SummaryMaker for: aReceptiveAccount) compute.
+	report addAll: (summary collect: [:aTransactionSentence | currentIndentation , aTransactionSentence]).
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:44:27'!
+addSummaryToReportFrom: anAccount
+
+	| summary |
+	summary := (SummaryMaker for: anAccount) compute.
+	report addAll: (summary collect: [:aTransactionSentence | currentIndentation , aTransactionSentence]).! !
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:44:37' prior: 50875463 overrides: 50874917!
+addReceptiveAccount: aReceptiveAccount
+
+	| summary |
+	self addSentenceToReport: aReceptiveAccount name.
+	
+	self addIndentation.
+	
+	self addSummaryToReportFrom: aReceptiveAccount.
+	
+	self revertIndentation.! !
+!PortfolioDetailedTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:44:45' prior: 50875489 overrides: 50874917!
+addReceptiveAccount: aReceptiveAccount
+
+	self addSentenceToReport: aReceptiveAccount name.
+	
+	self addIndentation.
+	
+	self addSummaryToReportFrom: aReceptiveAccount.
+	
+	self revertIndentation.! !
+!PortfolioTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:45:14' prior: 50872446 overrides: 50874911!
+addPortfolio: aPortfolio
+	
+	self addSentenceToReport: aPortfolio name.
+	
+	self addIndentation.
+	
+	aPortfolio accounts do: [:anAccount | anAccount beAddedTo: self.].
+	
+	self revertIndentation.! !
+!PortfolioTreePrinter methodsFor: 'Private' stamp: 'JP 7/15/2021 17:45:31' prior: 50872428 overrides: 50874917!
+addReceptiveAccount: aReceptiveAccount
+	
+	self addSentenceToReport: aReceptiveAccount name.! !
+
+!testRun: #AccountSummaryTest #test01AccountSummaryBalanceIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test02DepositTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test03MultipleTransactionsShowOnSummary stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test04WithdrawTransactionShowsOnSummary stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test05TransferDepositLegShowsOnSummary stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test06TransferWithdrawLegShowsOnSummary stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test07AccountSummaryBalanceIs0PesosOnEmptyPortfolio stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test08CanShowSummaryWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #AccountSummaryTest #test09SummaryShowsRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test01 stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test02 stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test03 stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test04 stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioDetailedTreePrinterTest #test05 stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithOneAccountIsAccountBalance stamp: 'JP 7/15/2021 17:45:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test01PortfolioTreeOfAnEmptyPortfolioOnlyShowsItsName stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test02PortfolioTreeCanShowTreeOfPortfolioWithOneAccount stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test03PortfolioTreeShowsTreeRecursivelyOfPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #PortfolioTreePrinterTest #test04MultipleCallsOnPortfolioTreePrinterReturnsTheSameReport stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JP 7/15/2021 17:45:35'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferNetTest #test01AccountSummaryTransferNetIs0PesosOnEmptyAccount stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferNetTest #test02BothAccountsOfTransferHaveOppositeTransferNet stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferNetTest #test03TransferNetIgnoresAnyNonTransferTransactions stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferNetTest #test04EmptyPortfolioTransferNetIs0Peso stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferNetTest #test05CanShowTransferNetWithPortfolioWithASingleAccount stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferNetTest #test06TransferNetCalculatesRecursivelyInPortfolioWithMultipleAccounts stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferTest #test01ATransferDecreasesBalanceFromOriginAccountAndIncreasesItForDestinationAccount stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferTest #test02ATransferKnowsItsValue stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferTest #test03DepositLegKnowsItsWithdrawCounterpart stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferTest #test04WithdrawLegKnowsItsDepositCounterpart stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferTest #test05OriginAndDestinationAccountsCannotBeTheSame stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+!testRun: #TransferTest #test06CannotTransferAZeroAmount stamp: 'JP 7/15/2021 17:45:36'!
+PASSED!
+
+----SNAPSHOT----(15 July 2021 17:49:02) CuisUniversity-4532.image priorSource: 17393450!
