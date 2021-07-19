@@ -3348,3 +3348,1510 @@ PASSED!
 PASSED!
 
 ----SNAPSHOT----(18 July 2021 21:11:10) CuisUniversity-4532.image priorSource: 17115787!
+
+----STARTUP---- (19 July 2021 16:47:25) as D:\Admin\Descargas\Imagen Mars Rover 2\CuisUniversity-4532.image!
+
+
+----End fileIn of D:\Admin\Descargas\Imagen Mars Rover 2\MarsRover-Solucion.st----!
+
+!classRemoval: #MarsRoverWindow stamp: 'JP 7/19/2021 16:49:17'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #MarsRoverHeadFacingWest stamp: 'JP 7/19/2021 16:49:18'!
+MarsRoverHead subclass: #MarsRoverHeadFacingWest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #MarsRoverHeadFacingSouth stamp: 'JP 7/19/2021 16:49:18'!
+MarsRoverHead subclass: #MarsRoverHeadFacingSouth
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #MarsRoverHeadFacingNorth stamp: 'JP 7/19/2021 16:49:19'!
+MarsRoverHead subclass: #MarsRoverHeadFacingNorth
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #MarsRoverHeadFacingEast stamp: 'JP 7/19/2021 16:49:19'!
+MarsRoverHead subclass: #MarsRoverHeadFacingEast
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #MarsRoverHead stamp: 'JP 7/19/2021 16:49:19'!
+Object subclass: #MarsRoverHead
+	instanceVariableNames: 'marsRover'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #MarsRover stamp: 'JP 7/19/2021 16:49:19'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'position head log logType window'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #TestMarsRoverWindow stamp: 'JP 7/19/2021 16:49:20'!
+TestCase subclass: #TestMarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #TestMarsRoverLog stamp: 'JP 7/19/2021 16:49:20'!
+TestCase subclass: #TestMarsRoverLog
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classRemoval: #TestMarsRover stamp: 'JP 7/19/2021 16:49:20'!
+TestCase subclass: #TestMarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+----End fileIn of D:\Admin\Descargas\Imagen Mars Rover 2\MarsRover-Solucion.st----!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 16:49:59' prior: 50861032!
+test02
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1. Actual orientation: North'.
+	
+	
+! !
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 16:49:59'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 16:49:59'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 16:49:59'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 16:50:04' prior: 50861542!
+test02
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1. Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 16:52:00'!
+test03
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@-1. Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 16:52:02'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 16:52:03'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 16:52:03'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 16:52:03'!
+PASSED!
+
+!methodRemoval: MarsRover #visualizeWindow stamp: 'JP 7/19/2021 16:54:01'!
+visualizeWindow
+	^ 'Actual position: ', position asString, '. Actual orientation: North'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 16:55:52' prior: 50861570!
+test03
+	| marsRover window |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'b'.
+	
+	window := MarsRoverWindow for: marsRover.
+	
+	self assert: window visualize equals: 'Actual position: 0@-1. Actual orientation: North'.! !
+!MarsRoverWindow class methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 16:56:27'!
+for: aMarsRover
+	^self new initializeFor: aMarsRover.! !
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'JP 7/19/2021 16:58:05'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition rover'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 16:58:04'!
+initializeFor: aMarsRover
+
+	rover := aMarsRover.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:03:11' prior: 50861596!
+test03
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@-1. Actual orientation: North'.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:03:39'!
+visualizeWindow
+	^window visualize.! !
+
+!methodRemoval: MarsRoverWindow #initializeFor: stamp: 'JP 7/19/2021 17:04:04'!
+initializeFor: aMarsRover
+
+	rover := aMarsRover.!
+
+!methodRemoval: MarsRoverWindow class #for: stamp: 'JP 7/19/2021 17:04:08'!
+for: aMarsRover
+	^self new initializeFor: aMarsRover.!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:04:20'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'JP 7/19/2021 17:05:39' prior: 50861141!
+moveDown
+
+	position := position + (0@-1).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].
+	window updatePosition: position.
+! !
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:05:42'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:06:13'!
+test04
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@-1. Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:06:15' prior: 50861661!
+test04
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@-1. Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:06:46' prior: 50861672!
+test04
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:06:51'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'JP 7/19/2021 17:07:08' prior: 50861147!
+moveLeft
+
+	position := position + (-1@0).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].
+	window updatePosition: position.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:07:20'!
+test05
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:07:23'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:07:23'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:07:23'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:07:23'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:07:23'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:07:23'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:07:23'!
+FAILURE!
+!MarsRoverWindow class methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:08:38'!
+startingAt: aStartingPosition heading: aCardinalPoint
+
+	^self new initializeStartingAt: aStartingPosition heading: aCardinalPoint.! !
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'JP 7/19/2021 17:09:10'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition rover actualDirection'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:09:09'!
+initializeStartingAt: aStartingPosition heading: aCardinalPoint
+
+	actualPosition := aStartingPosition.
+	actualDirection := aCardinalPoint.! !
+
+!methodRemoval: MarsRoverWindow #initializeStartingAt: stamp: 'JP 7/19/2021 17:09:15'!
+initializeStartingAt: aStartingPosition
+	actualPosition := aStartingPosition.!
+
+!methodRemoval: MarsRoverWindow class #startingAt: stamp: 'JP 7/19/2021 17:09:22'!
+startingAt: aStartingPosition
+	^self new initializeStartingAt: aStartingPosition.!
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:09:46' prior: 50861055!
+initializeStartingAt: aPosition heading: aCardinalPoint 
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint.! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:09:57' prior: 50861065!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType	.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint.! !
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:10:08'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:10:08'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:10:09'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:10:09'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:10:09'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:10:09'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:10:09'!
+FAILURE!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:10:23' prior: 50861683!
+test04
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: West'.! !
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:10:26'!
+FAILURE!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:11:16' prior: 50861518!
+visualize
+	^ 'Actual position: ', actualPosition asString , actualPosition asString.! !
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:11:21'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:11:21'!
+FAILURE!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:12:19' prior: 50861821!
+visualize
+	^ 'Actual position: ', actualPosition asString , 'Actual position: ',actualDirection asString.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:12:21' prior: 50861832!
+visualize
+	^ 'Actual position: ', actualPosition asString , 'Actual position: ', actualDirection asString.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:12:34' prior: 50861839!
+visualize
+	^ 'Actual position: ', actualPosition asString , 'Actual orientation: ', actualDirection asString.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:12:44' prior: 50861846!
+visualize
+	^ 'Actual position: ', actualPosition asString , 'Actual orientation: ', actualDirection asString.! !
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'JP 7/19/2021 17:12:58'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition rover actualOrientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:12:58' prior: 50861853!
+visualize
+	^ 'Actual position: ', actualPosition asString , 'Actual orientation: ', actualOrientation asString.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:12:58' prior: 50861748!
+initializeStartingAt: aStartingPosition heading: aCardinalPoint
+
+	actualPosition := aStartingPosition.
+	actualOrientation := aCardinalPoint.! !
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:13:04'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:13:04'!
+FAILURE!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:13:19' prior: 50861869!
+visualize
+	^ 'Actual position: ', actualPosition asString , ' Actual orientation: ', actualOrientation asString.! !
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:13:22'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:13:22'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:13:25'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:13:25'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:13:27'!
+FAILURE!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:13:51' prior: 50861889!
+visualize
+	^ 'Actual position: ', actualPosition asString , '. Actual orientation: ', actualOrientation asString.! !
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:13:56'!
+PASSED!
+
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition actualOrientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'JP 7/19/2021 17:14:05'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition actualOrientation'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:14:16'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:14:16'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:14:16'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:14:17'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:14:17'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:14:17'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:14:17'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:14:31'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:14:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:14:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:14:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:14:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:14:32'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:14:32'!
+FAILURE!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:14:48'!
+atest05
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: North'.! !
+
+!methodRemoval: TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:14:48'!
+test05
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: North'.!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:14:52'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:14:52'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:14:52'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:14:52'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:14:52'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:14:58'!
+test05
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: North'.! !
+
+!methodRemoval: TestMarsRoverWindow #atest05 stamp: 'JP 7/19/2021 17:14:58'!
+atest05
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: North'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:15:14' prior: 50861999!
+test05
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 1@0. Actual orientation: East'.! !
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:15:15'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'JP 7/19/2021 17:15:27' prior: 50861153!
+moveRight
+
+	position := position + (1@0).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].
+	window updatePosition: position.! !
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:15:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:15:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:15:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:15:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:15:32'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:15:32'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:16:02'!
+test06
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'e'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 1@0. Actual orientation: East'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:16:05' prior: 50862055!
+test06
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'r'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 1@0. Actual orientation: East'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:16:26' prior: 50862066!
+test06
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 1@0. Actual orientation: West'.! !
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:16:40'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:16:40'!
+FAILURE!
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:17:47' prior: 50861184!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	logType = #Position ifFalse: [self writeInLog: 'West'.].
+	window updateOrientation: head .
+! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:21:09' prior: 50861178!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	logType = #Position ifFalse: [self writeInLog: 'South'.].
+	window ! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:21:19' prior: 50862100!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	logType = #Position ifFalse: [self writeInLog: 'South'.].! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:21:45' prior: 50862092!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	logType = #Position ifFalse: [self writeInLog: 'West'.].
+	window updateOrientation: 'West'.
+! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:22:24'!
+updateOrientation: aNewOrientation
+
+	actualOrientation := aNewOrientation.! !
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:22:29'!
+FAILURE!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:22:38' prior: 50862077!
+test06
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: West'.! !
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:22:39'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:22:39'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:22:39'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:22:39'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:22:39'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:22:39'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:22:39'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:23:00'!
+test07
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'r'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: East'.! !
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:23:12'!
+FAILURE!
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:23:20' prior: 50861166!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	logType = #Position ifFalse: [self writeInLog: 'East'.].
+	! !
+
+!testRun: #TestMarsRover #test01MarsRoverDoestNotMoveWhenNoCommandsAreSent stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test02RoverFacingNorthCanMoveForward stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test03RoverFacingNorthCanMoveBackward stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test04RoverFacingNorthHeadsEastAfterTurningRight stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test05RoverFacingNorthHeadsWestAfterTurningLeft stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test06RoverFacingEastHeadsSouthWhenTurningRight stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test07RoverFacingSouthHeadsWestWhenTurningRight stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test08RoverFacingWestHeadsNorthWhenTurningRight stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test09RoverFacingEastHeadsNorthWhenTurningLeft stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test10RoverFacingSouthHeadsEastWhenTurningLeft stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test11RoverFacingWestHeadsSouthWhenTurningLeft stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test12RoverFacingEastCanMoveForward stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test13RoverFacingEastCanMoveBackwards stamp: 'JP 7/19/2021 17:23:20'!
+PASSED!
+
+!testRun: #TestMarsRover #test14RoverFacingSouthCanMoveForward stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRover #test15RoverFacingSouthCanMoveBackward stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRover #test16RoverFacingWestCanMoveForward stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRover #test17RoverFacingWestCanMoveBackward stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRover #test18RoverCanProcessMultipleCommands stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRover #test19RoverStopsWhenProcessingAnInvalidCommand stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02MarsRoverLogUpdatesWhenMovingUp stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03MarsRoverLogUpdatesWhenMovingDown stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04MarsRoverLogUpdatesWhenMovingLeft stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05MarsRoverLogUpdatesWhenMovingRight stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06MarsRoverLogUpdatesWhenHeadingWest stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07MarsRoverLogUpdatesWhenHeadingEast stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08MarsRoverLogUpdatesWhenHeadingNorth stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09MarsRoverLogUpdatesWhenHeadingSouth stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10MarsRoverLogKeepsUpWithMultipleCommands stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test11MarsRoverLogCanLogPositionUpdatesOnly stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test12MarsRoverLogCanLogRotationUpdatesOnly stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:23:21'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:23:22'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:23:22'!
+FAILURE!
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:23:26' prior: 50862172!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	logType = #Position ifFalse: [self writeInLog: 'East'.].
+	window updateOrientation: 'East'.! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:23:29'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:23:29'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:23:29'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:23:29'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:23:29'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:23:29'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:23:29'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:23:51'!
+test08
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'r'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:23:59' prior: 50862331!
+test08
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:24:10'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:24:11'!
+FAILURE!
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:24:23' prior: 50861172!
+headNorth
+
+	head := MarsRoverHeadFacingNorth of: self.
+	logType = #Position ifFalse: [self writeInLog: 'North'.].
+	window updateOrientation: 'North'.! !
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:24:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:24:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:24:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:24:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:24:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:24:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:24:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:24:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:24:28'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:24:34'!
+test09
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:25:04' prior: 50862387!
+test09
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: South'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'JP 7/19/2021 17:25:21' prior: 50862107!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	logType = #Position ifFalse: [self writeInLog: 'South'.].
+	window updateOrientation: 'South'.! !
+
+!testRun: #TestMarsRoverWindow #test09 stamp: 'JP 7/19/2021 17:25:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:25:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:25:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:25:27'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:25:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:25:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:25:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:25:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:25:28'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test09 stamp: 'JP 7/19/2021 17:25:28'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:26:29'!
+test10
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: South'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:29:51' prior: 50862441!
+test10
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #position. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:30:04' prior: 50862452!
+test10
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Position. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0'.! !
+!MarsRover class methodsFor: 'instance creation' stamp: 'JP 7/19/2021 17:30:25'!
+startingAt: aPoint heading: aCardinalPoint visualizing: aWindowType
+	
+	^self new initializeStartingAt: aPoint heading: aCardinalPoint ! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:31:08'!
+initializeStartingAt: aPosition heading: aCardinalPoint visualizing: aWindowType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint.! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:32:10' prior: 50861766!
+initializeStartingAt: aPosition heading: aCardinalPoint 
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint visualizing: #Both.! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:32:20' prior: 50861778!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType	.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint visualizing: #Both.! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:32:31' prior: 50862479!
+initializeStartingAt: aPosition heading: aCardinalPoint visualizing: aWindowType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint visualizing: aWindowType.! !
+!MarsRoverWindow class methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:32:51'!
+startingAt: aStartingPosition heading: aCardinalPoint visualizing: aWindowType
+
+	^self new initializeStartingAt: aStartingPosition heading: aCardinalPoint visualizing: aWindowType.! !
+
+!methodRemoval: MarsRoverWindow class #startingAt:heading: stamp: 'JP 7/19/2021 17:33:18'!
+startingAt: aStartingPosition heading: aCardinalPoint
+
+	^self new initializeStartingAt: aStartingPosition heading: aCardinalPoint.!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:33:29'!
+initializeStartingAt: aStartingPosition heading: aCardinalPoint visualizing: aWindowType
+
+	actualPosition := aStartingPosition.
+	actualOrientation := aCardinalPoint.! !
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'JP 7/19/2021 17:33:41'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition actualOrientation windowType'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:33:39' prior: 50862545!
+initializeStartingAt: aStartingPosition heading: aCardinalPoint visualizing: aWindowType
+
+	actualPosition := aStartingPosition.
+	actualOrientation := aCardinalPoint.
+	windowType := aWindowType.! !
+
+!methodRemoval: MarsRoverWindow #initializeStartingAt:heading: stamp: 'JP 7/19/2021 17:33:48'!
+initializeStartingAt: aStartingPosition heading: aCardinalPoint
+
+	actualPosition := aStartingPosition.
+	actualOrientation := aCardinalPoint.!
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:34:24'!
+FAILURE!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:34:32' prior: 50862462!
+test10
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Position. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1'.! !
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:34:35'!
+FAILURE!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:35:40' prior: 50861909!
+visualize
+	windowType = #Both ifTrue: [^ 'Actual position: ', actualPosition asString , '. Actual orientation: ', actualOrientation asString.].
+	windowType = #Position ifTrue: [^ 'Actual position: ', actualPosition asString].! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:35:43' prior: 50862596!
+visualize
+
+	windowType = #Both ifTrue: [^ 'Actual position: ', actualPosition asString , '. Actual orientation: ', actualOrientation asString.].
+	windowType = #Position ifTrue: [^ 'Actual position: ', actualPosition asString].! !
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:35:47'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:36:16'!
+FAILURE!
+!MarsRover class methodsFor: 'instance creation' stamp: 'JP 7/19/2021 17:36:58' prior: 50862472!
+startingAt: aPoint heading: aCardinalPoint visualizing: aWindowType
+	
+	^self new initializeStartingAt: aPoint heading: aCardinalPoint visualizing: aWindowType! !
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:37:08'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:37:17'!
+test11
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Orientation. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:37:28' prior: 50862634!
+test11
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Orientation. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:37:42' prior: 50860995!
+test12MarsRoverLogCanLogRotationUpdatesOnly
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:37:49' prior: 50862645!
+test11
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Rotation. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:38:07' prior: 50862607!
+visualize
+
+	windowType = #Rotation ifTrue: [^ 'Actual position: ', actualPosition asString , '. Actual orientation: ', actualOrientation asString.].
+	windowType = #Position ifTrue: [^ 'Actual position: ', actualPosition asString].
+	
+	^ 'Actual position: ', actualPosition asString , '. Actual orientation: ', actualOrientation asString.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:38:16' prior: 50862681!
+visualize
+
+	windowType = #Rotation ifTrue: ['Actual orientation: ', actualOrientation asString.].
+	windowType = #Position ifTrue: [^ 'Actual position: ', actualPosition asString].
+	
+	^ 'Actual position: ', actualPosition asString , '. Actual orientation: ', actualOrientation asString.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:38:27' prior: 50862695!
+visualize
+
+	windowType = #Rotation ifTrue: [^'Actual orientation: ', actualOrientation asString.].
+	windowType = #Position ifTrue: [^ 'Actual position: ', actualPosition asString].
+	
+	^ 'Actual position: ', actualPosition asString , '. Actual orientation: ', actualOrientation asString.! !
+
+!testRun: #TestMarsRoverWindow #test11 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test09 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test11 stamp: 'JP 7/19/2021 17:38:30'!
+PASSED!
+!MarsRover class methodsFor: 'instance creation' stamp: 'JP 7/19/2021 17:39:38'!
+startingAt: aPoint heading: aCardinalPoint logging: aLogType visualizing: aWindowType
+	
+	^self new initializeStartingAt: aPoint heading: aCardinalPoint visualizing: aWindowType! !
+!MarsRover class methodsFor: 'instance creation' stamp: 'JP 7/19/2021 17:39:49' prior: 50862750!
+startingAt: aPoint heading: aCardinalPoint logging: aLogType visualizing: aWindowType
+	
+	^self new initializeStartingAt: aPoint heading: aCardinalPoint logging: aLogType visualizing: aWindowType! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:40:07'!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType visualizing: aWindowType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint visualizing: aWindowType.! !
+!MarsRover methodsFor: 'initialization' stamp: 'JP 7/19/2021 17:40:12' prior: 50862768!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType visualizing: aWindowType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType.
+	window  := MarsRoverWindow startingAt: aPosition heading: aCardinalPoint visualizing: aWindowType.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:40:55' prior: 50862670!
+test11
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position visualizing: #Rotation. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:41:56'!
+test12
+	| marsRover expectedLog marsRoverLog |
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position visualizing: #Rotation. 
+	
+	marsRover processCommands: 'fr'.
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:37:49' prior: 50862796!
+test11
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Rotation. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test11 stamp: 'JP 7/19/2021 17:42:14'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:42:14'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:42:14'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:42:14'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test09 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test11 stamp: 'JP 7/19/2021 17:42:15'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test12 stamp: 'JP 7/19/2021 17:42:15'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test12 stamp: 'JP 7/19/2021 17:42:15'!
+FAILURE!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:42:33' prior: 50862809!
+test12
+	| marsRover expectedLog marsRoverLog |
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position visualizing: #Rotation. 
+	
+	marsRover processCommands: 'fr'.
+	
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:42:39' prior: 50862870!
+test12
+	| marsRover expectedLog marsRoverLog |
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position visualizing: #Rotation. 
+	
+	marsRover processCommands: 'fr'.
+	
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: East'.! !
+
+!testRun: #TestMarsRoverWindow #test12 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test09 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test11 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test12 stamp: 'JP 7/19/2021 17:42:40'!
+PASSED!
+
+!methodRemoval: TestMarsRoverWindow #test12 stamp: 'JP 7/19/2021 17:42:52'!
+test12
+	| marsRover expectedLog marsRoverLog |
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position visualizing: #Rotation. 
+	
+	marsRover processCommands: 'fr'.
+	
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: East'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:43:32'!
+test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+
+!methodRemoval: TestMarsRoverWindow #test01 stamp: 'JP 7/19/2021 17:43:32'!
+test01
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:44:00'!
+test01MarsRoverLogIsStartingStatusWhenNoCommandsWereGiven
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+
+!methodRemoval: TestMarsRoverWindow #test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven stamp: 'JP 7/19/2021 17:44:00'!
+test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:44:05' prior: 50862971!
+test01MarsRoverLogIsStartingStatusWhenNoCommandsWereGiven
+
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:44:30'!
+test02MarsRoverWindowUpdatesWhenMovingUp
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1. Actual orientation: North'.! !
+
+!methodRemoval: TestMarsRoverWindow #test02 stamp: 'JP 7/19/2021 17:44:30'!
+test02
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1. Actual orientation: North'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:45:07'!
+test03MarsRoverWindowUpdatesWhenMovingDown
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@-1. Actual orientation: North'.! !
+
+!methodRemoval: TestMarsRoverWindow #test03 stamp: 'JP 7/19/2021 17:45:07'!
+test03
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@-1. Actual orientation: North'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:45:31'!
+test04MarsRoverWindowUpdatesWhenMovingLeft
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: West'.! !
+
+!methodRemoval: TestMarsRoverWindow #test04 stamp: 'JP 7/19/2021 17:45:31'!
+test04
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: -1@0. Actual orientation: West'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:45:46'!
+test05MarsRoverWindowUpdatesWhenMovingRight
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 1@0. Actual orientation: East'.! !
+
+!methodRemoval: TestMarsRoverWindow #test05 stamp: 'JP 7/19/2021 17:45:46'!
+test05
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 1@0. Actual orientation: East'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:46:07'!
+test06MarsRoverWindowUpdatesWhenHeadingWest
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: West'.! !
+
+!methodRemoval: TestMarsRoverWindow #test06 stamp: 'JP 7/19/2021 17:46:07'!
+test06
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: West'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:46:24'!
+test07MarsRoverWindowUpdatesWhenHeadingEast
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'r'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: East'.! !
+
+!methodRemoval: TestMarsRoverWindow #test07 stamp: 'JP 7/19/2021 17:46:24'!
+test07
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'r'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: East'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:46:30'!
+test08MarsRoverWindowUpdatesWhenHeadingNorth
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.! !
+
+!methodRemoval: TestMarsRoverWindow #test08 stamp: 'JP 7/19/2021 17:46:30'!
+test08
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #East. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:46:38'!
+test09MarsRoverWindowUpdatesWhenHeadingSouth
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: South'.! !
+
+!methodRemoval: TestMarsRoverWindow #test09 stamp: 'JP 7/19/2021 17:46:38'!
+test09
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #West. 
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: South'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:47:08'!
+test10MarsRoverWindowCanShowPositionUpdatesOnly
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Position. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1'.! !
+
+!methodRemoval: TestMarsRoverWindow #test10 stamp: 'JP 7/19/2021 17:47:08'!
+test10
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Position. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1'.!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'JP 7/19/2021 17:47:28'!
+test11MarsRoverWindowCanShowRotationUpdatesOnly
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Rotation. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.! !
+
+!methodRemoval: TestMarsRoverWindow #test11 stamp: 'JP 7/19/2021 17:47:28'!
+test11
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North visualizing: #Rotation. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual orientation: North'.!
+
+----SNAPSHOT----(19 July 2021 17:47:40) CuisUniversity-4532.image priorSource: 16898108!
+
+----SNAPSHOT----(19 July 2021 17:48:36) CuisUniversity-4532.image priorSource: 17009903!
+
+----QUIT----(19 July 2021 17:48:56) CuisUniversity-4532.image priorSource: 17009993!
