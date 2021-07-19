@@ -1,0 +1,3350 @@
+
+
+----QUIT----(9 March 2021 14:58:42) CuisUniversity-4532.image priorSource: 13044060!
+
+----STARTUP---- (9 March 2021 14:58:43) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-4532.image!
+
+
+----QUIT----(9 March 2021 14:58:43) CuisUniversity-4532.image priorSource: 16885479!
+
+----STARTUP---- (17 May 2021 19:10:33) as D:\Admin\Descargas\windows64\CuisUniversity-4532.image!
+
+
+----End fileIn of C:\Users\Joaquin\Desktop\GitHub\Algos3_Mendez_Prada_Valsagna\CodigoRepetido-Ejercicio.st----!
+
+!classRemoval: #CustomerBook stamp: 'JP 5/17/2021 19:12:18'!
+Object subclass: #CustomerBook
+	instanceVariableNames: 'suspended active'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CustomerBookTest stamp: 'JP 5/17/2021 19:12:19'!
+TestCase subclass: #CustomerBookTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #NotFound stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #NotFound
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+!classRemoval: #CantSuspend stamp: 'JP 5/17/2021 19:12:19'!
+Error subclass: #CantSuspend
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CodigoRepetido-Ejercicio'!
+
+----QUIT----(17 May 2021 19:12:24) CuisUniversity-4532.image priorSource: 16885703!
+
+----STARTUP---- (18 July 2021 16:57:48) as C:\Users\fedev\Escritorio\Imagen Limpia CUIS\CuisUniversity-4532.image!
+
+
+----End fileIn of C:\Users\fedev\AppData\Local\Temp\Rar$DRa20232.13090\MarsRover-Solucion.st----!
+
+----End fileIn of C:\Users\fedev\Escritorio\Imagen Limpia CUIS\Packages\TerseGuide.pck.st----!
+
+ios _ ReadStream on: 'Hello read stream'!
+
+ios _ ReadStream on: 'Hello read stream' from: 1 to: 5.!
+
+ReadStream on: 'Hello read stream'.!
+
+ReadStream on: 'Hola!!'!
+
+TestCase subclass: #TestMarsRoverLog
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #TestMarsRoverLog category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 17:11:20'!
+TestCase subclass: #TestMarsRoverLog
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!TestMarsRoverLog methodsFor: 'no messages' stamp: 'FV 7/18/2021 17:12:13'!
+test01
+	
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. ! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:12:21' prior: 50863292!
+test01
+	
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	
+	
+	! !
+
+ReadStream on: 'Hello read stream'!
+
+a := ReadWriteStream with: 'Hola'!
+
+a := ReadWriteStream with: 'Hola'!
+
+a := ReadWriteStream with: 'Hola'!
+
+a!
+
+b := ReadWriteStream with: 'Hola'!
+
+b := ReadWriteStream with: 'Hola'!
+
+a = b!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:18:31' prior: 50863298!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: ''.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:18:42'!
+ERROR!
+!MarsRover methodsFor: 'nil' stamp: 'FV 7/18/2021 17:19:11'!
+log
+	^ ''.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:19:17'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:19:17'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:19:46' prior: 50863324!
+log
+	^ ReadWriteStream with: ''.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:19:52'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:20:17' prior: 50863312!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRover processCommands: 'n'.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: ''.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:22:10' prior: 50863340!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '(0@0)'.
+	
+	
+	marsRover processCommands: 'n'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:22:16' prior: 50863352!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '(0@0)'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:22:19'!
+FAILURE!
+
+Object subclass: #MarsRover
+	instanceVariableNames: 'position head log'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #MarsRover category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 17:22:46'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'position head log'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 17:23:11' prior: 50859902!
+initializeStartingAt: aPosition heading: aCardinalPoint 
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream new.
+	! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:24:13' prior: 50859986!
+moveUp
+	log nextPutAll: position asString.
+	position := position + (0@1)! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:26:34' prior: 50863364!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '(1@0)'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:26:48'!
+test02
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '(1@0)'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:27:01' prior: 50863406!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:27:25' prior: 50863418!
+test02
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '(0@1)'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:27:41' prior: 50863400!
+moveUp
+	position := position + (0@1)
+	log nextPutAll: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:27:54' prior: 50863453!
+moveUp
+	position := position + (0@1).
+	log nextPutAll: position asString.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:28:04' prior: 50863333!
+log
+	^ log.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:28:10'!
+ERROR!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:28:10'!
+ERROR!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:28:19'!
+ERROR!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 17:28:47' prior: 50863391!
+initializeStartingAt: aPosition heading: aCardinalPoint 
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:28:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:28:49'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:28:49'!
+FAILURE!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:29:01' prior: 50863441!
+test02
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:29:04'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:29:04'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:29:16'!
+test03
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:29:36' prior: 50863509!
+test03
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:30:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:30:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:30:05'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:30:05'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:30:22' prior: 50859974!
+moveDown
+
+	position := position + (0@-1)
+	log nextPutAll: position asString.! !
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:30:25'!
+ERROR!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:30:25'!
+ERROR!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:30:35' prior: 50863543!
+moveDown
+
+	position := position + (0@-1).
+	log nextPutAll: position asString.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:30:38'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:30:38'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:30:38'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:30:43'!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:30:55' prior: 50863566!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:31:25' prior: 50863578!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'West'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:35:03' prior: 50860002!
+headWest
+	head := MarsRoverHeadFacingWest of: self.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:35:31' prior: 50863602!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	log nextPut: 'West' ! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:35:34' prior: 50863607!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	log nextPutAll: 'West' ! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:35:37'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:35:37'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:35:37'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:35:37'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:35:44' prior: 50863590!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'West'.
+	
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:35:49' prior: 50863629!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:35:58'!
+test05
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:36:16' prior: 50863641!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'West'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:36:22' prior: 50863653!
+test05
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	
+	marsRover processCommands: 'r'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:36:40' prior: 50859990!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	log nextPutAll: 'East'.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:37:51'!
+test06
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:37:57'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:38:18' prior: 50863695!
+test06
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #South.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:38:22'!
+FAILURE!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:38:30' prior: 50863710!
+test06
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #South.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:38:30'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:38:30'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:38:46' prior: 50863725!
+test06
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #East.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:39:02' prior: 50863754!
+test06
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #East.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'North'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:39:06'!
+FAILURE!
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:39:30' prior: 50859994!
+headNorth
+
+	head := MarsRoverHeadFacingNorth of: self.
+	log nextPutAll: 'North'.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:39:35'!
+test07
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #East.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'North'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:39:40' prior: 50863786!
+test07
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'North'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:39:44' prior: 50863798!
+test07
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'South'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:39:46'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:40:14'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:40:14'!
+FAILURE!
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:41:00' prior: 50859998!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	log nextPutAll: 'South'.! !
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:41:05'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:42:19'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:42:19'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:42:19'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:42:19'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:42:19'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:42:19'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:42:19'!
+PASSED!
+
+!testRun: #TestMarsRover #test01MarsRoverDoestNotMoveWhenNoCommandsAreSent stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test02RoverFacingNorthCanMoveForward stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test03RoverFacingNorthCanMoveBackward stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test04RoverFacingNorthHeadsEastAfterTurningRight stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test05RoverFacingNorthHeadsWestAfterTurningLeft stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test06RoverFacingEastHeadsSouthWhenTurningRight stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test07RoverFacingSouthHeadsWestWhenTurningRight stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test08RoverFacingWestHeadsNorthWhenTurningRight stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test09RoverFacingEastHeadsNorthWhenTurningLeft stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test10RoverFacingSouthHeadsEastWhenTurningLeft stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test11RoverFacingWestHeadsSouthWhenTurningLeft stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test12RoverFacingEastCanMoveForward stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test13RoverFacingEastCanMoveBackwards stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test14RoverFacingSouthCanMoveForward stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test15RoverFacingSouthCanMoveBackward stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test16RoverFacingWestCanMoveForward stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test17RoverFacingWestCanMoveBackward stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test18RoverCanProcessMultipleCommands stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+
+!testRun: #TestMarsRover #test19RoverStopsWhenProcessingAnInvalidCommand stamp: 'FV 7/18/2021 17:42:23'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:42:39'!
+test08
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: 'South'.
+	
+	
+	marsRover processCommands: 'l'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:42:57' prior: 50863936!
+test08
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '-1@0'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:43:02'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:44:01' prior: 50859978!
+moveLeft
+
+	position := position + (-1@0).
+	log nextPutAll: position asString.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:44:03'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:44:11'!
+test09
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '-1@0'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:44:15' prior: 50863987!
+test09
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:44:36' prior: 50863999!
+test09
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	marsRoverLog := marsRover log.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'b'.
+	
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:44:41'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:44:56' prior: 50859982!
+moveRight
+
+	position := position + (1@0).
+	log nextPutAll: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:45:14' prior: 50864025!
+moveRight
+
+	position := position + (1@0).
+	log := ReadWriteStream with: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:45:23' prior: 50864031!
+moveRight
+
+	position := position + (1@0).
+	log := ReadWriteStream with: position asString.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:45:25'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:45:25'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:45:25'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:45:34'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:45:34'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:45:34'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:46:06'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:46:06'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:46:06'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:46:49' prior: 50864037!
+moveRight
+
+	position := position + (1@0).
+	log nextPutAll: position asString.
+	"log := ReadWriteStream with: position asString."! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:46:50'!
+PASSED!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:47:16' prior: 50864115!
+moveRight
+
+	position := position + (1@0).
+	log nextPutAll: position asString.
+	log := ReadWriteStream with: position asString.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:47:21' prior: 50863465!
+log
+	^log.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:47:45' prior: 50864144!
+moveRight
+
+	position := position + (1@0).
+	log nextPutAll: position asString.
+	log := ReadWriteStream on: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:47:49' prior: 50864155!
+moveRight
+
+	position := position + (1@0).
+	"log nextPutAll: position asString."
+	log := ReadWriteStream on: position asString.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:47:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:47:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:47:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:47:50'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:47:51'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:47:51'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:47:51'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:47:51'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:47:51'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:47:51'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:48:22' prior: 50864162!
+moveRight
+
+	position := position + (1@0).
+	"log nextPutAll: position asString."
+	log := ReadWriteStream with: '1@0'.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:48:24'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:48:24'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:48:24'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:49:27' prior: 50864193!
+moveRight
+
+	position := position + (1@0).
+	"log nextPutAll: position asString."
+	log := ReadWriteStream with: position asString.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:50:30' prior: 50864151!
+log
+	^log copy.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:50:31'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:50:31'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:50:31'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:50:32'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:50:32'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:50:32'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:50:32'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:50:32'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:50:32'!
+FAILURE!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:50:43' prior: 50863430!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:50:53' prior: 50863492!
+test02
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:51:00' prior: 50863521!
+test03
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:51:05' prior: 50863665!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: 'West'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:51:10' prior: 50863677!
+test05
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	
+	marsRover processCommands: 'r'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:51:15' prior: 50863766!
+test06
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #East.
+	expectedLog := ReadWriteStream with: 'North'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:51:21' prior: 50863810!
+test07
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: 'South'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:51:26' prior: 50863948!
+test08
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: '-1@0'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:51:32' prior: 50864011!
+test09
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:51:33'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:51:35'!
+PASSED!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:51:55' prior: 50864224!
+moveRight
+
+	position := position + (1@0).
+	log := ReadWriteStream with: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:51:59' prior: 50863553!
+moveDown
+
+	position := position + (0@-1).
+	log := ReadWriteStream with: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:52:03' prior: 50863962!
+moveLeft
+
+	position := position + (-1@0).
+	log := ReadWriteStream with: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 17:52:07' prior: 50863459!
+moveUp
+	position := position + (0@1).
+	log := ReadWriteStream with: position asString.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:52:11'!
+PASSED!
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:52:24' prior: 50863689!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	log := ReadWriteStream with: 'East'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:52:44' prior: 50863780!
+headNorth
+
+	head := MarsRoverHeadFacingNorth of: self.
+	log := ReadWriteStream with: 'North'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:52:48' prior: 50863829!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	log := ReadWriteStream with: 'South'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 17:52:52' prior: 50863613!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	log := ReadWriteStream with: 'West' ! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 17:52:58'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:53:05'!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:53:17' prior: 50864502!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:53:44' prior: 50864514!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:55:08' prior: 50864526!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog nextPutAll: 'East'. 
+	marsRover processCommands: 'fr'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 17:55:10'!
+FAILURE!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:55:39' prior: 50864538!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog nextPutAll: '\n'.
+	expectedLog nextPutAll: 'East'. 
+	marsRover processCommands: 'fr'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 17:55:40'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 17:56:09'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 17:56:09'!
+FAILURE!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 17:56:16' prior: 50864554!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog nextPutAll: 'East'. 
+	marsRover processCommands: 'fr'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 17:56:31'!
+FAILURE!
+
+a = ReadWriteStream with: 'Hola'.!
+
+a := ReadWriteStream with: 'Hola'.!
+
+a nextPutAll: 'Mundo'.!
+
+a nextLine.!
+
+a position.!
+
+a := ReadWriteStream with: 'Hola'.!
+
+a position.!
+
+a nextLine.!
+
+a nextPutAll: 'Mundoo'.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 18:00:18' prior: 50864575!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1 | East'.
+	expectedLog nextPutAll: 'East'. 
+	marsRover processCommands: 'fr'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+a contents.!
+
+a peek.!
+
+a content!
+
+a contents.!
+
+a contents.!
+
+a contents.!
+
+a contents.!
+
+a contents.!
+
+a contents.!
+
+a newLine.!
+
+a nextPutAll: 'Hi'.!
+
+a contents.!
+
+a contents.!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 19:52:20'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 19:52:20'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 19:52:20'!
+FAILURE!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 19:52:57' prior: 50864597!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog newLine.
+	expectedLog nextPutAll: 'East'. 
+	marsRover processCommands: 'fr'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 19:52:58'!
+FAILURE!
+
+expectedLog := ReadWriteStream with: '0@1'.!
+
+expectedLog newLine.!
+
+expectedLog nextPutAll: 'East'. !
+
+expectedLog.!
+
+expectedLog contents.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 19:54:14' prior: 50864643!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog newLine.
+	expectedLog nextPutAll: 'East'. 
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 19:55:11' prior: 50864428!
+moveUp
+	position := position + (0@1).
+	log addAll: position asString.
+	log newLine.! !
+
+!testRun: #TestMarsRover #test01MarsRoverDoestNotMoveWhenNoCommandsAreSent stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test02RoverFacingNorthCanMoveForward stamp: 'FV 7/18/2021 19:55:11'!
+ERROR!
+
+!testRun: #TestMarsRover #test03RoverFacingNorthCanMoveBackward stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test04RoverFacingNorthHeadsEastAfterTurningRight stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test05RoverFacingNorthHeadsWestAfterTurningLeft stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test06RoverFacingEastHeadsSouthWhenTurningRight stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test07RoverFacingSouthHeadsWestWhenTurningRight stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test08RoverFacingWestHeadsNorthWhenTurningRight stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test09RoverFacingEastHeadsNorthWhenTurningLeft stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test10RoverFacingSouthHeadsEastWhenTurningLeft stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test11RoverFacingWestHeadsSouthWhenTurningLeft stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test12RoverFacingEastCanMoveForward stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test13RoverFacingEastCanMoveBackwards stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test14RoverFacingSouthCanMoveForward stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test15RoverFacingSouthCanMoveBackward stamp: 'FV 7/18/2021 19:55:11'!
+ERROR!
+
+!testRun: #TestMarsRover #test16RoverFacingWestCanMoveForward stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test17RoverFacingWestCanMoveBackward stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRover #test18RoverCanProcessMultipleCommands stamp: 'FV 7/18/2021 19:55:11'!
+ERROR!
+
+!testRun: #TestMarsRover #test19RoverStopsWhenProcessingAnInvalidCommand stamp: 'FV 7/18/2021 19:55:11'!
+ERROR!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 19:55:11'!
+ERROR!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 19:55:11'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 19:55:11'!
+ERROR!
+
+a newLine: 'hiii'.!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 19:56:39' prior: 50864678!
+moveUp
+	position := position + (0@1).
+	log nextPutAll: position asString.
+	log newLine: position asString.
+	
+	self writeInLog: position asString.! !
+
+!testRun: #TestMarsRover #test01MarsRoverDoestNotMoveWhenNoCommandsAreSent stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test02RoverFacingNorthCanMoveForward stamp: 'FV 7/18/2021 19:56:42'!
+ERROR!
+
+!testRun: #TestMarsRover #test03RoverFacingNorthCanMoveBackward stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test04RoverFacingNorthHeadsEastAfterTurningRight stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test05RoverFacingNorthHeadsWestAfterTurningLeft stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test06RoverFacingEastHeadsSouthWhenTurningRight stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test07RoverFacingSouthHeadsWestWhenTurningRight stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test08RoverFacingWestHeadsNorthWhenTurningRight stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test09RoverFacingEastHeadsNorthWhenTurningLeft stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test10RoverFacingSouthHeadsEastWhenTurningLeft stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test11RoverFacingWestHeadsSouthWhenTurningLeft stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test12RoverFacingEastCanMoveForward stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test13RoverFacingEastCanMoveBackwards stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test14RoverFacingSouthCanMoveForward stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test15RoverFacingSouthCanMoveBackward stamp: 'FV 7/18/2021 19:56:42'!
+ERROR!
+
+!testRun: #TestMarsRover #test16RoverFacingWestCanMoveForward stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test17RoverFacingWestCanMoveBackward stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRover #test18RoverCanProcessMultipleCommands stamp: 'FV 7/18/2021 19:56:42'!
+ERROR!
+
+!testRun: #TestMarsRover #test19RoverStopsWhenProcessingAnInvalidCommand stamp: 'FV 7/18/2021 19:56:42'!
+ERROR!
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 19:56:42'!
+ERROR!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 19:56:42'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 19:56:42'!
+ERROR!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 19:57:25'!
+writeInLog: aString
+	
+	log nextPutAll: aString.
+	log newLine.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 19:57:41' prior: 50864774!
+moveUp
+	position := position + (0@1).
+	self writeInLog: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 19:57:52' prior: 50864410!
+moveRight
+
+	position := position + (1@0).
+	self writeInLog: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 19:57:57' prior: 50864422!
+moveLeft
+
+	position := position + (-1@0).
+	self writeInLog: position asString.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 19:58:02' prior: 50864416!
+moveDown
+
+	position := position + (0@-1).
+	self writeInLog: position asString.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 19:58:13' prior: 50864456!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	self writeInLog: 'East'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 19:58:20' prior: 50864462!
+headNorth
+
+	head := MarsRoverHeadFacingNorth of: self.
+	self writeInLog: 'North'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 19:58:25' prior: 50864468!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	self writeInLog:'South'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 19:58:26' prior: 50864912!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	self writeInLog: 'South'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 19:58:30' prior: 50864474!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	self writeInLog:'West' ! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 19:58:31' prior: 50864924!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	self writeInLog: 'West' ! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 19:58:37'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 19:58:37'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 19:59:21' prior: 50864871!
+writeInLog: aString
+	log newLine.
+	log nextPutAll: aString.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:00:46' prior: 50864960!
+writeInLog: aString
+	log position = 0 ifFalse: [log newLine.].
+	log nextPutAll: aString.! !
+
+!testRun: #TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 20:00:49'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:01:46' prior: 50864269!
+test02
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:02:21' prior: 50864305!
+test05
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	
+	marsRover processCommands: 'r'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:06:15'!
+test01MarsRoverLogEmptyWhenNoCommandsGiven
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test01 stamp: 'FV 7/18/2021 20:06:15'!
+test01
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:06:26'!
+test01MarsRoverLogIsEmptyWhenNoCommandsGiven
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test01MarsRoverLogEmptyWhenNoCommandsGiven stamp: 'FV 7/18/2021 20:06:26'!
+test01MarsRoverLogEmptyWhenNoCommandsGiven
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:06:38'!
+test01MarsRoverLogIsEmptyWhenNoCommandsAreGiven
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsGiven stamp: 'FV 7/18/2021 20:06:38'!
+test01MarsRoverLogIsEmptyWhenNoCommandsGiven
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:07:05'!
+test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsAreGiven stamp: 'FV 7/18/2021 20:07:05'!
+test01MarsRoverLogIsEmptyWhenNoCommandsAreGiven
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: ''.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:07:59'!
+test02MarsRoverLogUpdatesWhenMovingNorth
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test02 stamp: 'FV 7/18/2021 20:07:59'!
+test02
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:08:10'!
+test02MarsRoverLogUpdatesWhenMovingUp
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test02MarsRoverLogUpdatesWhenMovingNorth stamp: 'FV 7/18/2021 20:08:10'!
+test02MarsRoverLogUpdatesWhenMovingNorth
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:08:38'!
+test03MarsRoverLogUpdatesWhenMovingDown
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test03 stamp: 'FV 7/18/2021 20:08:38'!
+test03
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@-1'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:09:09'!
+test04MarsRoverLogUpdatesWhenMovingLeft
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: '-1@0'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test08 stamp: 'FV 7/18/2021 20:09:09'!
+test08
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: '-1@0'.
+	
+	
+	marsRover processCommands: 'f'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:09:27'!
+test05MarsRoverLogUpdatesWhenMovingRight
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test09 stamp: 'FV 7/18/2021 20:09:27'!
+test09
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: '1@0'.
+	
+	
+	marsRover processCommands: 'b'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:09:57'!
+test06MarsRoverLogUpdatesWhenHeadingWest
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: 'West'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test04 stamp: 'FV 7/18/2021 20:09:57'!
+test04
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: 'West'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:10:23'!
+test07MarsRoverLogUpdatesWhenHeadingEast
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	
+	marsRover processCommands: 'r'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test05 stamp: 'FV 7/18/2021 20:10:23'!
+test05
+
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	
+	marsRover processCommands: 'r'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:10:47'!
+test08MarsRoverLogUpdatesWhenHeadingNorth
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #East.
+	expectedLog := ReadWriteStream with: 'North'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test06 stamp: 'FV 7/18/2021 20:10:47'!
+test06
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #East.
+	expectedLog := ReadWriteStream with: 'North'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:11:07'!
+test09MarsRoverLogUpdatesWhenHeadingSouth
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: 'South'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test07 stamp: 'FV 7/18/2021 20:11:07'!
+test07
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #West.
+	expectedLog := ReadWriteStream with: 'South'.
+	
+	
+	marsRover processCommands: 'l'.
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:12:00'!
+test10MarsRoverLogKeepsUpWithMultipleCommands
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog newLine.
+	expectedLog nextPutAll: 'East'. 
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test10 stamp: 'FV 7/18/2021 20:12:00'!
+test10
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog newLine.
+	expectedLog nextPutAll: 'East'. 
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:12:15'!
+test11
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog newLine.
+	expectedLog nextPutAll: 'East'. 
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:14:07' prior: 50865359!
+test11
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	expectedLog newLine.
+	expectedLog nextPutAll: 'East'. 
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!MarsRover class methodsFor: 'instance creation' stamp: 'FV 7/18/2021 20:15:09'!
+startingAt: aPoint heading: aCardinalPoint logging: aLogType
+	
+	^self new initializeStartingAt: aPoint heading: aCardinalPoint ! !
+!MarsRover class methodsFor: 'instance creation' stamp: 'FV 7/18/2021 20:15:23' prior: 50865387!
+startingAt: aPoint heading: aCardinalPoint logging: aLogType
+	
+	^self new initializeStartingAt: aPoint heading: aCardinalPoint logging: aLogType.! !
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 20:15:45'!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	! !
+
+Object subclass: #MarsRover
+	instanceVariableNames: 'position head log logType'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #MarsRover category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 20:15:54'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'position head log logType'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 20:16:10' prior: 50865402!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType	! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:16:41' prior: 50865373!
+test11
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test11 stamp: 'FV 7/18/2021 20:16:58'!
+FAILURE!
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:18:24' prior: 50864900!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	logType = #Position ifFalse: [	self writeInLog: 'East'.].! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:18:30' prior: 50865449!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	logType = #Position ifFalse: [	].
+	self writeInLog: 'East'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:18:35' prior: 50865456!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	logType = #Position ifFalse: [	^ self].
+	self writeInLog: 'East'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:18:38' prior: 50865463!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	logType = #Position ifFalse: [	^self].
+	self writeInLog: 'East'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:19:00' prior: 50865470!
+headEast
+
+	head := MarsRoverHeadFacingEast of: self.
+	logType = #Position ifFalse: [self writeInLog: 'East'.].! !
+
+!testRun: #TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02MarsRoverLogUpdatesWhenMovingUp stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03MarsRoverLogUpdatesWhenMovingDown stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04MarsRoverLogUpdatesWhenMovingLeft stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05MarsRoverLogUpdatesWhenMovingRight stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06MarsRoverLogUpdatesWhenHeadingWest stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07MarsRoverLogUpdatesWhenHeadingEast stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08MarsRoverLogUpdatesWhenHeadingNorth stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09MarsRoverLogUpdatesWhenHeadingSouth stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10MarsRoverLogKeepsUpWithMultipleCommands stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test11 stamp: 'FV 7/18/2021 20:19:54'!
+PASSED!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:20:19' prior: 50865434!
+test11
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:21:22' prior: 50864906!
+headNorth
+
+	head := MarsRoverHeadFacingNorth of: self.
+	logType = #Position ifFalse: [self writeInLog: 'North'.].
+	self writeInLog: 'North'.! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:21:33' prior: 50865534!
+headNorth
+
+	head := MarsRoverHeadFacingNorth of: self.
+	logType = #Position ifFalse: [self writeInLog: 'North'.].! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:21:41' prior: 50864918!
+headSouth
+
+	head := MarsRoverHeadFacingSouth of: self.
+	logType = #Position ifFalse: [self writeInLog: 'South'.].! !
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:21:47' prior: 50864930!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	logType = #Position ifFalse: [self writeInLog: 'West'.].! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:21:54'!
+test12
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:21:59' prior: 50865563!
+test12
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:22:07' prior: 50865576!
+test12
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!testRun: #TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02MarsRoverLogUpdatesWhenMovingUp stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03MarsRoverLogUpdatesWhenMovingDown stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04MarsRoverLogUpdatesWhenMovingLeft stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05MarsRoverLogUpdatesWhenMovingRight stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06MarsRoverLogUpdatesWhenHeadingWest stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07MarsRoverLogUpdatesWhenHeadingEast stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08MarsRoverLogUpdatesWhenHeadingNorth stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09MarsRoverLogUpdatesWhenHeadingSouth stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10MarsRoverLogKeepsUpWithMultipleCommands stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test11 stamp: 'FV 7/18/2021 20:22:21'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test12 stamp: 'FV 7/18/2021 20:22:21'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test12 stamp: 'FV 7/18/2021 20:22:21'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 20:23:11' prior: 50864894!
+moveDown
+
+	position := position + (0@-1).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].
+! !
+
+!testRun: #TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02MarsRoverLogUpdatesWhenMovingUp stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03MarsRoverLogUpdatesWhenMovingDown stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04MarsRoverLogUpdatesWhenMovingLeft stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05MarsRoverLogUpdatesWhenMovingRight stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06MarsRoverLogUpdatesWhenHeadingWest stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07MarsRoverLogUpdatesWhenHeadingEast stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08MarsRoverLogUpdatesWhenHeadingNorth stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09MarsRoverLogUpdatesWhenHeadingSouth stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10MarsRoverLogKeepsUpWithMultipleCommands stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test11 stamp: 'FV 7/18/2021 20:23:22'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test12 stamp: 'FV 7/18/2021 20:23:22'!
+FAILURE!
+
+!testRun: #TestMarsRoverLog #test12 stamp: 'FV 7/18/2021 20:23:22'!
+FAILURE!
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 20:23:34' prior: 50864888!
+moveLeft
+
+	position := position + (-1@0).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 20:23:38' prior: 50864882!
+moveRight
+
+	position := position + (1@0).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 20:23:41' prior: 50864876!
+moveUp
+	position := position + (0@1).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].! !
+
+!testRun: #TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02MarsRoverLogUpdatesWhenMovingUp stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03MarsRoverLogUpdatesWhenMovingDown stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04MarsRoverLogUpdatesWhenMovingLeft stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05MarsRoverLogUpdatesWhenMovingRight stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06MarsRoverLogUpdatesWhenHeadingWest stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07MarsRoverLogUpdatesWhenHeadingEast stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08MarsRoverLogUpdatesWhenHeadingNorth stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09MarsRoverLogUpdatesWhenHeadingSouth stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10MarsRoverLogKeepsUpWithMultipleCommands stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test11 stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test12 stamp: 'FV 7/18/2021 20:23:45'!
+PASSED!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 20:25:28' prior: 50863476!
+initializeStartingAt: aPosition heading: aCardinalPoint 
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.! !
+!MarsRover class methodsFor: 'instance creation' stamp: 'FV 7/18/2021 20:26:09'!
+onlyRotationLog
+	^#Rotation.! !
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:26:40' prior: 50865589!
+test12
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: MarsRover class #onlyRotationLog stamp: 'FV 7/18/2021 20:26:46'!
+onlyRotationLog
+	^#Rotation.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:27:27'!
+test11MarsRoverCanOnlyShowPositionLogs
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test11 stamp: 'FV 7/18/2021 20:27:27'!
+test11
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:28:05'!
+test12MarsRoverLogCanOnlyShowRotationUpdateLogs
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test12 stamp: 'FV 7/18/2021 20:28:05'!
+test12
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:28:27'!
+test11MarsRoverLogCanShowOnlyPositionUpdatesLogs
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test11MarsRoverCanOnlyShowPositionLogs stamp: 'FV 7/18/2021 20:28:27'!
+test11MarsRoverCanOnlyShowPositionLogs
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:28:53'!
+test12MarsRoverLogCanLogRotationUpdateOnly
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test12MarsRoverLogCanOnlyShowRotationUpdateLogs stamp: 'FV 7/18/2021 20:28:53'!
+test12MarsRoverLogCanOnlyShowRotationUpdateLogs
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:29:07'!
+test12MarsRoverLogCanLogRotationUpdatesOnly
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test12MarsRoverLogCanLogRotationUpdateOnly stamp: 'FV 7/18/2021 20:29:07'!
+test12MarsRoverLogCanLogRotationUpdateOnly
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Rotation.
+	expectedLog := ReadWriteStream with: 'East'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+!TestMarsRoverLog methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:29:18'!
+test11MarsRoverLogCanLogPositionUpdatesOnly
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.! !
+
+!methodRemoval: TestMarsRoverLog #test11MarsRoverLogCanShowOnlyPositionUpdatesLogs stamp: 'FV 7/18/2021 20:29:18'!
+test11MarsRoverLogCanShowOnlyPositionUpdatesLogs
+	
+	| marsRover marsRoverLog expectedLog |
+	
+	marsRover := MarsRover startingAt: (0@0) heading: #North logging: #Position.
+	expectedLog := ReadWriteStream with: '0@1'.
+	
+	marsRover processCommands: 'fr'.
+	
+	
+	marsRoverLog := marsRover log.
+	self assert: 	marsRoverLog equals: expectedLog.!
+
+!testRun: #TestMarsRoverLog #test01MarsRoverLogIsEmptyWhenNoCommandsWereGiven stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test02MarsRoverLogUpdatesWhenMovingUp stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test03MarsRoverLogUpdatesWhenMovingDown stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test04MarsRoverLogUpdatesWhenMovingLeft stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test05MarsRoverLogUpdatesWhenMovingRight stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test06MarsRoverLogUpdatesWhenHeadingWest stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test07MarsRoverLogUpdatesWhenHeadingEast stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test08MarsRoverLogUpdatesWhenHeadingNorth stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test09MarsRoverLogUpdatesWhenHeadingSouth stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test10MarsRoverLogKeepsUpWithMultipleCommands stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test11MarsRoverLogCanLogPositionUpdatesOnly stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+!testRun: #TestMarsRoverLog #test12MarsRoverLogCanLogRotationUpdatesOnly stamp: 'FV 7/18/2021 20:29:40'!
+PASSED!
+
+TestCase subclass: #TestMarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #TestMarsRoverWindow category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 20:30:00'!
+TestCase subclass: #TestMarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!TestMarsRoverWindow methodsFor: 'no messages' stamp: 'FV 7/18/2021 20:38:25'!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	
+	self assert: marsRoverWindow actualPosition equals: 0@0.
+	self assert: marsRoverWindow actualOrientation equals: #North.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:38:53' prior: 50865997!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	
+	self assert: marsRoverWindow visualizeActualPosition equals: 0@0.
+	self assert: marsRoverWindow actualOrientation equals: #North.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:39:00' prior: 50866009!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	
+	self assert: marsRoverWindow visualizeActualPosition equals: 0@0.
+	self assert: marsRoverWindow visualizeActualOrientation equals: #North.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:42:50' prior: 50866021!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position 0@0. Actual orientation: North'.
+	
+	
+! !
+
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 20:44:01'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:44:24'!
+window
+	^MarsRoverWindow new.! !
+!MarsRoverWindow methodsFor: 'no messages' stamp: 'FV 7/18/2021 20:45:01'!
+visualize
+	^ 'Actual position: 0@0. Actual orientation: North'.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:45:09' prior: 50866034!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 20:45:10'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 20:45:10'!
+PASSED!
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:45:42' prior: 50866066!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:46:07' prior: 50866082!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	marsRover.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:46:18' prior: 50866093!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:46:20'!
+test02
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:46:34' prior: 50866116!
+test02
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:46:37' prior: 50866127!
+test02
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@1. Actual orientation: North'.
+	
+	
+! !
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 20:46:55'!
+FAILURE!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:47:31' prior: 50866060!
+visualize
+	^ 'Actual position: 0@0. Actual orientation: North'.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:48:32' prior: 50866056!
+window
+	^MarsRoverWindow new.! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:49:26' prior: 50866139!
+test02
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover visualizeWindow.
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRoverWindow visualizeWindow equals: 'Actual position: 0@1. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:49:30' prior: 50866164!
+test02
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRoverWindow visualizeWindow equals: 'Actual position: 0@1. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:49:41' prior: 50866105!
+test01
+	| marsRover marsRoverWindow |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	
+	self assert: marsRoverWindow visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:49:49' prior: 50866188!
+test01
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:49:56' prior: 50866177!
+test02
+	| marsRover |
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	
+	marsRover processCommands: 'f'.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@1. Actual orientation: North'.
+	
+	
+! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:50:17'!
+visualizeWindow
+	^MarsRoverWindow new.! !
+
+!methodRemoval: MarsRover #window stamp: 'FV 7/18/2021 20:50:17'!
+window
+	^MarsRoverWindow new.!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:50:25' prior: 50866220!
+visualizeWindow
+	^ 'Actual position: 0@0. Actual orientation: North'.! !
+
+!classRemoval: #MarsRoverWindow stamp: 'FV 7/18/2021 20:50:34'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 20:50:38'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 20:50:38'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 20:50:38'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 20:50:42'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:51:19' prior: 50866228!
+visualizeWindow
+	^ 'Actual position: ', position asString, '. Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 20:51:22'!
+PASSED!
+!MarsRover methodsFor: 'dd - heading' stamp: 'FV 7/18/2021 20:54:57' prior: 50865556!
+headWest
+	head := MarsRoverHeadFacingWest of: self.
+	logType = #Position ifFalse: [self writeInLog: 'West'.].
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:55:34' prior: 50866200!
+test01
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRover visualizeWindow equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:56:07' prior: 50866266!
+test01
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:56:20' prior: 50866277!
+test01
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+!TestMarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:56:22' prior: 50866288!
+test01
+	| marsRover marsRoverWindow|
+	marsRover := MarsRover startingAt: (0@0) heading: #North. 
+	marsRoverWindow := marsRover window.
+	
+	self assert: marsRoverWindow visualize equals: 'Actual position: 0@0. Actual orientation: North'.
+	
+	
+! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 20:56:28'!
+ERROR!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:56:48'!
+window! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 20:56:57' prior: 50866312!
+window! !
+
+Object subclass: #MarsRover
+	instanceVariableNames: 'position head log logType window'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #MarsRover category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 20:57:21'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'position head log logType window'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 20:58:07' prior: 50865424!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType	! !
+
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 20:58:16'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 20:58:40' prior: 50865753!
+initializeStartingAt: aPosition heading: aCardinalPoint 
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.
+	window  := MarsRoverWindow new.! !
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 20:58:56' prior: 50866333!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType	
+	marsRoverWindow.! !
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 20:59:17' prior: 50866365!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType	.
+	window := MarsRoverWindow new.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 21:00:21' prior: 50865707!
+moveUp
+	position := position + (0@1).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].! !
+!MarsRoverWindow methodsFor: 'no messages' stamp: 'FV 7/18/2021 21:00:44'!
+visualize
+	^ self.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:01:09' prior: 50866393!
+visualize
+	^ 'Actual position: 0@0. Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:01:20'!
+ERROR!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:01:20'!
+ERROR!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:01:43' prior: 50866316!
+window
+	^window copy.! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:01:55'!
+PASSED!
+
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+
+!classDefinition: #MarsRoverWindow category: 'MarsRover-Solucion' stamp: 'FV 7/18/2021 21:02:18'!
+Object subclass: #MarsRoverWindow
+	instanceVariableNames: 'actualPosition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover-Solucion'!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:02:31' prior: 50866397!
+visualize
+	^ 'Actual position: ', actualPosition , '. Actual orientation: North'.! !
+!MarsRover methodsFor: 'dd - moving' stamp: 'FV 7/18/2021 21:03:22' prior: 50866387!
+moveUp
+	position := position + (0@1).
+	logType = #Rotation ifFalse: [self writeInLog: position asString.].
+	window updatePosition: position.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:03:52'!
+updatePosition: aNewPosition
+	actualPosition := aNewPosition.! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:03:55'!
+ERROR!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 21:03:55'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:03:55'!
+ERROR!
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:04:12' prior: 50866427!
+visualize
+	^ 'Actual position: ', actualPosition asString , '. Actual orientation: North'.! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:04:14'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 21:04:14'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:04:14'!
+FAILURE!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 21:05:10' prior: 50866376!
+initializeStartingAt: aPosition heading: aCardinalPoint logging: aLogType
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := aLogType	.
+	window := MarsRoverWindow at: aPosition! !
+!MarsRoverWindow class methodsFor: 'no messages' stamp: 'FV 7/18/2021 21:05:55' overrides: 16880774!
+at: aStartingPosition
+	^self new initializeAt: aStartingPosition.! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:06:20'!
+initializeStartingAt: aStartingPosition! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:06:27' prior: 50866485!
+initializeStartingAt: aStartingPosition
+	actualPosition := aStartingPosition ! !
+!MarsRoverWindow methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:06:27' prior: 50866490!
+initializeStartingAt: aStartingPosition
+	actualPosition := aStartingPosition.! !
+!MarsRoverWindow class methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:06:34' prior: 50866480 overrides: 16880774!
+at: aStartingPosition
+	^self new initializeStartingAt: aStartingPosition.! !
+!MarsRoverWindow class methodsFor: 'as yet unclassified' stamp: 'FV 7/18/2021 21:06:59'!
+startingAt: aStartingPosition
+	^self new initializeStartingAt: aStartingPosition.! !
+
+!methodRemoval: MarsRoverWindow class #at: stamp: 'FV 7/18/2021 21:06:59'!
+at: aStartingPosition
+	^self new initializeStartingAt: aStartingPosition.!
+
+----SNAPSHOT----(18 July 2021 21:08:18) CuisUniversity-4532.image priorSource: 16898108!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:08:25'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 21:08:25'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:08:25'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:08:58'!
+FAILURE!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 21:08:58'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:08:58'!
+FAILURE!
+!MarsRover methodsFor: 'initialization' stamp: 'FV 7/18/2021 21:09:47' prior: 50866355!
+initializeStartingAt: aPosition heading: aCardinalPoint 
+	
+	position := aPosition.
+	head := MarsRoverHead of: self facing: aCardinalPoint.
+	log := ReadWriteStream with: ''.
+	logType := #Both.
+	window  := MarsRoverWindow startingAt: aPosition.! !
+
+!testRun: #TestMarsRoverWindow #test01 stamp: 'FV 7/18/2021 21:09:56'!
+PASSED!
+
+!testRun: #TestMarsRoverWindow #test02 stamp: 'FV 7/18/2021 21:09:56'!
+PASSED!
+
+----SNAPSHOT----(18 July 2021 21:11:10) CuisUniversity-4532.image priorSource: 17115787!
