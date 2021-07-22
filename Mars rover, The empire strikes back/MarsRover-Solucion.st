@@ -869,28 +869,22 @@ initialize
 
 !classDefinition: #ObservableCollaborator category: 'MarsRover-Solucion'!
 Object subclass: #ObservableCollaborator
-	instanceVariableNames: 'value observers updateMessageName'
+	instanceVariableNames: 'value observers updateMessage'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'MarsRover-Solucion'!
 
-!ObservableCollaborator methodsFor: 'private' stamp: 'FV 7/22/2021 15:42:56'!
+!ObservableCollaborator methodsFor: 'private' stamp: 'FV 7/22/2021 16:45:12'!
 notifyObservers
 
-	observers do: [:anObserver | self updateMessage sendTo: anObserver].! !
-
-!ObservableCollaborator methodsFor: 'private' stamp: 'FV 7/22/2021 15:42:48'!
-updateMessage
-	
-	^Message selector: updateMessageName argument: value.
-! !
+	observers do: [:anObserver | updateMessage sendTo: anObserver with: value].! !
 
 
-!ObservableCollaborator methodsFor: 'initialization' stamp: 'FV 7/22/2021 15:35:18'!
+!ObservableCollaborator methodsFor: 'initialization' stamp: 'FV 7/22/2021 16:45:12'!
 initializeWith: aValue withUpdateMessage: anUpdateMessage
 	value := aValue.
 	observers := OrderedCollection new.
-	updateMessageName := anUpdateMessage.! !
+	updateMessage := anUpdateMessage.! !
 
 
 !ObservableCollaborator methodsFor: 'main protocol' stamp: 'FV 7/21/2021 20:29:24'!
